@@ -2,9 +2,9 @@ import React from 'react';
 
 function Techs() {
   return (
-    <>
+    <section className='techs'>
       <h2 className='techs__title'>Технологии</h2>
-      <div className='separation-line'></div>
+      <div className='techs__separation-line'></div>
       <div className='techs__container'>
         <h3 className='techs__subtitle'>7 технологий</h3>
         <p className='techs__paragraph'>На курсе веб-разработки мы освоили технологии, которые применили в дипломном проекте.</p>
@@ -18,7 +18,7 @@ function Techs() {
           <li className='techs__item'>mongoDB</li>
         </ul>
       </div>
-    </>
+    </section>
   )
 }
 

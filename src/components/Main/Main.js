@@ -9,10 +9,8 @@ function Main() {
     <>
       <Header />
       <Hero />
-      <main className='main'>
-        <AboutProject />
-        <Techs />
-      </main>
+      <AboutProject />
+      <Techs />
     </>
   )
 }

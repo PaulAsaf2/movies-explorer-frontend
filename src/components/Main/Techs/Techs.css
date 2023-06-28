@@ -1,7 +1,19 @@
+.techs {
+  background-color: #F5F5F5;
+  padding-top: 88px;
+}
+
+.techs__separation-line {
+  height: 1.05px;
+  margin-top: 25px;
+  background-color: black;
+  margin: 23px 70px 3px 70px;
+}
+
 .techs__title {
   font-size: 22px;
   letter-spacing: -0.88px;
-  padding-top: 199px;
+  margin-left: 70px;
 }
 
 .techs__container {
