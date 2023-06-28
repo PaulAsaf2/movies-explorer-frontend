@@ -4,7 +4,6 @@ function AboutProject() {
   return (
     <>
       <h2 className='aboutProject__title'>О проекте</h2>
-      {/* <hr className='separation-line' /> */}
       <div className='separation-line'></div>
       <div className='aboutProject__container'>
         <h3 className='aboutProject__subtitle'>Дипломный проект включал 5 этапов</h3>
