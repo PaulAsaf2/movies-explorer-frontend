@@ -3,7 +3,6 @@
   letter-spacing: -0.88px;
   margin: 0;
   padding-top: 110px;
-  font-weight: 400;
 }
 
 .aboutProject__container {
@@ -18,19 +17,17 @@
   font-size: 20px;
   letter-spacing: -0.8px;
   margin: 0;
-  font-weight: 400;
 }
 
 .aboutProject__paragraph {
   font-size: 14px;
   line-height: 20px;
   margin: 0;
-  font-weight: 400;
 }
 
 .separation-line {
-  height: 1px;
-  margin-top: 23px;
+  height: 1.05px;
+  margin-top: 25px;
   background-color: black;
 }
 /* ---------------------------------- */
@@ -41,7 +38,6 @@
 }
 .project-time__title {
   font-size: 14px;
-  font-weight: 400;
   text-align: center;
   background-color: #F2F2F2;
   padding: 10px 0;

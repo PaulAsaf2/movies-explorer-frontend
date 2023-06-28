@@ -4,3 +4,8 @@
   margin: auto;
   position: relative;
 }
+
+p, h1, h2, h3, h4, div, li {
+  font-weight: 400;
+  margin: 0;
+}
