@@ -9,3 +9,6 @@
 
 /* header */
 @import url(./components/Main/Header/Header.css);
+
+/* hero */
+@import url(./components/Main/Hero/Hero.css);

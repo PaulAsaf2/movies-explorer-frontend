@@ -1,0 +1,17 @@
+.hero {
+  background-color: #465DFF;
+  background-image: url('../../../images/text_color_landing-logo.svg');
+  background-repeat: no-repeat;
+  background-position: 87% 81%;
+}
+
+.hero__title {
+  color: #FFF;
+  font-size: 40px;
+  line-height: 52px;
+  letter-spacing: -1.6px;
+  font-weight: 400;
+  max-width: 626px;
+  margin: 0;
+  padding: 50px 0 406px 70px;
+}
