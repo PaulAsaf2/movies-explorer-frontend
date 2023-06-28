@@ -12,3 +12,9 @@
 
 /* hero */
 @import url(./components/Main/Hero/Hero.css);
+
+/* main */
+@import url(./components/Main/Main.css);
+
+/* about project */
+@import url(./components/Main/AboutProject/AboutProject.css);
