@@ -1,0 +1,30 @@
+.portfolio__title {
+  color: #A0A0A0;
+  font-size: 18px;
+  line-height: 20px;
+  margin-top: 81px;
+  margin-bottom: 31px;
+}
+
+.portfolio__container {
+  height: 89px;
+  display: flex;
+  align-items: center;
+  background-image: url('../../../images/arrow_outward.svg');
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-size: 30px 30px;
+}
+
+.portfolio__container_type_outline {
+  border-top: 1px solid #E8E8E8;
+  border-bottom:  1px solid #E8E8E8;
+}
+
+.portfolio__link {
+  color: #000;
+  font-size: 30px;
+  line-height: 50px;
+  letter-spacing: -1.2px;
+  text-decoration: none;
+}

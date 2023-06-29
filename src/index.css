@@ -21,3 +21,9 @@
 
 /* techs */
 @import url(./components/Main/Techs/Techs.css);
+
+/* about me */
+@import url(./components/Main/AboutMe/AboutMe.css);
+
+/* portfolio */
+@import url(./components/Main/Portfolio/Portfolio.css);
