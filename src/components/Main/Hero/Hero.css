@@ -12,6 +12,18 @@
   letter-spacing: -1.6px;
   font-weight: 400;
   max-width: 626px;
-  margin: 0;
   padding: 50px 0 406px 70px;
+}
+
+@media only screen and (max-width: 768px) {
+  .hero {
+    background-size: 680px 230px;
+    background-position: 50% 88.5%;
+  }
+  
+  .hero__title {
+    padding: 300px 0 440px 0;
+    text-align: center;
+    margin: auto;
+  }
 }
