@@ -48,4 +48,8 @@
     font-size: 28px;
     letter-spacing: -1.12px;
   }
+
+  .portfolio__container:last-child {
+    margin-bottom: 70px;
+  }
 }
