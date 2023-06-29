@@ -37,3 +37,15 @@
 .portfolio__link:hover {
   opacity: .7;
 }
+
+@media only screen and (max-width: 768px) {
+  .portfolio__title {
+    margin-top: 91px;
+    margin-bottom: 31px;
+  }
+
+  .portfolio__link {
+    font-size: 28px;
+    letter-spacing: -1.12px;
+  }
+}
