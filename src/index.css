@@ -8,22 +8,18 @@
 @import url(./components/App.css);
 
 /* header */
-@import url(./components/Main/Header/Header.css);
+@import url(./components/Header/Header.css);
 
 /* hero */
 @import url(./components/Main/Hero/Hero.css);
-
-/* main */
-@import url(./components/Main/Main.css);
-
 /* about project */
 @import url(./components/Main/AboutProject/AboutProject.css);
-
 /* techs */
 @import url(./components/Main/Techs/Techs.css);
-
 /* about me */
 @import url(./components/Main/AboutMe/AboutMe.css);
-
 /* portfolio */
 @import url(./components/Main/Portfolio/Portfolio.css);
+
+/* footer */
+@import url(./components/footer/footer.css);

@@ -16,6 +16,10 @@
   background-size: 30px 30px;
 }
 
+.portfolio__container:last-child {
+  margin-bottom: 110px;
+}
+
 .portfolio__container_type_outline {
   border-top: 1px solid #E8E8E8;
   border-bottom:  1px solid #E8E8E8;
@@ -27,4 +31,9 @@
   line-height: 50px;
   letter-spacing: -1.2px;
   text-decoration: none;
+  transition: .4s ease;
+}
+
+.portfolio__link:hover {
+  opacity: .7;
 }

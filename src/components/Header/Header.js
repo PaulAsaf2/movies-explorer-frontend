@@ -1,5 +1,5 @@
 import React from 'react';
-import logoC from '../../../images/logo-c.svg'
+import logoC from '../../images/logo-c.svg'
 
 function Header() {
   return (
