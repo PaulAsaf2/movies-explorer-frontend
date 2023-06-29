@@ -43,3 +43,20 @@
     padding: 0 30px;
   }
 }
+
+@media only screen and (max-width: 400px) {
+  .header {
+    padding: 0 14px;
+  }
+
+  .header__link {
+    font-size: 10px;
+    margin-right: 14px;
+  }
+
+  .header__button {
+    font-size: 10px;
+    width: 54px;
+    height: 26px;
+  }
+}
