@@ -41,7 +41,7 @@
 .techs__list {
   list-style: none;
   display: flex;
-  margin: 100px;
+  margin: 100px 0;
   padding: 0;
 }
 
@@ -80,4 +80,40 @@
 }
 .techs__item:nth-child(7):hover {
   background-color: #5FA96F;
+}
+
+@media only screen and (max-width: 768px) {
+  .techs {
+    padding-top: 93px;
+  }
+  
+  .techs__title {
+    margin-left: 50px;
+  }
+  
+  .techs__separation-line {
+    margin: 23px 50px 3px 50px;
+  }
+  
+  .techs__subtitle {
+    margin-top: 77px;
+  }
+  
+  .techs__paragraph {
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: -0.48px;
+    margin-top: 20px;
+  }
+  
+  .techs__list {
+    margin: 85px 0 90px 0;
+  }
+
+  .techs__item {
+    font-size: 12px;
+    letter-spacing: -0.48px;
+    width: 84px;
+    height: 57px;
+  }
 }
