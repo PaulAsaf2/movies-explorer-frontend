@@ -117,6 +117,10 @@
 }
 
 @media only screen and (max-width: 470px) {
+  .techs {
+    padding-top: 70px;
+  }
+
   .techs__title {
     font-size: 18px;
     letter-spacing: -0.72px;
@@ -124,27 +128,25 @@
   }
 
   .techs__separation-line {
-    margin: 23px 18px 3px 18px;
+    margin: 30px 18px 3px 18px;
   }
 
   .techs__subtitle {
     font-size: 30px;
     letter-spacing: -1.2px;
+    margin-top: 45px;
   }
 
   .techs__paragraph {
     font-size: 11px;
     line-height: 16px;
     letter-spacing: -0.44px;
-  }
-}
-
-@media only screen and (max-width: 470px) {
-  .techs__paragraph {
+    margin-top: 13px;
     max-width: 290px;
   }
 
   .techs__list {
     grid-template-columns: repeat(2, 1fr);
+    margin: 50px 0 70px 0
   }
 }
