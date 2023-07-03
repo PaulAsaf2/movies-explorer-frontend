@@ -79,6 +79,10 @@
 }
 
 @media only screen and (max-width: 690px) {
+  .about-me {
+    margin: 70px 18px 0 18px;
+  }
+
   .about-me_container {
     grid-template-columns: 1fr;
   }
@@ -86,13 +90,19 @@
   .grid-item:nth-child(1) {
     order: 2;
   }
+
+  .about-me__image {
+    width: 284px;
+    height: 342px;
+    margin: auto;
+  }
+
+  .about-me__paragraph {
+    max-width: none;
+  }
 }
 
 @media only screen and (max-width: 320px) {
-  .about-me {
-    margin: 70px 18px 0 18px;
-  }
-
   .about-me__separation-line {
     height: 1.1px;
     margin-top: 29px;
@@ -111,12 +121,6 @@
     font-size: 11px;
     line-height: 16px;
     margin-top: 18px;
-  }
-
-  .about-me__image {
-    width: 284px;
-    height: 342px;
-    margin: auto;
   }
 
   .about-me__link {
