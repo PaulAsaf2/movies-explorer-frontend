@@ -1,0 +1,4 @@
+.movie-grid {
+  grid-column: 1 / span 12;
+  grid-row: 4;
+}

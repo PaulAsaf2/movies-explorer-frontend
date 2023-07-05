@@ -1,25 +1,38 @@
 /* normalize */
 @import url(./vendor/normalize.css);
-
 /* fonts */
 @import url(./vendor/fonts.css);
-
 /* root */
 @import url(./components/App.css);
 
-/* header */
-@import url(./components/Header/Header.css);
+/* landing ------ landing ------ landing ------ landing ------ */
 
+/* header */
+@import url(./components/Landing/LandingHeader/LandingHeader.css);
 /* hero */
-@import url(./components/Main/Hero/Hero.css);
+@import url(./components/Landing/Hero/Hero.css);
 /* about project */
-@import url(./components/Main/AboutProject/AboutProject.css);
+@import url(./components/Landing/AboutProject/AboutProject.css);
 /* techs */
-@import url(./components/Main/Techs/Techs.css);
+@import url(./components/Landing/Techs/Techs.css);
 /* about me */
-@import url(./components/Main/AboutMe/AboutMe.css);
+@import url(./components/Landing/AboutMe/AboutMe.css);
 /* portfolio */
-@import url(./components/Main/Portfolio/Portfolio.css);
+@import url(./components/Landing/Portfolio/Portfolio.css);
 
 /* footer */
-@import url(./components/footer/footer.css);
+@import url(./components/Footer/Footer.css);
+
+/* main ----- main ----- main ----- main ----- main ----- main ----- */
+
+/* header */
+@import url(./components/Main/MainHeader/MainHeader.css);
+
+/* movies ----- movies ----- movies ----- movies ----- movies ----- */
+
+@import url(./components/Main/Movies/Movies.css);
+
+/* search bar */
+@import url(./components/Main/Movies/SearchBar/SearchBar.css);
+/* movie grid */
+@import url(./components/Main/Movies/MovieGrid/MovieGrid.css);
