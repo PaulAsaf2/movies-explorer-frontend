@@ -1,0 +1,136 @@
+import React from "react";
+
+const filmsArray = [
+  {
+    country: "Germany",
+    director: "August",
+    duration: 120,
+    year: 2023,
+    description: "Good Gans",
+    image: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
+    trailerLink: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
+    nameRU: "Хороший Ганс",
+    nameEN: "Good Gans",
+    thumbnail: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
+    movieId: "1"
+  },
+  {
+    country: "Germany",
+    director: "August",
+    duration: 120,
+    year: 2023,
+    description: "Good Gans",
+    image: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
+    trailerLink: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
+    nameRU: "Хороший Ганс",
+    nameEN: "Good Gans",
+    thumbnail: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
+    movieId: "2"
+  },
+  {
+    country: "Germany",
+    director: "August",
+    duration: 120,
+    year: 2023,
+    description: "Good Gans",
+    image: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
+    trailerLink: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
+    nameRU: "Хороший Ганс",
+    nameEN: "Good Gans",
+    thumbnail: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
+    movieId: "3"
+  },
+  {
+    country: "Germany",
+    director: "August",
+    duration: 120,
+    year: 2023,
+    description: "Good Gans",
+    image: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
+    trailerLink: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
+    nameRU: "Хороший Ганс",
+    nameEN: "Good Gans",
+    thumbnail: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
+    movieId: "4"
+  },
+  {
+    country: "Germany",
+    director: "August",
+    duration: 120,
+    year: 2023,
+    description: "Good Gans",
+    image: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
+    trailerLink: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
+    nameRU: "Хороший Ганс",
+    nameEN: "Good Gans",
+    thumbnail: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
+    movieId: "5"
+  },
+  {
+    country: "Germany",
+    director: "August",
+    duration: 120,
+    year: 2023,
+    description: "Good Gans",
+    image: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
+    trailerLink: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
+    nameRU: "Хороший Ганс",
+    nameEN: "Good Gans",
+    thumbnail: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
+    movieId: "6"
+  },
+  {
+    country: "Germany",
+    director: "August",
+    duration: 120,
+    year: 2023,
+    description: "Good Gans",
+    image: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
+    trailerLink: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
+    nameRU: "Хороший Ганс",
+    nameEN: "Good Gans",
+    thumbnail: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
+    movieId: "7"
+  },
+  {
+    country: "Germany",
+    director: "August",
+    duration: 120,
+    year: 2023,
+    description: "Good Gans",
+    image: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
+    trailerLink: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
+    nameRU: "Хороший Ганс",
+    nameEN: "Good Gans",
+    thumbnail: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
+    movieId: "8"
+  },
+  {
+    country: "Germany",
+    director: "August",
+    duration: 120,
+    year: 2023,
+    description: "Good Gans",
+    image: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
+    trailerLink: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
+    nameRU: "Хороший Ганс",
+    nameEN: "Good Gans",
+    thumbnail: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
+    movieId: "9"
+  },
+  {
+    country: "Germany",
+    director: "August",
+    duration: 120,
+    year: 2023,
+    description: "Good Gans",
+    image: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
+    trailerLink: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
+    nameRU: "Хороший Ганс",
+    nameEN: "Good Gans",
+    thumbnail: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
+    movieId: "10"
+  },
+]
+
+export default filmsArray;

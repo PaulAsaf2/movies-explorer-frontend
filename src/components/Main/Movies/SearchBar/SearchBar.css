@@ -47,13 +47,6 @@
   margin-left: auto;
 }
 
-.search-bar__toggle {
-  width: 36px;
-  height: 20px;
-  background-color: blue;
-  margin-left: 29px;
-}
-
 .search-bar__text {
   font-size: 13px;
   line-height: 18px;

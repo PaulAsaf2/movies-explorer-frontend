@@ -1,4 +1,9 @@
 import React from "react";
+import ToggleFilms from "./ToggleFilms/ToggleFilms";
+
+function handleToggle(state) {
+  console.log('Toggled:', state);
+}
 
 function SearchBar() {
   return (
@@ -8,7 +13,10 @@ function SearchBar() {
         <button className="search-bar__button" type="submit"></button>
       </form>
       <div className="search-bar__separation-line"></div>
-      <div className="search-bar__toggle"></div>
+      <ToggleFilms
+        toggled={true}
+        onClick={handleToggle}
+      />
       <p className="search-bar__text">Короткометражки</p>
     </div>
   )

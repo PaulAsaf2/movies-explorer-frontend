@@ -1,6 +1,6 @@
 import React from "react";
 
-function MovieGrid () {
+function MovieGrid() {
   return (
     <h1 className="movie-grid">Movie grid</h1>
   )
