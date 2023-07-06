@@ -6,3 +6,16 @@
   column-gap: 20px;
   row-gap: 38px;
 }
+
+@media only screen and (max-width: 990px) {
+  .movie-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .movie-grid {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 30px;
+  }
+}

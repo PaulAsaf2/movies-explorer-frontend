@@ -30,9 +30,9 @@
 .main-header__button {
   background-image: url('../../../images/icon-user.svg');
   background-repeat: no-repeat;
-  background-position: 10% center;
+  background-position: 16% center;
   background-color: white;
-  padding-left: 20px;
+  padding-left: 28px;
   padding-bottom: 3px;
   border: none;
   width: 100px;
