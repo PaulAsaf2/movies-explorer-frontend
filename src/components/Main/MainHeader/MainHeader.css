@@ -13,11 +13,14 @@
 .main-header__link {
   color: black;
   font-size: 13px;
-  font-weight: 500;
   line-height: 18px;
   text-decoration: none;
   cursor: pointer;
   margin-right: 16px;
+}
+
+.main-header__link_active {
+  font-weight: 500;
 }
 
 .main-header__button-container {

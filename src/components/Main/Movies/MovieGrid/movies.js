@@ -1,5 +1,3 @@
-import React from "react";
-
 const filmsArray = [
   {
     country: "Germany",
@@ -7,11 +5,11 @@ const filmsArray = [
     duration: 120,
     year: 2023,
     description: "Good Gans",
-    image: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
-    trailerLink: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
-    nameRU: "Хороший Ганс",
+    image: "https://img.freepik.com/free-photo/old-cement-wall-texture_1149-1280.jpg?w=740&t=st=1688570408~exp=1688571008~hmac=1e5eee5d54080e0a75cca7b73647b80a5a3595b900785c18c9a3673d2e74ed17",
+    trailerLink: "https://img.freepik.com/free-photo/old-cement-wall-texture_1149-1280.jpg?w=740&t=st=1688570408~exp=1688571008~hmac=1e5eee5d54080e0a75cca7b73647b80a5a3595b900785c18c9a3673d2e74ed17",
+    nameRU: "Скучный серый фильм с длинным названием",
     nameEN: "Good Gans",
-    thumbnail: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
+    thumbnail: "https://img.freepik.com/free-photo/old-cement-wall-texture_1149-1280.jpg?w=740&t=st=1688570408~exp=1688571008~hmac=1e5eee5d54080e0a75cca7b73647b80a5a3595b900785c18c9a3673d2e74ed17",
     movieId: "1"
   },
   {
@@ -20,11 +18,11 @@ const filmsArray = [
     duration: 120,
     year: 2023,
     description: "Good Gans",
-    image: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
-    trailerLink: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
-    nameRU: "Хороший Ганс",
+    image: "https://img.freepik.com/free-photo/old-cement-wall-texture_1149-1280.jpg?w=740&t=st=1688570408~exp=1688571008~hmac=1e5eee5d54080e0a75cca7b73647b80a5a3595b900785c18c9a3673d2e74ed17",
+    trailerLink: "https://img.freepik.com/free-photo/old-cement-wall-texture_1149-1280.jpg?w=740&t=st=1688570408~exp=1688571008~hmac=1e5eee5d54080e0a75cca7b73647b80a5a3595b900785c18c9a3673d2e74ed17",
+    nameRU: "Скучный серый фильм с длинным названием",
     nameEN: "Good Gans",
-    thumbnail: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
+    thumbnail: "https://img.freepik.com/free-photo/old-cement-wall-texture_1149-1280.jpg?w=740&t=st=1688570408~exp=1688571008~hmac=1e5eee5d54080e0a75cca7b73647b80a5a3595b900785c18c9a3673d2e74ed17",
     movieId: "2"
   },
   {
@@ -33,11 +31,11 @@ const filmsArray = [
     duration: 120,
     year: 2023,
     description: "Good Gans",
-    image: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
-    trailerLink: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
-    nameRU: "Хороший Ганс",
+    image: "https://img.freepik.com/free-photo/old-cement-wall-texture_1149-1280.jpg?w=740&t=st=1688570408~exp=1688571008~hmac=1e5eee5d54080e0a75cca7b73647b80a5a3595b900785c18c9a3673d2e74ed17",
+    trailerLink: "https://img.freepik.com/free-photo/old-cement-wall-texture_1149-1280.jpg?w=740&t=st=1688570408~exp=1688571008~hmac=1e5eee5d54080e0a75cca7b73647b80a5a3595b900785c18c9a3673d2e74ed17",
+    nameRU: "Скучный серый фильм с длинным названием",
     nameEN: "Good Gans",
-    thumbnail: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
+    thumbnail: "https://img.freepik.com/free-photo/old-cement-wall-texture_1149-1280.jpg?w=740&t=st=1688570408~exp=1688571008~hmac=1e5eee5d54080e0a75cca7b73647b80a5a3595b900785c18c9a3673d2e74ed17",
     movieId: "3"
   },
   {
@@ -46,11 +44,11 @@ const filmsArray = [
     duration: 120,
     year: 2023,
     description: "Good Gans",
-    image: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
-    trailerLink: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
-    nameRU: "Хороший Ганс",
+    image: "https://img.freepik.com/free-photo/old-cement-wall-texture_1149-1280.jpg?w=740&t=st=1688570408~exp=1688571008~hmac=1e5eee5d54080e0a75cca7b73647b80a5a3595b900785c18c9a3673d2e74ed17",
+    trailerLink: "https://img.freepik.com/free-photo/old-cement-wall-texture_1149-1280.jpg?w=740&t=st=1688570408~exp=1688571008~hmac=1e5eee5d54080e0a75cca7b73647b80a5a3595b900785c18c9a3673d2e74ed17",
+    nameRU: "Скучный серый фильм с длинным названием",
     nameEN: "Good Gans",
-    thumbnail: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
+    thumbnail: "https://img.freepik.com/free-photo/old-cement-wall-texture_1149-1280.jpg?w=740&t=st=1688570408~exp=1688571008~hmac=1e5eee5d54080e0a75cca7b73647b80a5a3595b900785c18c9a3673d2e74ed17",
     movieId: "4"
   },
   {
@@ -59,11 +57,11 @@ const filmsArray = [
     duration: 120,
     year: 2023,
     description: "Good Gans",
-    image: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
-    trailerLink: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
-    nameRU: "Хороший Ганс",
+    image: "https://img.freepik.com/free-photo/old-cement-wall-texture_1149-1280.jpg?w=740&t=st=1688570408~exp=1688571008~hmac=1e5eee5d54080e0a75cca7b73647b80a5a3595b900785c18c9a3673d2e74ed17",
+    trailerLink: "https://img.freepik.com/free-photo/old-cement-wall-texture_1149-1280.jpg?w=740&t=st=1688570408~exp=1688571008~hmac=1e5eee5d54080e0a75cca7b73647b80a5a3595b900785c18c9a3673d2e74ed17",
+    nameRU: "Скучный серый фильм с длинным названием",
     nameEN: "Good Gans",
-    thumbnail: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
+    thumbnail: "https://img.freepik.com/free-photo/old-cement-wall-texture_1149-1280.jpg?w=740&t=st=1688570408~exp=1688571008~hmac=1e5eee5d54080e0a75cca7b73647b80a5a3595b900785c18c9a3673d2e74ed17",
     movieId: "5"
   },
   {
@@ -72,11 +70,11 @@ const filmsArray = [
     duration: 120,
     year: 2023,
     description: "Good Gans",
-    image: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
-    trailerLink: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
-    nameRU: "Хороший Ганс",
+    image: "https://img.freepik.com/free-photo/old-cement-wall-texture_1149-1280.jpg?w=740&t=st=1688570408~exp=1688571008~hmac=1e5eee5d54080e0a75cca7b73647b80a5a3595b900785c18c9a3673d2e74ed17",
+    trailerLink: "https://img.freepik.com/free-photo/old-cement-wall-texture_1149-1280.jpg?w=740&t=st=1688570408~exp=1688571008~hmac=1e5eee5d54080e0a75cca7b73647b80a5a3595b900785c18c9a3673d2e74ed17",
+    nameRU: "Скучный серый фильм с длинным названием",
     nameEN: "Good Gans",
-    thumbnail: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
+    thumbnail: "https://img.freepik.com/free-photo/old-cement-wall-texture_1149-1280.jpg?w=740&t=st=1688570408~exp=1688571008~hmac=1e5eee5d54080e0a75cca7b73647b80a5a3595b900785c18c9a3673d2e74ed17",
     movieId: "6"
   },
   {
@@ -85,11 +83,11 @@ const filmsArray = [
     duration: 120,
     year: 2023,
     description: "Good Gans",
-    image: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
-    trailerLink: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
-    nameRU: "Хороший Ганс",
+    image: "https://img.freepik.com/free-photo/old-cement-wall-texture_1149-1280.jpg?w=740&t=st=1688570408~exp=1688571008~hmac=1e5eee5d54080e0a75cca7b73647b80a5a3595b900785c18c9a3673d2e74ed17",
+    trailerLink: "https://img.freepik.com/free-photo/old-cement-wall-texture_1149-1280.jpg?w=740&t=st=1688570408~exp=1688571008~hmac=1e5eee5d54080e0a75cca7b73647b80a5a3595b900785c18c9a3673d2e74ed17",
+    nameRU: "Скучный серый фильм с длинным названием",
     nameEN: "Good Gans",
-    thumbnail: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
+    thumbnail: "https://img.freepik.com/free-photo/old-cement-wall-texture_1149-1280.jpg?w=740&t=st=1688570408~exp=1688571008~hmac=1e5eee5d54080e0a75cca7b73647b80a5a3595b900785c18c9a3673d2e74ed17",
     movieId: "7"
   },
   {
@@ -98,11 +96,11 @@ const filmsArray = [
     duration: 120,
     year: 2023,
     description: "Good Gans",
-    image: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
-    trailerLink: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
-    nameRU: "Хороший Ганс",
+    image: "https://img.freepik.com/free-photo/old-cement-wall-texture_1149-1280.jpg?w=740&t=st=1688570408~exp=1688571008~hmac=1e5eee5d54080e0a75cca7b73647b80a5a3595b900785c18c9a3673d2e74ed17",
+    trailerLink: "https://img.freepik.com/free-photo/old-cement-wall-texture_1149-1280.jpg?w=740&t=st=1688570408~exp=1688571008~hmac=1e5eee5d54080e0a75cca7b73647b80a5a3595b900785c18c9a3673d2e74ed17",
+    nameRU: "Скучный серый фильм с длинным названием",
     nameEN: "Good Gans",
-    thumbnail: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
+    thumbnail: "https://img.freepik.com/free-photo/old-cement-wall-texture_1149-1280.jpg?w=740&t=st=1688570408~exp=1688571008~hmac=1e5eee5d54080e0a75cca7b73647b80a5a3595b900785c18c9a3673d2e74ed17",
     movieId: "8"
   },
   {
@@ -111,11 +109,11 @@ const filmsArray = [
     duration: 120,
     year: 2023,
     description: "Good Gans",
-    image: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
-    trailerLink: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
-    nameRU: "Хороший Ганс",
+    image: "https://img.freepik.com/free-photo/old-cement-wall-texture_1149-1280.jpg?w=740&t=st=1688570408~exp=1688571008~hmac=1e5eee5d54080e0a75cca7b73647b80a5a3595b900785c18c9a3673d2e74ed17",
+    trailerLink: "https://img.freepik.com/free-photo/old-cement-wall-texture_1149-1280.jpg?w=740&t=st=1688570408~exp=1688571008~hmac=1e5eee5d54080e0a75cca7b73647b80a5a3595b900785c18c9a3673d2e74ed17",
+    nameRU: "Скучный серый фильм с длинным названием",
     nameEN: "Good Gans",
-    thumbnail: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
+    thumbnail: "https://img.freepik.com/free-photo/old-cement-wall-texture_1149-1280.jpg?w=740&t=st=1688570408~exp=1688571008~hmac=1e5eee5d54080e0a75cca7b73647b80a5a3595b900785c18c9a3673d2e74ed17",
     movieId: "9"
   },
   {
@@ -124,11 +122,11 @@ const filmsArray = [
     duration: 120,
     year: 2023,
     description: "Good Gans",
-    image: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
-    trailerLink: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
-    nameRU: "Хороший Ганс",
+    image: "https://img.freepik.com/free-photo/old-cement-wall-texture_1149-1280.jpg?w=740&t=st=1688570408~exp=1688571008~hmac=1e5eee5d54080e0a75cca7b73647b80a5a3595b900785c18c9a3673d2e74ed17",
+    trailerLink: "https://img.freepik.com/free-photo/old-cement-wall-texture_1149-1280.jpg?w=740&t=st=1688570408~exp=1688571008~hmac=1e5eee5d54080e0a75cca7b73647b80a5a3595b900785c18c9a3673d2e74ed17",
+    nameRU: "Скучный серый фильм с длинным названием",
     nameEN: "Good Gans",
-    thumbnail: "https://img.freepik.com/free-photo/front-view-man-oktoberfest-attire_23-2148270304.jpg?w=740&t=st=1688563553~exp=1688564153~hmac=7491f210dee5fd1045d775e490931b76f56ed3775ecc335da554fe6d54bb358f",
+    thumbnail: "https://img.freepik.com/free-photo/old-cement-wall-texture_1149-1280.jpg?w=740&t=st=1688570408~exp=1688571008~hmac=1e5eee5d54080e0a75cca7b73647b80a5a3595b900785c18c9a3673d2e74ed17",
     movieId: "10"
   },
 ]

@@ -1,8 +1,22 @@
 import React from "react";
+import MovieCard from "./MovieCard/MovieCard";
+import filmsArray from "./movies";
 
 function MovieGrid() {
   return (
-    <h1 className="movie-grid">Movie grid</h1>
+    <main className="movie-grid">
+      {filmsArray.map((item) => {
+        return (
+          <MovieCard
+            key={item.movieId}
+            image={item.image}
+            nameRU={item.nameRU}
+            description={item.description}
+            duration={item.duration}
+          />
+        )
+      })}
+    </main>
   )
 }
 

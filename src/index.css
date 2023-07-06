@@ -34,6 +34,8 @@
 
 /* search bar */
 @import url(./components/Main/Movies/SearchBar/SearchBar.css);
-  @import url(./components/Main/Movies/SearchBar/ToggleFilms/ToggleFilms.css);
+@import url(./components/Main/Movies/SearchBar/ToggleFilms/ToggleFilms.css);
 /* movie grid */
 @import url(./components/Main/Movies/MovieGrid/MovieGrid.css);
+/* movie card */
+@import url(./components/Main/Movies/MovieGrid/MovieCard/MovieCard.css);

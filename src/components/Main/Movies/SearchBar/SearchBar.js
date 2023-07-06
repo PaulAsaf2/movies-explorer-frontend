@@ -7,7 +7,7 @@ function handleToggle(state) {
 
 function SearchBar() {
   return (
-    <div className="search-bar">
+    <section className="search-bar">
       <form className="search-bar__form">
         <input className="search-bar__input" type="search" placeholder="Фильм" />
         <button className="search-bar__button" type="submit"></button>
@@ -18,7 +18,7 @@ function SearchBar() {
         onClick={handleToggle}
       />
       <p className="search-bar__text">Короткометражки</p>
-    </div>
+    </section>
   )
 }
 

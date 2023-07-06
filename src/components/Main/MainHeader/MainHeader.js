@@ -1,8 +1,9 @@
 import React from "react";
 import logoC from '../../../images/logo-c.svg';
-import { Link } from 'react-router-dom';
+import { Link, useMatch } from 'react-router-dom';
 
 function MainHeader() {
+
   return (
     <header className="main-header">
       <Link
@@ -14,13 +15,13 @@ function MainHeader() {
       </Link>
       <nav className="main-header__nav">
         <Link
-          className="main-header__link"
+          className={`main-header__link ${useMatch('/movies') && 'main-header__link_active'}`}
           to='/movies'
         >
           Фильмы
         </Link>
         <Link
-          className="main-header__link"
+          className={`main-header__link ${useMatch('/saved-movies') && 'main-header__link_active'}`}
           to='/saved-movies'
         >
           Сохранённые фильмы
