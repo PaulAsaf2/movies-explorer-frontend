@@ -44,3 +44,15 @@
   line-height: 16px;
   cursor: pointer;
 }
+
+.main-header__menuButton {
+  height: 44px;
+  width: 44px;
+  cursor: pointer;
+  margin-left: auto; 
+  border: none;
+  background-image: url('../../../images/icon-menu.svg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: white;
+}
