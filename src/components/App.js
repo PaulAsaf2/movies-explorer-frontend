@@ -6,13 +6,13 @@ import Movies from './Movies/Movies';
 import SavedMovies from './SavedMovies/SavedMovies';
 import Profile from './Profile/Profile';
 import Footer from './Footer/Footer';
+import Menu from './Menu/Menu';
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   function handleMenuClick() {
     setMenuOpen(!menuOpen)
-    console.log('Click!');
   }
 
   return (
@@ -20,11 +20,17 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Landing />} />
-          <Route path="/movies" element={<Movies />} />
+          <Route path="/movies" element={<Movies handleMenuClick={handleMenuClick} />} />
           <Route path="/saved-movies" element={<SavedMovies />} />
           <Route path="/profile" element={<Profile />} />
         </Routes>
-      <Footer />
+
+        <Footer />
+        <Menu
+          isOpened={menuOpen}
+          handleMenuClick={handleMenuClick}
+        />
+
       </BrowserRouter>
     </>
   );
