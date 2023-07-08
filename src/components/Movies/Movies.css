@@ -36,5 +36,23 @@
     margin-bottom: 95px;
     margin-top: 95px;
   }
-  
+}
+
+@media only screen and (max-width: 320px) {
+  .movies {
+    grid-template-columns: 1fr;
+    margin: 0 10px;
+  }
+
+  .movies__separation-line {
+    grid-column: span 1;
+    grid-row: 4;
+    margin-top: 45px;
+    margin-bottom: 50px;
+  }
+
+  .movies__button {
+    grid-column: span 1;
+    grid-row: 6;
+  }
 }

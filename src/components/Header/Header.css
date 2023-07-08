@@ -56,3 +56,10 @@
   background-position: center center;
   background-color: white;
 }
+
+@media only screen and (max-width: 320px) {
+  .header {
+    grid-column: span 1;
+    padding-left: 4px;
+  }
+}

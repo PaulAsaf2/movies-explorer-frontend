@@ -43,3 +43,9 @@
 .toggle__input:checked + .toggle__span:before {
   transform: translateX(13px);
 }
+
+@media only screen and (max-width: 320px) {
+  .toggle {
+    margin-left: 0;
+  }
+}

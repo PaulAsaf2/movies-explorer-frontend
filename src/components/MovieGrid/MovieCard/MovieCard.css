@@ -61,3 +61,17 @@
     height: 190px;
   }
 }
+
+@media only screen and (max-width: 320px) {
+  .movie__image {
+    height: 168px;
+  }
+
+  .movie__title {
+    font-size: 12px;
+  }
+
+  .movie__container {
+    margin: 10px 0 25px 0;
+  }
+}
