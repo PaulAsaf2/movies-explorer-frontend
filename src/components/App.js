@@ -1,14 +1,20 @@
-import React from 'react';
+import { React, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Landing from './Landing/Landing';
-import Movies from './Main/Movies/Movies';
-import SavedMovies from './Main/SavedMovies/SavedMovies';
-import Profile from './Main/Profile/Profile';
+import Movies from './Movies/Movies';
+import SavedMovies from './SavedMovies/SavedMovies';
+import Profile from './Profile/Profile';
 import Footer from './Footer/Footer';
-import Menu from './Main/Menu/Menu';
 
 function App() {
+  const [menuOpen, setMenuOpen] = useState(false)
+
+  function handleMenuClick() {
+    setMenuOpen(!menuOpen)
+    console.log('Click!');
+  }
+
   return (
     <>
       <BrowserRouter>
@@ -18,11 +24,8 @@ function App() {
           <Route path="/saved-movies" element={<SavedMovies />} />
           <Route path="/profile" element={<Profile />} />
         </Routes>
-
-        <Menu />
-
-      </BrowserRouter>
       <Footer />
+      </BrowserRouter>
     </>
   );
 }

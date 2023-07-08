@@ -24,7 +24,7 @@
 
 .movie__like {
   background-color: #E4E4E4;
-  background-image: url('../../../../../images/icon-heart-white.svg');
+  background-image: url('../../../images/icon-heart-white.svg');
   border: none;
   width: 24px;
   height: 24px;
@@ -38,7 +38,7 @@
 
 .movie__liked {
   background-color: #FFE8E8;
-  background-image: url('../../../../../images/icon-heart.svg');
+  background-image: url('../../../images/icon-heart.svg');
 }
 
 .movie__line {

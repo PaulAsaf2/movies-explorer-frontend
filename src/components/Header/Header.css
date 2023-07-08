@@ -1,4 +1,4 @@
-.main-header {
+.header {
   grid-column: 1 / span 12;
   grid-row: 1;
   display: flex;
@@ -6,11 +6,11 @@
   min-height: 74px;
 }
 
-.main-header__nav {
+.header__nav {
   margin-left: 44px;
 }
 
-.main-header__link {
+.header__link {
   color: black;
   font-size: 13px;
   line-height: 18px;
@@ -19,16 +19,16 @@
   margin-right: 16px;
 }
 
-.main-header__link_active {
+.header__link_active {
   font-weight: 500;
 }
 
-.main-header__button-container {
+.header__button-container {
   margin-left: auto;
 }
 
-.main-header__button {
-  background-image: url('../../../images/icon-user.svg');
+.header__button {
+  background-image: url('../../images/icon-user.svg');
   background-repeat: no-repeat;
   background-position: 16% center;
   background-color: white;
@@ -45,13 +45,13 @@
   cursor: pointer;
 }
 
-.main-header__menuButton {
+.header__menuButton {
   height: 44px;
   width: 44px;
   cursor: pointer;
   margin-left: auto; 
   border: none;
-  background-image: url('../../../images/icon-menu.svg');
+  background-image: url('../../images/icon-menu.svg');
   background-repeat: no-repeat;
   background-position: center center;
   background-color: white;

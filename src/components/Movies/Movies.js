@@ -1,12 +1,12 @@
 import React from "react";
-import MainHeader from '../MainHeader/MainHeader'
-import SearchBar from '../Movies/SearchBar/SearchBar'
-import MovieGrid from '../Movies/MovieGrid/MovieGrid'
+import Header from '../Header/Header'
+import SearchBar from '../SearchBar/SearchBar'
+import MovieGrid from '../MovieGrid/MovieGrid'
 
 function Movies() {
   return (
     <div className="movies">
-      <MainHeader />
+      <Header />
       <SearchBar />
       <div className="movies__separation-line"></div>
       <MovieGrid />

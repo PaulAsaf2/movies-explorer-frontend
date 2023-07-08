@@ -17,7 +17,7 @@
 }
 
 .search-bar__input {
-  background-image: url('../../../../images/icon-search.svg');
+  background-image: url('../../images/icon-search.svg');
   background-repeat: no-repeat;
   background-position: 10px center;
   width: 88%;
@@ -36,7 +36,7 @@
   cursor: pointer;
   background-color: #FF6838;
   border-radius: 48px;
-  background-image: url('../../../../images/icon-search-white.svg');
+  background-image: url('.../../../../images/icon-search-white.svg');
   background-repeat: no-repeat;
   background-position: center center;
 }
