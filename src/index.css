@@ -48,3 +48,10 @@
 
 /* profile change */
 @import url(./components/ProfileChange/ProfileChange.css);
+
+/* auth ----- auth ----- auth ----- auth ----- auth ----- auth -----*/
+
+/* register */
+@import url(./components/Register/Register.css);
+/* login */
+@import url(./components/Login/Login.css);

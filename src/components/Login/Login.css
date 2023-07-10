@@ -1,0 +1,9 @@
+.login__submit {
+  margin-top: 210px;
+}
+
+@media only screen and (max-width: 320px) {
+  .login__submit {
+    margin-top: 290px;
+  }
+}
