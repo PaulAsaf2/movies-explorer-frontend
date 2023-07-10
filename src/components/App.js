@@ -23,8 +23,8 @@ function App() {
           <Route path="/" element={<Landing />} />
           <Route path="/movies" element={<Movies handleMenuClick={handleMenuClick} />} />
           <Route path="/saved-movies" element={<SavedMovies handleMenuClick={handleMenuClick} />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/profile-change" element={<ProfileChange />} />
+          <Route path="/profile" element={<Profile handleMenuClick={handleMenuClick} />} />
+          <Route path="/profile-change" element={<ProfileChange handleMenuClick={handleMenuClick} />} />
         </Routes>
 
         <Menu

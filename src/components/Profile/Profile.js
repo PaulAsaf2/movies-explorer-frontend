@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import Header from '../Header/Header'
 import userData from '../../utils/temporalData';
 
-function Profile() {
+function Profile({handleMenuClick}) {
   return (
     <div className="profile">
-      <Header />
+      <Header handleMenuClick={handleMenuClick} />
       <section className="profile__container">
         <h1 className="profile__title">Привет, {userData.name}</h1>
         <div className="profile__user-container">

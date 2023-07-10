@@ -1,12 +1,11 @@
 import React from "react";
-// import { Link } from "react-router-dom";
 import Header from '../Header/Header'
 import userData from '../../utils/temporalData';
 
-function ProfileChange() {
+function ProfileChange({handleMenuClick}) {
   return (
     <div className="profile">
-      <Header />
+      <Header handleMenuClick={handleMenuClick} />
       <section className="profile__container">
         <h1 className="profile__title profile-change__title">Привет, {userData.name}</h1>
         <form className="profile-change__form">
