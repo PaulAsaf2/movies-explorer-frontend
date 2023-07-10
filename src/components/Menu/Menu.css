@@ -79,3 +79,13 @@
   line-height: 16px;
   cursor: pointer;
 }
+
+@media only screen and (max-width: 320px) {
+  .menu_container_opened {
+    width: 100%;
+  }
+
+  .menu__nav {
+    margin: 97px 0 446px 0;
+  }
+}
