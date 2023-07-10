@@ -7,6 +7,7 @@ import SavedMovies from './SavedMovies/SavedMovies';
 import Profile from './Profile/Profile';
 import Footer from './Footer/Footer';
 import Menu from './Menu/Menu';
+import ProfileChange from './ProfileChange/ProfileChange';
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -21,11 +22,11 @@ function App() {
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/movies" element={<Movies handleMenuClick={handleMenuClick} />} />
-          <Route path="/saved-movies" element={<SavedMovies />} />
+          <Route path="/saved-movies" element={<SavedMovies handleMenuClick={handleMenuClick} />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/profile-change" element={<ProfileChange />} />
         </Routes>
 
-        <Footer />
         <Menu
           isOpened={menuOpen}
           handleMenuClick={handleMenuClick}

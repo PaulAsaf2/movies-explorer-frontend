@@ -20,8 +20,6 @@
 /* portfolio */
 @import url(./components/Landing/Portfolio/Portfolio.css);
 
-/* footer */
-@import url(./components/Footer/Footer.css);
 
 /* main ----- main ----- main ----- main ----- main ----- main ----- */
 
@@ -32,7 +30,6 @@
 @import url(./components/Menu/Menu.css);
 
 /* movies ----- movies ----- movies ----- movies ----- movies ----- */
-
 @import url(./components/Movies/Movies.css);
 
 /* search bar */
@@ -42,3 +39,12 @@
 @import url(./components/MovieGrid/MovieGrid.css);
 /* movie card */
 @import url(./components/MovieGrid/MovieCard/MovieCard.css);
+
+/* profile ----- profile ----- profile ----- profile ----- profile -----*/
+@import url(./components/Profile/Profile.css);
+
+/* footer ----- footer ----- footer ----- footer ----- footer ----- */
+@import url(./components/Footer/Footer.css);
+
+/* profile change */
+@import url(./components/ProfileChange/ProfileChange.css);

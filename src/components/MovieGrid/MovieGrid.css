@@ -7,6 +7,10 @@
   row-gap: 38px;
 }
 
+.movie-grid_saved {
+  margin-bottom: 235px;
+}
+
 @media only screen and (max-width: 990px) {
   .movie-grid {
     grid-template-columns: repeat(3, 1fr);
