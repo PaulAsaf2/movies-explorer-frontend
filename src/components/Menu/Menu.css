@@ -42,7 +42,7 @@
   display: flex;
   flex-direction: column;
   row-gap: 28px;
-  margin: 110px 0 630px 0;
+  margin: 110px 0 430px 0;
 }
 
 .menu__link {
@@ -80,12 +80,12 @@
   cursor: pointer;
 }
 
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 540px) {
   .menu_container_opened {
     width: 100%;
   }
 
   .menu__nav {
-    margin: 97px 0 446px 0;
+    margin: 97px 0 300px 0;
   }
 }

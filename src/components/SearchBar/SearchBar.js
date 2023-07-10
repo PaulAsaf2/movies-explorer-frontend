@@ -8,7 +8,7 @@ function handleToggle(state) {
 
 function SearchBar() {
   return (
-    <Media query={{ maxWidth: 320 }}>
+    <Media query={{ maxWidth: 620 }}>
       {matches =>
         matches ? (
           <>

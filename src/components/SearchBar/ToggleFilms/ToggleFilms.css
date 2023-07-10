@@ -44,7 +44,7 @@
   transform: translateX(13px);
 }
 
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 620px) {
   .toggle {
     margin-left: 0;
   }
