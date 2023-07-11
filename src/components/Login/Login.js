@@ -6,11 +6,12 @@ import useFormAndValidation from "../hooks/useFormAndValidation";
 function Login() {
   const { values, handleChange, errors, isValid } = useFormAndValidation();
   const [submitButton, setSubmitButton] = useState(false);
+  const [incorrectDataTrue, setIncorrectDataTrue] = useState(false);
 
-  const nameError = `auth__input ${errors.name && 'auth__input_error'}`
   const emailError = `auth__input ${errors.email && 'auth__input_error'}`
   const passError = `auth__input ${errors.password && 'auth__input_error'}`
   const submitError = `auth__submit ${(!isValid || !submitButton) && 'auth__submit_disabled'}`
+  const incorrectData = 'Неверная почта или пароль'
 
   function handleSubmitButton(e) {
     e && setSubmitButton(true)
@@ -48,6 +49,7 @@ function Login() {
         <span
           className="auth__span">
           {!isValid && errors.email}
+          {incorrectDataTrue && incorrectData}
         </span>
         <label
           className="auth__label"
@@ -70,11 +72,13 @@ function Login() {
         <span
           className="auth__span">
           {!isValid && errors.password}
+          {incorrectDataTrue && incorrectData}
         </span>
       </form>
       <button
         className={submitError}
-        type="submit">
+        type="submit"
+        onClick={() => setIncorrectDataTrue(true)}>
         Войти
       </button>
       <div className="auth__container">

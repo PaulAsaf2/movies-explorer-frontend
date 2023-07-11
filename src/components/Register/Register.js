@@ -6,11 +6,13 @@ import useFormAndValidation from "../hooks/useFormAndValidation";
 function Register() {
   const { values, handleChange, errors, isValid } = useFormAndValidation();
   const [submitButton, setSubmitButton] = useState(false);
+  const [existingEmail, setExistingEmail] = useState(false);
 
   const nameError = `auth__input ${errors.name && 'auth__input_error'}`
   const emailError = `auth__input ${errors.email && 'auth__input_error'}`
   const passError = `auth__input ${errors.password && 'auth__input_error'}`
   const submitError = `auth__submit ${(!isValid || !submitButton) && 'auth__submit_disabled'}`
+  const existingEmailError = 'Пользователь с таким e-mail уже существует'
 
   function handleSubmitButton(e) {
     e && setSubmitButton(true)
@@ -68,6 +70,7 @@ function Register() {
         <span
           className="auth__span">
           {!isValid && errors.email}
+          {existingEmail && existingEmailError}
         </span>
         <label
           className="auth__label"
@@ -94,7 +97,8 @@ function Register() {
       </form>
       <button
         className={submitError}
-        type="submit">
+        type="submit"
+        onClick={() => setExistingEmail(true)}>
         Зарегистрироваться
       </button>
       <div className="auth__container">
