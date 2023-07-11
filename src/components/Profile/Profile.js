@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Header from '../Header/Header'
 import userData from '../../utils/temporalData';
 
-function Profile({handleMenuClick}) {
+function Profile({ handleMenuClick }) {
   return (
     <div className="profile">
       <Header handleMenuClick={handleMenuClick} />
@@ -18,8 +18,16 @@ function Profile({handleMenuClick}) {
           <p className="profile__text">E-mail</p>
           <p className="profile__text">{userData.email}</p>
         </div>
-        <Link to='/profile-change' className="profile__link">Редактировать</Link>
-        <Link to='/' className="profile__link">Выйти из аккаунта</Link>
+        <Link
+          to='/profile-change'
+          className="profile__link">
+          Редактировать
+        </Link>
+        <Link
+          to='/'
+          className="profile__link">
+          Выйти из аккаунта
+        </Link>
       </section>
     </div>
   )

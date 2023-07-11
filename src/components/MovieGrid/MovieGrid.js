@@ -7,6 +7,7 @@ import savedMoviesArray from './savedMovies'
 function MovieGrid() {
   const arrayOfMovies = useMatch('/movies') ? filmsArray : savedMoviesArray
   const movieGridStyle = `movie-grid ${useMatch('/saved-movies') && 'movie-grid_saved'}`
+  
   return (
     <main className={movieGridStyle}>
       {arrayOfMovies.map((item) => {

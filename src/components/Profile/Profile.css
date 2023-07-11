@@ -38,6 +38,11 @@
   color: black;
   text-align: center;
   margin-top: 222px;
+  transition: .4s ease;
+}
+
+.profile__link:hover {
+  opacity: .7;
 }
 
 .profile__link:last-child {

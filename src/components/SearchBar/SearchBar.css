@@ -29,6 +29,10 @@
   border-radius: 9px;
 }
 
+.search-bar__input:hover {
+  outline: 2px solid green;
+}
+
 .search-bar__button {
   width: 80px;
   height: 34px;

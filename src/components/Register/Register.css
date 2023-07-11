@@ -30,6 +30,10 @@
   font-size: 14px;
 }
 
+.auth__input:hover {
+  border-bottom: 2px solid green;
+}
+
 .auth__input_error {
   border-bottom: 1px solid #d65a3b;
 }
@@ -49,6 +53,11 @@
   margin-top: 135px;
   padding: 14px 0;
   cursor: pointer;
+  transition: .4s ease;
+}
+
+.auth__submit:hover {
+  opacity: .7;
 }
 
 .auth__submit_disabled {
@@ -74,6 +83,11 @@
   text-decoration: none;
   color: #FF6838;
   font-size: 14px;
+  transition: .4s ease;
+}
+
+.auth__link:hover {
+  opacity: .7;
 }
 
 @media only screen and (max-width: 768px) {

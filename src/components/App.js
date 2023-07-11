@@ -22,14 +22,38 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="/movies" element={<Movies handleMenuClick={handleMenuClick} />} />
-          <Route path="/saved-movies" element={<SavedMovies handleMenuClick={handleMenuClick} />} />
-          <Route path="/profile" element={<Profile handleMenuClick={handleMenuClick} />} />
-          <Route path="/profile-change" element={<ProfileChange handleMenuClick={handleMenuClick} />} />
-          <Route path="/signup" element={<Register />} />
-          <Route path="/signin" element={<Login/>} />
-          <Route path="*" element={<PageNotFound/>} />
+          <Route
+            path="/"
+            element={<Landing />}
+          />
+          <Route
+            path="/movies"
+            element={<Movies handleMenuClick={handleMenuClick} />}
+          />
+          <Route
+            path="/saved-movies"
+            element={<SavedMovies handleMenuClick={handleMenuClick} />}
+          />
+          <Route
+            path="/profile"
+            element={<Profile handleMenuClick={handleMenuClick} />}
+          />
+          <Route
+            path="/profile-change"
+            element={<ProfileChange handleMenuClick={handleMenuClick} />}
+          />
+          <Route
+            path="/signup"
+            element={<Register />}
+          />
+          <Route
+            path="/signin"
+            element={<Login />}
+          />
+          <Route
+            path="*"
+            element={<PageNotFound />}
+          />
         </Routes>
 
         <Menu

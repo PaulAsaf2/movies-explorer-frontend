@@ -7,13 +7,13 @@ import AboutMe from './AboutMe/AboutMe';
 
 function Landing() {
   return (
-    <main>
+    <div>
       <LandingHeader />
       <Hero />
       <AboutProject />
       <Techs />
       <AboutMe />
-    </main>
+    </div>
   )
 }
 

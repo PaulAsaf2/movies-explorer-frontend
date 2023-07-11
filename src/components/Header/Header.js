@@ -13,29 +13,41 @@ function Header({ handleMenuClick }) {
       {matches =>
         matches ? (
           <header className="header">
-            <Link to='/' className='header__logo'>
+            <Link
+              to='/'
+              className='header__logo'>
               <img src={logoC} alt='логотип "С"' />
             </Link>
             <button
               className="header__menuButton"
-              onClick={handleMenuClick}
-            ></button>
+              onClick={handleMenuClick}>
+            </button>
           </header>
         ) : (
           <header className="header">
-            <Link to='/' className='header__logo'>
+            <Link
+              to='/'
+              className='header__logo'>
               <img src={logoC} alt='логотип "С"' />
             </Link>
             <nav className="header__nav">
-              <Link to='/movies' className={moviesStyle}>
+              <Link
+                to='/movies'
+                className={moviesStyle}>
                 Фильмы
               </Link>
-              <Link to='/saved-movies' className={savedStyle}>
+              <Link
+                to='/saved-movies'
+                className={savedStyle}>
                 Сохранённые фильмы
               </Link>
             </nav>
-            <Link to='/profile' className="header__button-container">
-              <button className="header__button" type="button">
+            <Link
+              to='/profile'
+              className="header__button-container">
+              <button
+                className="header__button"
+                type="button">
                 Аккаунт
               </button>
             </Link>

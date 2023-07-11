@@ -12,7 +12,11 @@ function Movies({ handleMenuClick }) {
         <SearchBar />
         <div className="movies__separation-line"></div>
         <MovieGrid />
-        <button className="movies__button" type="button">Ещё</button>
+        <button
+          className="movies__button"
+          type="button">
+          Ещё
+        </button>
       </div>
       <Footer />
     </>
