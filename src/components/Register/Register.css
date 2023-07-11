@@ -30,6 +30,10 @@
   font-size: 14px;
 }
 
+.auth__input_error {
+  border-bottom: 1px solid #d65a3b;
+}
+
 .auth__span {
   color: #EE3465;
   font-size: 10px;
@@ -45,6 +49,13 @@
   margin-top: 135px;
   padding: 14px 0;
   cursor: pointer;
+}
+
+.auth__submit_disabled {
+  cursor: default;
+  pointer-events: none;
+  background-color: rgb(230, 230, 230);
+  color: rgb(163, 163, 163);
 }
 
 .auth__container {

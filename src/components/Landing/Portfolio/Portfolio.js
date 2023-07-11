@@ -5,13 +5,28 @@ function Portfolio() {
     <>
       <h3 className='portfolio__title'>Портфолио</h3>
       <div className='portfolio__container'>
-        <a className='portfolio__link' href="#">Статичный сайт</a>
+        <a
+          href="https://github.com/PaulAsaf2/how-to-learn"
+          target="blank"
+          className='portfolio__link'>
+          Статичный сайт
+        </a>
       </div>
       <div className='portfolio__container portfolio__container_type_outline'>
-        <a className='portfolio__link' href="#">Адаптивный сайт</a>
+        <a
+          href="https://github.com/PaulAsaf2/russian-travel"
+          target="blank"
+          className='portfolio__link'>
+          Адаптивный сайт
+        </a>
       </div>
       <div className='portfolio__container'>
-        <a className='portfolio__link' href="#">Одностраничное приложение</a>
+        <a
+          href="https://github.com/PaulAsaf2/mesto"
+          target="blank"
+          className='portfolio__link'>
+          Одностраничное приложение
+        </a>
       </div>
     </>
   )

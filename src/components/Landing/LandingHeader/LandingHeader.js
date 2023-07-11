@@ -5,9 +5,23 @@ import { Link } from 'react-router-dom';
 function LandingHeader() {
   return (
     <header className='landing-header'>
-      <Link className='landing-header__logo' to='/'><img src={logoC} alt='логотип "С"' /></Link>
-      <a className='landing-header__link' href='#'>Регистрация</a>
-      <button className='landing-header__button' type='button'>Войти</button>
+      <Link
+        to='/'
+        className='landing-header__logo'>
+        <img src={logoC} alt='логотип "С"' />
+      </Link>
+      <Link
+        to='/signup'
+        className='landing-header__link'>
+        Регистрация
+      </Link>
+      <Link to='/signin'>
+        <button
+          className='landing-header__button'
+          type='button'>
+          Войти
+        </button>
+      </Link>
     </header>
   )
 }
