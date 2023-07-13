@@ -23,7 +23,7 @@
 }
 
 .movie__like {
-  background-color: #E4E4E4;
+  background-color: #F9F9F9;
   background-image: url('../../../images/icon-heart-white.svg');
   border: none;
   width: 24px;
@@ -43,7 +43,7 @@
 
 .movie__line {
   height: 1px;
-  background-color: #D1D1D1;
+  background-color: #E8E8E8;
   margin-bottom: 6px;
 }
 
