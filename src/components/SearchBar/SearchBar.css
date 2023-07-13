@@ -45,6 +45,10 @@
   background-position: center center;
 }
 
+.search-bar__button:hover {
+  background-image: url('.../../../../images/play-icon.svg');
+}
+
 .search-bar__separation-line {
   width: 1.2px;
   height: 40px;

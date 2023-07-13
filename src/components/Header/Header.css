@@ -47,6 +47,11 @@
   font-weight: 500;
   line-height: 16px;
   cursor: pointer;
+  transition: .4s ease;
+}
+
+.header__button:hover {
+  outline: 2px solid #688faf;
 }
 
 .header__menuButton {
