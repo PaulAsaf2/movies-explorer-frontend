@@ -1,5 +1,5 @@
 .about-project {
-  margin: 110px 70px;
+  margin: 110px 70px 97px 70px;
 }
 
 .about-project__title {
@@ -59,7 +59,7 @@
 
 @media only screen and (max-width: 768px) {
   .about-project {
-      margin: 90px 50px 75px 50px;
+      margin: 90px 50px 60px 50px;
   }
 
   .about-project__paragraph {
@@ -72,7 +72,7 @@
     row-gap: 23px;
   }
   /* -------------- */
-  .project-time__container {
+  .project-time {
     grid-template-columns: 20% 80%;
     margin-top: 93.5px;
   }
@@ -95,7 +95,7 @@
     margin-top: 42px;
   }
 
-  .project-time__container {
+  .project-time {
     grid-template-columns: 26% 74%;
   }
 }
@@ -124,7 +124,7 @@
 
 
 
-  .project-time__container {
+  .project-time {
     grid-template-columns: 35% 65%;
     margin-top: 60px;
   }

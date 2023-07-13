@@ -16,10 +16,6 @@
   background-size: 30px 30px;
 }
 
-.portfolio__container:last-child {
-  margin-bottom: 110px;
-}
-
 .portfolio__container_type_outline {
   border-top: 1px solid #E8E8E8;
   border-bottom:  1px solid #E8E8E8;
@@ -48,10 +44,6 @@
     font-size: 28px;
     letter-spacing: -1.12px;
   }
-
-  .portfolio__container:last-child {
-    margin-bottom: 70px;
-  }
 }
 
 @media only screen and (max-width: 690px) {
@@ -79,9 +71,5 @@
   .portfolio__container {
     height: 70px;
     background-size: 20px 20px;
-  }
-
-  .portfolio__container:last-child {
-    margin-bottom: 43px;
   }
 }

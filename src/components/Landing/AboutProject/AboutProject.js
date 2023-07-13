@@ -21,7 +21,6 @@ function AboutProject() {
           дедлайн, которые нужно было соблюдать, чтобы успешно защититься.
         </p>
       </div>
-
       <div className='project-time'>
         <div className='project-time__title'>1 неделя</div>
         <div className='project-time__title'>4 недели</div>

@@ -1,10 +1,16 @@
 .about-me {
-  margin: 110px 70px 0 70px;
+  margin: 110px 70px 110px 70px;
 }
 
 .about-me__title {
   font-size: 22px;
   letter-spacing: -0.88px;
+}
+
+.about-me__separation-line {
+  height: 1.05px;
+  background-color: black;
+  margin: 23px 0 3px 0;
 }
 
 .about-me__container {
@@ -57,10 +63,10 @@
 
 @media only screen and (max-width: 768px) {
   .about-me {
-    margin: 92px 50px 0 50px;
+    margin: 92px 50px 70px 50px;
   }
 
-  .about-me__title {
+  .about-me__title-name {
     font-size: 40px;
     line-height: 40px;
     letter-spacing: -1.6px;
@@ -85,7 +91,7 @@
 
 @media only screen and (max-width: 690px) {
   .about-me {
-    margin: 70px 18px 0 18px;
+    margin: 70px 18px 110px 18px;
   }
 
   .about-me_container {
@@ -108,6 +114,10 @@
 }
 
 @media only screen and (max-width: 320px) {
+  .about-me {
+    margin: 70px 18px 43px 18px;
+  }
+  
   .about-me__separation-line {
     height: 1.1px;
     margin-top: 29px;
@@ -115,7 +125,7 @@
     background-color: black;
   }
 
-  .about-me__title {
+  .about-me__title-name {
     font-size: 30px;
     letter-spacing: -1.2px;
     line-height: 40px;
