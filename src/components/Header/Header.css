@@ -70,5 +70,6 @@
 @media only screen and (max-width: 620px) {
   .header {
     padding-left: 4px;
+    margin: 0 10px;
   }
 }
