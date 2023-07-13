@@ -1,0 +1,80 @@
+.header {
+  display: flex;
+  align-items: center;
+  min-height: 74px;
+  margin: 0 70px;
+}
+
+.header__nav {
+  margin-left: 44px;
+}
+
+.header__link {
+  color: black;
+  font-size: 13px;
+  line-height: 18px;
+  text-decoration: none;
+  cursor: pointer;
+  margin-right: 16px;
+  transition: .4s ease;
+}
+
+.header__link:hover {
+  opacity: .7;
+}
+
+.header__link_active {
+  font-weight: 500;
+}
+
+.header__button-container {
+  margin-left: auto;
+}
+
+.header__button {
+  background-image: url('../../images/icon-user.svg');
+  background-repeat: no-repeat;
+  background-position: 16% center;
+  background-color: white;
+  padding-left: 28px;
+  padding-bottom: 3px;
+  border: none;
+  width: 100px;
+  height: 32px;
+  border-radius: 50px;
+  outline: 2px solid #D1D1D1;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16px;
+  cursor: pointer;
+  transition: .4s ease;
+}
+
+.header__button:hover {
+  outline: 2px solid #688faf;
+}
+
+.header__menuButton {
+  height: 44px;
+  width: 44px;
+  cursor: pointer;
+  margin-left: auto; 
+  border: none;
+  background-image: url('../../images/icon-menu.svg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: white;
+}
+
+@media only screen and (max-width: 768px) {
+  .header {
+    margin: 0 30px;
+  }
+}
+
+@media only screen and (max-width: 620px) {
+  .header {
+    padding-left: 4px;
+    margin: 0 10px;
+  }
+}

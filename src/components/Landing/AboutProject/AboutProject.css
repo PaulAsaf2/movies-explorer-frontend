@@ -1,0 +1,141 @@
+.about-project {
+  margin: 110px 70px 97px 70px;
+}
+
+.about-project__title {
+  font-size: 22px;
+  letter-spacing: -0.88px;
+}
+
+.about-project__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 40px;
+  row-gap: 26px;
+  margin-top: 70px;
+}
+
+.about-project__subtitle {
+  font-size: 20px;
+  letter-spacing: -0.8px;
+}
+
+.about-project__paragraph {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.about-project__separation-line {
+  height: 1.1px;
+  margin-top: 25px;
+  background-color: black;
+}
+/* ---------------------------------- */
+.project-time {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  margin-top: 110px;
+}
+.project-time__title {
+  font-size: 14px;
+  text-align: center;
+  background: #F2F2F2;
+  padding: 10px 0;
+}
+
+.project-time__title:first-child {
+  background-color: #2BE080;
+}
+
+.project-time__description {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
+  text-align: center;
+  padding: 14px 0;
+  color: #A0A0A0;
+  text-align: center;
+}
+
+@media only screen and (max-width: 768px) {
+  .about-project {
+      margin: 90px 50px 80px 50px;
+  }
+
+  .about-project__paragraph {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .about-project__container {
+    column-gap: 30px;
+    row-gap: 23px;
+  }
+  /* -------------- */
+  .project-time {
+    grid-template-columns: 20% 80%;
+    margin-top: 93.5px;
+  }
+}
+
+@media only screen and (max-width: 690px) {
+  .about-project__container {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 16px;
+    margin-top: 64px;
+  }
+
+  .item:nth-child(4) {
+    order: 2;
+  }
+
+  .item:nth-child(2) {
+    order: 2;
+    margin-top: 42px;
+  }
+
+  .project-time {
+    grid-template-columns: 26% 74%;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .about-project {
+    margin: 72px 18px 62px 18px;
+  }
+
+  .about-project__title {
+    font-size: 18px;
+    letter-spacing: -0.72px;
+  }
+
+
+
+  .about-project__subtitle {
+    font-size: 18px;
+    letter-spacing: -0.72px;
+  }
+
+  .about-project__paragraph {
+    font-size: 11px;
+    line-height: 16px;
+  }
+
+
+
+  .project-time {
+    grid-template-columns: 35% 65%;
+    margin-top: 60px;
+  }
+
+  .project-time__title {
+    font-size: 11px;
+    padding: 12px 0;
+  }
+
+  .project-time__description {
+    font-size: 11px;
+    padding: 7px 0;
+  }
+}

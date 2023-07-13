@@ -1,0 +1,60 @@
+/* normalize */
+@import url(./vendor/normalize.css);
+/* fonts */
+@import url(./vendor/fonts.css);
+/* root */
+@import url(./components/App.css);
+
+/* landing ------ landing ------ landing ------ landing ------ */
+
+/* header */
+@import url(./components/Landing/LandingHeader/LandingHeader.css);
+/* hero */
+@import url(./components/Landing/Hero/Hero.css);
+/* about project */
+@import url(./components/Landing/AboutProject/AboutProject.css);
+/* techs */
+@import url(./components/Landing/Techs/Techs.css);
+/* about me */
+@import url(./components/Landing/AboutMe/AboutMe.css);
+/* portfolio */
+@import url(./components/Landing/Portfolio/Portfolio.css);
+
+
+/* main ----- main ----- main ----- main ----- main ----- main ----- */
+
+/* header */
+@import url(./components/Header/Header.css);
+
+/* menu */
+@import url(./components/Menu/Menu.css);
+
+/* movies ----- movies ----- movies ----- movies ----- movies ----- */
+@import url(./components/Movies/Movies.css);
+
+/* search bar */
+@import url(./components/SearchBar/SearchBar.css);
+@import url(./components/SearchBar/ToggleFilms/ToggleFilms.css);
+/* movie grid */
+@import url(./components/MovieGrid/MovieGrid.css);
+/* movie card */
+@import url(./components/MovieGrid/MovieCard/MovieCard.css);
+
+/* profile ----- profile ----- profile ----- profile ----- profile -----*/
+@import url(./components/Profile/Profile.css);
+
+/* footer ----- footer ----- footer ----- footer ----- footer ----- */
+@import url(./components/Footer/Footer.css);
+
+/* profile change */
+@import url(./components/ProfileChange/ProfileChange.css);
+
+/* auth ----- auth ----- auth ----- auth ----- auth ----- auth -----*/
+
+/* register */
+@import url(./components/Register/Register.css);
+/* login */
+@import url(./components/Login/Login.css);
+
+/* page not found ----- page not found ----- page not found ----- */
+@import url(./components/PageNotFound/PageNotFound.css);
