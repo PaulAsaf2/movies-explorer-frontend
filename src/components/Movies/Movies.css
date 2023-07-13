@@ -24,6 +24,7 @@
   padding: 10px 0;
   margin: 60px 0 80px 0;
   transition: .4s ease;
+  font-size: 12px;
 }
 
 .movies__button:hover {

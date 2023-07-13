@@ -60,6 +60,11 @@
 @media only screen and (max-width: 768px) {
   .search-bar {
     margin-top: 80px;
+    padding: 0 20px 0 20px;
+  }
+
+  .search-bar__input {
+    width: 79%;
   }
 }
 

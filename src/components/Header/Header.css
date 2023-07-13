@@ -61,9 +61,14 @@
   background-color: white;
 }
 
+@media only screen and (max-width: 768px) {
+  .header {
+    margin: 0 30px;
+  }
+}
+
 @media only screen and (max-width: 620px) {
   .header {
-    grid-column: span 1;
     padding-left: 4px;
   }
 }
