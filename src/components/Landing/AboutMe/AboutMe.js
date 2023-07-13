@@ -5,11 +5,11 @@ import student from '../../../images/pavel.jpg'
 function AboutMe() {
   return (
     <section className='about-me'>
-      <h2 className='aboutProject__title'>Студент</h2>
+      <h2 className='about-me__title'>Студент</h2>
       <div className='about-me__separation-line'></div>
-      <div className='about-me_container'>
-        <div className='grid-item about-me_container-for-text'>
-          <h3 className='about-me__title'>Павел</h3>
+      <div className='about-me__container'>
+        <div className='grid-item about-me__text-container'>
+          <h3 className='about-me__title-name'>Павел</h3>
           <h4 className='about-me__subtitle'>Фронтенд-разработчик, 33 года</h4>
           <p className='about-me__paragraph'>
             Приветствую вас на моём дипломном проекте!<br /> 10 интенсивных месяцев в

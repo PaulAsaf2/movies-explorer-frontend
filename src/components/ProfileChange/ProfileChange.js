@@ -20,7 +20,7 @@ function ProfileChange({ handleMenuClick }) {
   return (
     <div className="profile">
       <Header handleMenuClick={handleMenuClick} />
-      <section className="profile__container">
+      <main className="profile__container">
         <h1
           className="profile__title profile-change__title">
           Привет, {userData.name}
@@ -28,7 +28,6 @@ function ProfileChange({ handleMenuClick }) {
         <form
           name="profile"
           noValidate
-          className="profile-change__form"
         >
           <input
             required
@@ -70,7 +69,7 @@ function ProfileChange({ handleMenuClick }) {
           onClick={() => setExistingEmail(true)}>
           Сохранить
         </button>
-      </section>
+      </main>
     </div>
   )
 }

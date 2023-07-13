@@ -2,7 +2,7 @@ import React from "react"
 
 function Portfolio() {
   return (
-    <>
+    <div className="portfolio">
       <h3 className='portfolio__title'>Портфолио</h3>
       <div className='portfolio__container'>
         <a
@@ -28,7 +28,7 @@ function Portfolio() {
           Одностраничное приложение
         </a>
       </div>
-    </>
+    </div>
   )
 }
 

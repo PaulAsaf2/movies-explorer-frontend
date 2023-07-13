@@ -8,7 +8,7 @@ import Footer from '../Footer/Footer';
 
 function Landing() {
   return (
-    <div>
+    <>
       <LandingHeader />
       <main>
         <Hero />
@@ -17,7 +17,7 @@ function Landing() {
         <AboutMe />
       </main>
       <Footer />
-    </div>
+    </>
   )
 }
 

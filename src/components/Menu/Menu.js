@@ -4,8 +4,8 @@ import { Link, useMatch } from "react-router-dom";
 function Menu({ isOpened, handleMenuClick }) {
   const moviesStyle = `menu__link ${useMatch('/movies') && 'menu__link_active'}`
   const savedStyle = `menu__link ${useMatch('/saved-movies') && 'menu__link_active'}`
-  const menuStyle = `menu ${isOpened && 'menu_opened'}`
-  const menuContainerStyle = `menu_container ${isOpened && 'menu_container_opened'}`
+  const menuStyle = `menu ${isOpened ? 'menu_opened' : ''}`
+  const menuContainerStyle = `menu__container ${isOpened && 'menu__container_opened'}`
 
   return (
     <div className={menuStyle}>

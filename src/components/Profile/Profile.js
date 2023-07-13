@@ -7,7 +7,7 @@ function Profile({ handleMenuClick }) {
   return (
     <div className="profile">
       <Header handleMenuClick={handleMenuClick} />
-      <section className="profile__container">
+      <main className="profile__container">
         <h1 className="profile__title">Привет, {userData.name}</h1>
         <div className="profile__user-container">
           <p className="profile__text">Имя</p>
@@ -28,7 +28,7 @@ function Profile({ handleMenuClick }) {
           className="profile__link">
           Выйти из аккаунта
         </Link>
-      </section>
+      </main>
     </div>
   )
 }

@@ -7,12 +7,12 @@ import Footer from "../Footer/Footer";
 function SavedMovies({ handleMenuClick }) {
   return (
     <>
-      <div className="movies">
-        <Header handleMenuClick={handleMenuClick} />
+      <Header handleMenuClick={handleMenuClick} />
+      <main className="movies">
         <SearchBar />
         <div className="movies__separation-line"></div>
         <MovieGrid />
-      </div>
+      </main>
       <Footer />
     </>
   )
