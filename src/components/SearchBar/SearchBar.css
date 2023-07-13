@@ -1,6 +1,6 @@
 .search-bar {
   grid-column: 1 / span 12;
-  grid-row: 2;
+  grid-row: 1;
   display: grid;
   grid-template-columns: 1fr 1.2px 79px 117px;
   height: 72px;
