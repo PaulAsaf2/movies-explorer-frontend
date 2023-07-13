@@ -81,7 +81,7 @@
 
 @media only screen and (max-width: 768px) {
   .techs {
-    padding-top: 93px;
+    padding-top: 90px;
   }
   
   .techs__title {
@@ -105,7 +105,7 @@
   
   .techs__list {
     margin: 85px 0 90px 0;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(7, 1fr);
   }
 
   .techs__item {
@@ -113,6 +113,12 @@
     letter-spacing: -0.48px;
     width: 84px;
     height: 57px;
+  }
+}
+
+@media only screen and (max-width: 715px) {
+  .techs__list {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 

@@ -94,7 +94,7 @@
     margin: 70px 18px 110px 18px;
   }
 
-  .about-me_container {
+  .about-me__container {
     grid-template-columns: 1fr;
   }
 
