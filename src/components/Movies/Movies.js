@@ -7,8 +7,8 @@ import Footer from "../Footer/Footer";
 function Movies({ handleMenuClick }) {
   return (
     <>
-      <div className="movies">
-        <Header handleMenuClick={handleMenuClick} />
+      <Header handleMenuClick={handleMenuClick} />
+      <main className="movies">
         <SearchBar />
         <div className="movies__separation-line"></div>
         <MovieGrid />
@@ -17,7 +17,7 @@ function Movies({ handleMenuClick }) {
           type="button">
           Ещё
         </button>
-      </div>
+      </main>
       <Footer />
     </>
   )

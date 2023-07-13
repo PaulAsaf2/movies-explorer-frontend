@@ -4,7 +4,7 @@
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   column-gap: 20px;
-  row-gap: 38px;
+  row-gap: 35px;
 }
 
 .movie-grid_saved {

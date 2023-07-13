@@ -10,10 +10,12 @@ function Landing() {
   return (
     <div>
       <LandingHeader />
-      <Hero />
-      <AboutProject />
-      <Techs />
-      <AboutMe />
+      <main>
+        <Hero />
+        <AboutProject />
+        <Techs />
+        <AboutMe />
+      </main>
       <Footer />
     </div>
   )
