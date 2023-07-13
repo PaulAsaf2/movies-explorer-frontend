@@ -1,12 +1,15 @@
-import React from "react";
+import { React } from "react";
 import Media from "react-media";
 import ToggleFilms from "./ToggleFilms/ToggleFilms";
+import useFormAndValidation from "../hooks/useFormAndValidation";
 
 function handleToggle(state) {
   console.log('Toggled:', state);
 }
 
 function SearchBar() {
+  const { values, handleChange } = useFormAndValidation();
+
   return (
     <Media query={{ maxWidth: 620 }}>
       {matches =>
@@ -15,12 +18,20 @@ function SearchBar() {
             <section className="search-bar">
               <form
                 name="search"
+                noValidate
                 className="search-bar__form"
               >
                 <input
+                  required
                   type="search"
+                  id="search"
+                  name="search"
+                  minLength="2"
+                  maxLength="40"
                   placeholder="Фильм"
                   className="search-bar__input"
+                  onInput={handleChange}
+                  value={values.search || ''}
                 />
                 <button
                   className="search-bar__button"
@@ -38,11 +49,22 @@ function SearchBar() {
           </>
         ) : (
           <section className="search-bar">
-            <form className="search-bar__form">
+            <form
+              name="search"
+              noValidate
+              className="search-bar__form"
+            >
               <input
+                required
                 type="search"
+                id="search"
+                name="search"
+                minLength="2"
+                maxLength="40"
                 placeholder="Фильм"
                 className="search-bar__input"
+                onInput={handleChange}
+                value={values.search || ''}
               />
               <button
                 className="search-bar__button"
