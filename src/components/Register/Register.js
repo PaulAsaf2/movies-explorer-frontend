@@ -20,7 +20,9 @@ function Register() {
 
   return (
     <div className="auth">
-      <Link to='/' className='header__logo'>
+      <Link
+        to='/'
+        className='header__logo'>
         <img src={logoC} alt='логотип "С"' />
       </Link>
       <h1 className="auth__title">Добро пожаловать!</h1>
