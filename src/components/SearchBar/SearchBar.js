@@ -1,4 +1,4 @@
-import { React } from "react";
+import { React, useState } from "react";
 import Media from "react-media";
 import ToggleFilms from "./ToggleFilms/ToggleFilms";
 import useFormAndValidation from "../hooks/useFormAndValidation";
@@ -8,7 +8,14 @@ function handleToggle(state) {
 }
 
 function SearchBar() {
-  const { values, handleChange } = useFormAndValidation();
+  const { values, handleChange, errors, isValid } = useFormAndValidation();
+  const [submitButton, setSubmitButton] = useState(false);
+  const errorMessage = 'Нужно ввести ключевое слово'
+  const submitError = `search-bar__button ${(!isValid || !submitButton) && 'search-bar__button_disabled'}`
+
+  function handleSubmitButton(e) {
+    e && setSubmitButton(true)
+  }
 
   return (
     <Media query={{ maxWidth: 620 }}>
@@ -26,15 +33,20 @@ function SearchBar() {
                   type="search"
                   id="search"
                   name="search"
-                  minLength="2"
+                  minLength="1"
                   maxLength="40"
                   placeholder="Фильм"
                   className="search-bar__input"
                   onInput={handleChange}
+                  onChange={handleSubmitButton}
                   value={values.search || ''}
                 />
+                <span
+                  className="search-bar__span">
+                  {!isValid && errorMessage}
+                </span>
                 <button
-                  className="search-bar__button"
+                  className={submitError}
                   type="submit">
                 </button>
               </form>
@@ -59,15 +71,20 @@ function SearchBar() {
                 type="search"
                 id="search"
                 name="search"
-                minLength="2"
+                minLength="1"
                 maxLength="40"
                 placeholder="Фильм"
                 className="search-bar__input"
                 onInput={handleChange}
+                onChange={handleSubmitButton}
                 value={values.search || ''}
               />
+              <span
+                className="search-bar__span">
+                {!isValid && errorMessage}
+              </span>
               <button
-                className="search-bar__button"
+                className={submitError}
                 type="submit">
               </button>
             </form>

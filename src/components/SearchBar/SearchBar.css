@@ -30,6 +30,12 @@
   border-radius: 9px;
 }
 
+.search-bar__span {
+  color: #EE3465;
+  font-size: 10px;
+  padding-right: 8px;
+}
+
 .search-bar__input:hover {
   outline: 2px solid green;
 }
@@ -45,6 +51,12 @@
   background-repeat: no-repeat;
   background-size: 22px 22px;
   background-position: center center;
+}
+
+.search-bar__button_disabled {
+  cursor: default;
+  pointer-events: none;
+  background-color: #9c9c9c;
 }
 
 .search-bar__button:hover {
