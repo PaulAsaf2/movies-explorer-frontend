@@ -1,23 +1,24 @@
-import React from "react";
+import { React, useContext } from "react";
 import { useMatch } from "react-router-dom";
 import MovieCard from "./MovieCard/MovieCard";
-import filmsArray from "./movies";
-import savedMoviesArray from './savedMovies'
+import { MoviesContext } from "../../contexts/moviesContext";
 
 function MovieGrid() {
-  const arrayOfMovies = useMatch('/movies') ? filmsArray : savedMoviesArray
+  const movies = useContext(MoviesContext)
   const movieGridStyle = `movie-grid ${useMatch('/saved-movies') && 'movie-grid_saved'}`
-  
+  console.log(movies);
+
   return (
     <main className={movieGridStyle}>
-      {arrayOfMovies.map((item) => {
+      {movies.map((item) => {
         return (
           <MovieCard
-            key={item.movieId}
-            image={item.image}
+            key={item.id}
+            image={`https://api.nomoreparties.co/${item.image.url}`}
             nameRU={item.nameRU}
             description={item.description}
             duration={item.duration}
+            trailerLink={item.trailerLink}
           />
         )
       })}

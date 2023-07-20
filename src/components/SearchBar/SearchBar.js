@@ -8,13 +8,18 @@ function handleToggle(state) {
 }
 
 function SearchBar() {
-  const { values, handleChange, errors, isValid } = useFormAndValidation();
+  const { values, handleChange, isValid } = useFormAndValidation();
   const [submitButton, setSubmitButton] = useState(false);
   const errorMessage = 'Нужно ввести ключевое слово'
   const submitError = `search-bar__button ${(!isValid || !submitButton) && 'search-bar__button_disabled'}`
 
-  function handleSubmitButton(e) {
-    e && setSubmitButton(true)
+  function handleSubmitButton(event) {
+    event && setSubmitButton(true)
+    handleSearch(event)
+  }
+
+  function handleSearch(event) {
+    console.log(event.target.value);
   }
 
   return (
@@ -47,13 +52,14 @@ function SearchBar() {
                 </span>
                 <button
                   className={submitError}
-                  type="submit">
+                  type="submit"
+                  onClick={handleSearch}>
                 </button>
               </form>
             </section >
             <div className="search-bar__container">
               <ToggleFilms
-                toggled={true}
+                toggled={false}
                 onClick={handleToggle}
               />
               <p className="search-bar__text">Короткометражки</p>
@@ -85,12 +91,13 @@ function SearchBar() {
               </span>
               <button
                 className={submitError}
-                type="submit">
+                type="submit"
+                onClick={handleSearch}>
               </button>
             </form>
             <div className="search-bar__separation-line"></div>
             <ToggleFilms
-              toggled={true}
+              toggled={false}
               onClick={handleToggle}
             />
             <p className="search-bar__text">Короткометражки</p>
