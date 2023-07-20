@@ -4,14 +4,17 @@ import SearchBar from '../SearchBar/SearchBar'
 import MovieGrid from '../MovieGrid/MovieGrid'
 import Footer from "../Footer/Footer";
 
-function Movies({ handleMenuClick }) {
+function Movies({ handleMenuClick, filterText, onFilterTextChange, onGetMovies }) {
   return (
     <>
       <Header handleMenuClick={handleMenuClick} />
       <main className="movies">
-        <SearchBar />
+        <SearchBar
+          filterText={filterText}
+          onFilterTextChange={onFilterTextChange}
+          onGetMovies={onGetMovies} />
         <div className="movies__separation-line"></div>
-        <MovieGrid />
+        <MovieGrid filterText={filterText} />
         <button
           className="movies__button"
           type="button">

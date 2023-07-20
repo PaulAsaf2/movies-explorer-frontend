@@ -16,6 +16,7 @@ import moviesApi from '../utils/MoviesApi';
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [movies, setMovies] = useState([])
+  const [filterText, setFilterText] = useState('')
 
   function handleMenuClick() {
     setMenuOpen(!menuOpen)
@@ -26,9 +27,6 @@ function App() {
       .then(movies => setMovies(movies))
   }
 
-  useEffect(() => {
-    getMovies()
-  }, [])
   // Проверяйте ширину устройства при монтировании компонента результатов.
 
   return (
@@ -44,7 +42,9 @@ function App() {
               element={
                 <Movies
                   handleMenuClick={handleMenuClick}
-                  movies={movies} />} />
+                  filterText={filterText}
+                  onFilterTextChange={setFilterText}
+                  onGetMovies={getMovies} />} />
             <Route
               path="/saved-movies"
               element={<SavedMovies handleMenuClick={handleMenuClick} />} />

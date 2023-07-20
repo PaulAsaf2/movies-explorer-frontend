@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React/*, useState*/ } from "react";
 import Media from "react-media";
 import ToggleFilms from "./ToggleFilms/ToggleFilms";
 import useFormAndValidation from "../hooks/useFormAndValidation";
@@ -7,19 +7,21 @@ function handleToggle(state) {
   console.log('Toggled:', state);
 }
 
-function SearchBar() {
-  const { values, handleChange, isValid } = useFormAndValidation();
-  const [submitButton, setSubmitButton] = useState(false);
+function SearchBar({ filterText, onFilterTextChange, onGetMovies }) {
+  const { /*values,*/ handleChange, isValid } = useFormAndValidation();
+  // const [submitButton, setSubmitButton] = useState(false);
   const errorMessage = 'Нужно ввести ключевое слово'
-  const submitError = `search-bar__button ${(!isValid || !submitButton) && 'search-bar__button_disabled'}`
+  const submitError = `search-bar__button`
+  // const submitError = `search-bar__button ${(!isValid || !submitButton) && 'search-bar__button_disabled'}`
 
-  function handleSubmitButton(event) {
-    event && setSubmitButton(true)
-    handleSearch(event)
-  }
+  // function handleSubmitButton(event) {
+  //   event && setSubmitButton(true)
+  //   handleSearch(event)
+  // }
 
-  function handleSearch(event) {
-    console.log(event.target.value);
+  function handleSearch(e) {
+    e.preventDefault()
+    onGetMovies()
   }
 
   return (
@@ -30,9 +32,9 @@ function SearchBar() {
             <section className="search-bar">
               <form
                 name="search"
+                onSubmit={handleSearch}
                 noValidate
-                className="search-bar__form"
-              >
+                className="search-bar__form" >
                 <input
                   required
                   type="search"
@@ -43,25 +45,22 @@ function SearchBar() {
                   placeholder="Фильм"
                   className="search-bar__input"
                   onInput={handleChange}
-                  onChange={handleSubmitButton}
-                  value={values.search || ''}
-                />
+                  onChange={(e) => onFilterTextChange(e.target.value)}
+                  value={filterText || ''} />
                 <span
                   className="search-bar__span">
                   {!isValid && errorMessage}
                 </span>
                 <button
                   className={submitError}
-                  type="submit"
-                  onClick={handleSearch}>
+                  type="submit" >
                 </button>
               </form>
             </section >
             <div className="search-bar__container">
               <ToggleFilms
                 toggled={false}
-                onClick={handleToggle}
-              />
+                onClick={handleToggle} />
               <p className="search-bar__text">Короткометражки</p>
             </div>
           </>
@@ -69,9 +68,9 @@ function SearchBar() {
           <section className="search-bar">
             <form
               name="search"
+              onSubmit={handleSearch}
               noValidate
-              className="search-bar__form"
-            >
+              className="search-bar__form" >
               <input
                 required
                 type="search"
@@ -82,24 +81,21 @@ function SearchBar() {
                 placeholder="Фильм"
                 className="search-bar__input"
                 onInput={handleChange}
-                onChange={handleSubmitButton}
-                value={values.search || ''}
-              />
+                onChange={(e) => onFilterTextChange(e.target.value)}
+                value={filterText} />
               <span
                 className="search-bar__span">
                 {!isValid && errorMessage}
               </span>
               <button
                 className={submitError}
-                type="submit"
-                onClick={handleSearch}>
+                type="submit" >
               </button>
             </form>
             <div className="search-bar__separation-line"></div>
             <ToggleFilms
               toggled={false}
-              onClick={handleToggle}
-            />
+              onClick={handleToggle} />
             <p className="search-bar__text">Короткометражки</p>
           </section >
         )
