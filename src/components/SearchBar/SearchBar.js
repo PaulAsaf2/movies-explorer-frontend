@@ -1,107 +1,68 @@
-import { React/*, useState*/ } from "react";
-import Media from "react-media";
-import ToggleFilms from "./ToggleFilms/ToggleFilms";
-import useFormAndValidation from "../hooks/useFormAndValidation";
+import { React, useState, useEffect } from "react";
+// import Media from "react-media";
 
-function handleToggle(state) {
-  console.log('Toggled:', state);
-}
+function SearchBar({ onGetMovies }) {
+  const [filterText, setFilterText] = useState('')
+  const [isShortFilm, setIsShortFilm] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('')
 
-function SearchBar({ filterText, onFilterTextChange, onGetMovies }) {
-  const { /*values,*/ handleChange, isValid } = useFormAndValidation();
-  // const [submitButton, setSubmitButton] = useState(false);
-  const errorMessage = 'Нужно ввести ключевое слово'
-  const submitError = `search-bar__button`
-  // const submitError = `search-bar__button ${(!isValid || !submitButton) && 'search-bar__button_disabled'}`
+  useEffect(() => {
+    const savedData = localStorage.getItem('movieData')
+    if (savedData) {
+      const { valueOfInput, shortFilm } = JSON.parse(savedData)
+      setFilterText(valueOfInput)
+      setIsShortFilm(shortFilm)
+    }
+  }, [])
 
-  // function handleSubmitButton(event) {
-  //   event && setSubmitButton(true)
-  //   handleSearch(event)
-  // }
-
-  function handleSearch(e) {
-    e.preventDefault()
-    onGetMovies()
+  function handleSubmitForm(event) {
+    event.preventDefault()
+    if (!filterText) {
+      setErrorMessage('Нужно ввести ключевое слово')
+      return
+    }
+    setErrorMessage('')
+    onGetMovies(filterText, isShortFilm)
   }
 
   return (
-    <Media query={{ maxWidth: 620 }}>
-      {matches =>
-        matches ? (
-          <>
-            <section className="search-bar">
-              <form
-                name="search"
-                onSubmit={handleSearch}
-                noValidate
-                className="search-bar__form" >
-                <input
-                  required
-                  type="search"
-                  id="search"
-                  name="search"
-                  minLength="1"
-                  maxLength="40"
-                  placeholder="Фильм"
-                  className="search-bar__input"
-                  onInput={handleChange}
-                  onChange={(e) => onFilterTextChange(e.target.value)}
-                  value={filterText || ''} />
-                <span
-                  className="search-bar__span">
-                  {!isValid && errorMessage}
-                </span>
-                <button
-                  className={submitError}
-                  type="submit" >
-                </button>
-              </form>
-            </section >
-            <div className="search-bar__container">
-              <ToggleFilms
-                toggled={false}
-                onClick={handleToggle} />
-              <p className="search-bar__text">Короткометражки</p>
-            </div>
-          </>
-        ) : (
-          <section className="search-bar">
-            <form
-              name="search"
-              onSubmit={handleSearch}
-              noValidate
-              className="search-bar__form" >
-              <input
-                required
-                type="search"
-                id="search"
-                name="search"
-                minLength="1"
-                maxLength="40"
-                placeholder="Фильм"
-                className="search-bar__input"
-                onInput={handleChange}
-                onChange={(e) => onFilterTextChange(e.target.value)}
-                value={filterText} />
-              <span
-                className="search-bar__span">
-                {!isValid && errorMessage}
-              </span>
-              <button
-                className={submitError}
-                type="submit" >
-              </button>
-            </form>
-            <div className="search-bar__separation-line"></div>
-            <ToggleFilms
-              toggled={false}
-              onClick={handleToggle} />
-            <p className="search-bar__text">Короткометражки</p>
-          </section >
-        )
-      }
-    </Media >
-
+    <section className="search-bar">
+      <form
+        name="search"
+        onSubmit={handleSubmitForm}
+        noValidate
+        className="search-bar__form" >
+        <input
+          required
+          type="search"
+          id="search"
+          name="search"
+          minLength="1"
+          maxLength="40"
+          placeholder="Фильм"
+          className="search-bar__input"
+          onChange={(e) => setFilterText(e.target.value)}
+          value={filterText || ''} />
+        <span
+          className="search-bar__span">
+          {errorMessage}
+        </span>
+        <button
+          className='search-bar__button'
+          type="submit" >
+        </button>
+      </form>
+      <div className="search-bar__separation-line"></div>
+      <label className="toggle">
+        <input
+          className="toggle__input"
+          type="checkbox"
+          checked={isShortFilm}
+          onChange={() => setIsShortFilm(!isShortFilm)} />
+        <span className="toggle__span" />
+      </label>
+      <p className="search-bar__text">Короткометражки</p>
+    </section >
   )
 }
 

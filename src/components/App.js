@@ -16,18 +16,44 @@ import moviesApi from '../utils/MoviesApi';
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [movies, setMovies] = useState([])
-  const [filterText, setFilterText] = useState('')
+
 
   function handleMenuClick() {
     setMenuOpen(!menuOpen)
   }
 
-  function getMovies() {
+  function getMovies(valueOfInput, shortFilm) {
+    const moviesFromSearch = []
+
     moviesApi.getFilms()
-      .then(movies => setMovies(movies))
+      .then((movies) => {
+        movies.forEach((item) => {
+          if (
+            item.nameRU.toLowerCase()
+              .indexOf(valueOfInput.toLowerCase()) === -1) {
+            return
+          }
+          if (shortFilm && item.duration >= 40) {
+            return
+          }
+          moviesFromSearch.push(item)
+        })
+        return moviesFromSearch
+      })
+      .then((filteredMovies) => {
+        setMovies(filteredMovies)
+        const dataToSave = { filteredMovies, valueOfInput, shortFilm }
+        localStorage.setItem('movieData', JSON.stringify(dataToSave))
+      })
   }
 
-  // Проверяйте ширину устройства при монтировании компонента результатов.
+  useEffect(() => {
+    const savedData = localStorage.getItem('movieData')
+    if (savedData) {
+      const { filteredMovies } = JSON.parse(savedData)
+      setMovies(filteredMovies)
+    }
+  }, [])
 
   return (
     <>
@@ -42,9 +68,9 @@ function App() {
               element={
                 <Movies
                   handleMenuClick={handleMenuClick}
-                  filterText={filterText}
-                  onFilterTextChange={setFilterText}
-                  onGetMovies={getMovies} />} />
+                  onGetMovies={getMovies}
+                />
+              } />
             <Route
               path="/saved-movies"
               element={<SavedMovies handleMenuClick={handleMenuClick} />} />

@@ -3,20 +3,14 @@ import { useMatch } from "react-router-dom";
 import MovieCard from "./MovieCard/MovieCard";
 import { MoviesContext } from "../../contexts/moviesContext";
 
-function MovieGrid({ filterText }) {
+function MovieGrid() {
   const movies = useContext(MoviesContext)
-  const movieGridStyle = `movie-grid ${useMatch('/saved-movies') && 'movie-grid_saved'}`
   console.log(movies);
+  const movieGridStyle = `movie-grid ${useMatch('/saved-movies') && 'movie-grid_saved'}`
 
   return (
     <main className={movieGridStyle}>
       {movies.map((item) => {
-        if (
-          item.nameRU
-            .toLowerCase()
-            .indexOf(filterText.toLowerCase()) === -1) {
-          return
-        }
         return (
           <MovieCard
             key={item.id}
