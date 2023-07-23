@@ -4,6 +4,9 @@ function MovieCard({ image, nameRU, description, duration, trailerLink }) {
   const [isLiked, setIsLiked] = useState(false)
   const likeStyle = `movie__like ${isLiked && 'movie__liked'}`
 
+  const hours = Math.floor(duration / 60)
+  const minutes = duration % 60
+
   return (
     <article className="movie">
       <a href={trailerLink} target="blank">
@@ -20,7 +23,9 @@ function MovieCard({ image, nameRU, description, duration, trailerLink }) {
         ></button>
       </div>
       <div className="movie__line"></div>
-      <p className="movie__duration">{duration} мин</p>
+      <p className="movie__duration">
+        {hours > 0 ? `${hours}ч` : ''} {minutes}мин
+      </p>
     </article>
   )
 }

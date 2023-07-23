@@ -5,6 +5,18 @@
   margin: 0 70px;
 }
 
+.movies__not-found {
+  text-align: center;
+  grid-column: 1 / span 12;
+  grid-row: 3;
+}
+
+.movies__preloader {
+  grid-column: 1 / span 12;
+  grid-row: 3;
+  margin: auto;
+}
+
 .movies__separation-line {
   height: 1.1px;
   background-color: #E8E8E8;

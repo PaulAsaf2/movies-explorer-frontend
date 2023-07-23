@@ -16,7 +16,13 @@ import moviesApi from '../utils/MoviesApi';
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [movies, setMovies] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
+  const [movieAttentionSpan, setMovieAttentionSpan] = useState('')
 
+  const attentionMovie = {
+    error: 'Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз',
+    notFound: 'Ничего не найдено'
+  }
 
   function handleMenuClick() {
     setMenuOpen(!menuOpen)
@@ -24,6 +30,7 @@ function App() {
 
   function getMovies(valueOfInput, shortFilm) {
     const moviesFromSearch = []
+    setIsLoading(true)
 
     moviesApi.getFilms()
       .then((movies) => {
@@ -44,7 +51,12 @@ function App() {
         setMovies(filteredMovies)
         const dataToSave = { filteredMovies, valueOfInput, shortFilm }
         localStorage.setItem('movieData', JSON.stringify(dataToSave))
+        setMovieAttentionSpan(attentionMovie.notFound)
       })
+      .catch(() => {
+        setMovieAttentionSpan(attentionMovie.error)
+      })
+      .finally(() => setIsLoading(false))
   }
 
   useEffect(() => {
@@ -69,6 +81,8 @@ function App() {
                 <Movies
                   handleMenuClick={handleMenuClick}
                   onGetMovies={getMovies}
+                  isLoading={isLoading}
+                  isMovieAttentionSpan={movieAttentionSpan}
                 />
               } />
             <Route

@@ -14,7 +14,7 @@ function SearchBar({ onGetMovies }) {
       setIsShortFilm(shortFilm)
     }
   }, [])
-
+  
   function handleSubmitForm(event) {
     event.preventDefault()
     if (!filterText) {
