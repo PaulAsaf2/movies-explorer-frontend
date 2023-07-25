@@ -3,14 +3,13 @@ import { useMatch } from "react-router-dom";
 import MovieCard from "./MovieCard/MovieCard";
 import { MoviesContext } from "../../contexts/moviesContext";
 
-function MovieGrid() {
+function MovieGrid({ visibleItems, loadMore }) {
   const movies = useContext(MoviesContext)
-  console.log(movies);
   const movieGridStyle = `movie-grid ${useMatch('/saved-movies') && 'movie-grid_saved'}`
 
   return (
     <main className={movieGridStyle}>
-      {movies.map((item) => {
+      {movies.slice(0, visibleItems).map((item) => {
         return (
           <MovieCard
             key={item.id}
