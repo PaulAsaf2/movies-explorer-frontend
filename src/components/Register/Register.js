@@ -43,7 +43,7 @@ function Register() {
           name="name"
           minLength="2"
           maxLength="40"
-          placeholder="Виталий"
+          placeholder="Имя"
           className={nameError}
           onInput={handleChange}
           onChange={handleSubmitButton}
