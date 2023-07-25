@@ -9,7 +9,7 @@ import preloader from '../../images/preloader.gif'
 function Movies({ handleMenuClick, onGetMovies, isLoading, isMovieAttentionSpan }) {
   const [visibleItems, setVisibleItems] = useState(getItemsPerPage(window.innerWidth))
   const movies = useContext(MoviesContext)
-
+  
   useEffect(() => {
     const handleResize = () => {
       setVisibleItems(getItemsPerPage(window.innerWidth))
