@@ -6,7 +6,7 @@ import Footer from "../Footer/Footer";
 import { MoviesContext } from "../../contexts/moviesContext";
 import preloader from '../../images/preloader.gif'
 
-function Movies({ handleMenuClick, onGetMovies, isLoading, isMovieAttentionSpan }) {
+function Movies({ handleMenuClick, onGetMovies, isLoading, isMovieAttentionSpan, setMovieAttentionSpan }) {
   const [visibleItems, setVisibleItems] = useState(getItemsPerPage(window.innerWidth))
   const movies = useContext(MoviesContext)
   
@@ -16,6 +16,7 @@ function Movies({ handleMenuClick, onGetMovies, isLoading, isMovieAttentionSpan 
     }
 
     window.addEventListener('resize', handleResize)
+    setMovieAttentionSpan('')
 
     return () => {
       window.removeEventListener('resize', handleResize)

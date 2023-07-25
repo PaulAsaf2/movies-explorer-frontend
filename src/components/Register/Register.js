@@ -3,19 +3,23 @@ import { Link } from "react-router-dom";
 import logoC from '../../images/logo-c.svg';
 import useFormAndValidation from "../hooks/useFormAndValidation";
 
-function Register() {
+function Register({ onRegister, attentionMessage, enter }) {
   const { values, handleChange, errors, isValid } = useFormAndValidation();
   const [submitButton, setSubmitButton] = useState(false);
-  const [existingEmail, setExistingEmail] = useState(false);
 
   const nameError = `auth__input ${errors.name && 'auth__input_error'}`
   const emailError = `auth__input ${errors.email && 'auth__input_error'}`
   const passError = `auth__input ${errors.password && 'auth__input_error'}`
   const submitError = `auth__submit ${(!isValid || !submitButton) && 'auth__submit_disabled'}`
-  const existingEmailError = 'Пользователь с таким e-mail уже существует'
 
   function handleSubmitButton(e) {
     e && setSubmitButton(true)
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault()
+    const { name, email, password } = values
+    onRegister(name, email, password)
   }
 
   return (
@@ -29,6 +33,7 @@ function Register() {
       <form
         name="register"
         noValidate
+        onSubmit={handleSubmit}
         className="auth__form"
       >
         <label
@@ -72,7 +77,6 @@ function Register() {
         <span
           className="auth__span">
           {!isValid && errors.email}
-          {existingEmail && existingEmailError}
         </span>
         <label
           className="auth__label"
@@ -97,10 +101,13 @@ function Register() {
           {!isValid && errors.password}
         </span>
       </form>
+      <p className="auth__error">
+        {enter && attentionMessage}
+      </p>
       <button
         className={submitError}
         type="submit"
-        onClick={() => setExistingEmail(true)}>
+        onClick={handleSubmit}>
         Зарегистрироваться
       </button>
       <div className="auth__container">

@@ -32,6 +32,12 @@
   font-size: 11px;
 }
 
+.profile__succes {
+  text-align: center;
+  color: green;
+  /* margin-top: 100px; */
+}
+
 .profile__link {
   font-size: 13px;
   text-decoration: none;

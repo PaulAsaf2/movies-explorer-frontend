@@ -1,20 +1,24 @@
-import { React, useState } from "react";
+import { React, useState, useContext } from "react";
 import Header from '../Header/Header'
-import userData from '../../utils/temporalData';
 import useFormAndValidation from "../hooks/useFormAndValidation";
+import { CurrentUser } from "../../contexts/moviesContext";
 
-function ProfileChange({ handleMenuClick }) {
+function ProfileChange({ handleMenuClick, onUpdateUser }) {
   const { values, handleChange, errors, isValid } = useFormAndValidation();
   const [submitButton, setSubmitButton] = useState(false);
-  const [existingEmail, setExistingEmail] = useState(false);
+  const user = useContext(CurrentUser)
 
   const nameError = `profile-change__input ${errors.name && 'auth__input_error'}`
   const emailError = `profile-change__input ${errors.email && 'auth__input_error'}`
   const submitError = `profile-change__submit ${(!isValid || !submitButton) && 'auth__submit_disabled'}`
-  const existingEmailError = 'Пользователь с таким e-mail уже существует'
 
   function handleSubmitButton(e) {
     e && setSubmitButton(true)
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault()
+    onUpdateUser(values)
   }
 
   return (
@@ -23,12 +27,12 @@ function ProfileChange({ handleMenuClick }) {
       <main className="profile__container">
         <h1
           className="profile__title profile-change__title">
-          Привет, {userData.name}
+          Привет, {user.name}
         </h1>
         <form
           name="profile"
           noValidate
-        >
+          onSubmit={handleSubmit}>
           <input
             required
             type="text"
@@ -39,8 +43,7 @@ function ProfileChange({ handleMenuClick }) {
             className={nameError}
             onInput={handleChange}
             onChange={handleSubmitButton}
-            value={values.name || ''}
-          />
+            value={values.name || ''} />
           <span
             className="auth__span">
             {!isValid && errors.name}
@@ -55,18 +58,16 @@ function ProfileChange({ handleMenuClick }) {
             className={emailError}
             onInput={handleChange}
             onChange={handleSubmitButton}
-            value={values.email || ''}
-          />
+            value={values.email || ''} />
           <span
             className="auth__span">
             {!isValid && errors.email}
-            {existingEmail && existingEmailError}
           </span>
         </form>
         <button
           className={submitError}
           type="submit"
-          onClick={() => setExistingEmail(true)}>
+          onClick={handleSubmit}>
           Сохранить
         </button>
       </main>

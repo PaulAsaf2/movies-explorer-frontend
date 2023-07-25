@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import logoC from '../../images/logo-c.svg';
 import useFormAndValidation from "../hooks/useFormAndValidation";
 
-function Login() {
+function Login({ onLogin, attentionMessage, enter }) {
   const { values, handleChange, errors, isValid } = useFormAndValidation();
   const [submitButton, setSubmitButton] = useState(false);
   const [incorrectDataTrue, setIncorrectDataTrue] = useState(false);
@@ -15,6 +15,12 @@ function Login() {
 
   function handleSubmitButton(e) {
     e && setSubmitButton(true)
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault()
+    const { email, password } = values
+    onLogin(email, password)
   }
 
   return (
@@ -29,7 +35,7 @@ function Login() {
         name="login"
         noValidate
         className="auth__form"
-      >
+        onSubmit={handleSubmit} >
         <label
           className="auth__label"
           htmlFor="email">
@@ -44,8 +50,7 @@ function Login() {
           className={emailError}
           onInput={handleChange}
           onChange={handleSubmitButton}
-          value={values.email || ''}
-        />
+          value={values.email || ''} />
         <span
           className="auth__span">
           {!isValid && errors.email}
@@ -67,18 +72,20 @@ function Login() {
           className={passError}
           onInput={handleChange}
           onChange={handleSubmitButton}
-          value={values.password || ''}
-        />
+          value={values.password || ''} />
         <span
           className="auth__span">
           {!isValid && errors.password}
           {incorrectDataTrue && incorrectData}
         </span>
       </form>
+      <p className="auth__error">
+        {enter && attentionMessage}
+      </p>
       <button
-        className={submitError}
         type="submit"
-        onClick={() => setIncorrectDataTrue(true)}>
+        onClick={handleSubmit}
+        className={submitError}>
         Войти
       </button>
       <div className="auth__container">

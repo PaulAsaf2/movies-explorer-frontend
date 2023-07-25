@@ -43,6 +43,11 @@
   font-size: 10px;
 }
 
+.auth__error {
+  color: #EE3465;
+  text-align: center;
+}
+
 .auth__submit {
   border: none;
   border-radius: 3px;

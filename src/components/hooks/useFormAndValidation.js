@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export function useFormAndValidation() {
+function useFormAndValidation() {
   const [values, setValues] = useState({});
   const [errors, setErrors] = useState({});
   const [isValid, setIsValid] = useState(true);
@@ -19,7 +19,6 @@ export function useFormAndValidation() {
         setIsValid(false)
       }
     }
-
   };
 
   return {
