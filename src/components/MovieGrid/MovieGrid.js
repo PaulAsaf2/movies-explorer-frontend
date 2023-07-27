@@ -1,6 +1,6 @@
 import { React, useContext } from "react";
 import { useMatch } from "react-router-dom";
-import MovieCard from "./MovieCard/MovieCard";
+import MovieCard from "../MovieCard/MovieCard";
 import { MoviesContext } from "../../contexts/moviesContext";
 
 function MovieGrid({ visibleItems, loadMore }) {
