@@ -49,7 +49,7 @@ function App() {
 
   // автоматический вход
   useEffect(() => {
-    const logged = localStorage.getItem('LoginStatus');
+    const logged = localStorage.getItem('loginStatus');
     if (logged) {
       getMainData();
       setLoggedIn(true);

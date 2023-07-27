@@ -25,7 +25,7 @@ export function authorize(email, password) {
   })
     .then(checkResponse)
     .then((data) => {
-      localStorage.setItem('LoginStatus', data.logged);
+      localStorage.setItem('loginStatus', data.logged);
       return data;
     })
 }
