@@ -179,8 +179,17 @@ function App() {
     }
   }, [])
 
-  // сохранение фильма
+  // обработка лайка
   function handleLike(movie, imageLink) {
+    const checkMovies = savedMovies.find((item) => {
+      return item.id === movie.id
+    })
+
+    if (checkMovies) {
+      handleDeleteMovie(checkMovies._id)
+      return
+    }
+
     const newMovie = {
       ...movie,
       image: imageLink
