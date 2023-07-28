@@ -1,17 +1,38 @@
-import React from "react";
+import {React, useEffect} from "react";
 import Header from '../Header/Header'
-import SearchBar from '../SearchBar/SearchBar'
-import MovieGrid from '../MovieGrid/MovieGrid'
+import SavedSearchBar from "../SavedSearchBar/SavedSearchBar";
+import SavedMovieGrid from "../SavedMovieGrid/SavedMovieGrid";
 import Footer from "../Footer/Footer";
+// import { MoviesContext } from "../../contexts/moviesContext";
+import preloader from '../../images/preloader.gif'
 
-function SavedMovies({ handleMenuClick }) {
+function SavedMovies({ 
+  handleMenuClick,
+  isLoading,
+  isMovieAttentionSpan,
+  setMovieAttentionSpan }) {
+  // const movies = useContext(MoviesContext)
+  const movies = []
+
+  useEffect(() => {
+    setMovieAttentionSpan('')
+  }, [])
+
   return (
     <>
       <Header handleMenuClick={handleMenuClick} />
       <main className="movies">
-        <SearchBar />
+        <SavedSearchBar />
         <div className="movies__separation-line"></div>
-        <MovieGrid />
+        {isLoading
+          ? (<img
+            src={preloader}
+            alt='прелоудер'
+            className="movies__preloader" />)
+          : movies.length < 1
+            ? (<h1 className="movies__not-found">{isMovieAttentionSpan}</h1>)
+            : <SavedMovieGrid />
+        }
       </main>
       <Footer />
     </>

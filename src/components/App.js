@@ -26,6 +26,7 @@ function App() {
   const [movieAttentionSpan, setMovieAttentionSpan] = useState('')
   // аутентификация
   const [loggedIn, setLoggedIn] = useState(false)
+  const [tokenCheck, setTokenCheck] = useState(false)
   const [attention, setAttention] = useState('')
   const [enter, setEnter] = useState(false)
   const [currentUser, setCurrentUser] = useState({});
@@ -51,9 +52,12 @@ function App() {
   useEffect(() => {
     const logged = localStorage.getItem('loginStatus');
     if (logged) {
-      getMainData();
       setLoggedIn(true);
-      navigate('/movies', { replace: true })
+      setTokenCheck(true);
+      getMainData();
+    } else {
+      setTokenCheck(true);
+      setLoggedIn(false);
     }
   }, [])
 
@@ -113,7 +117,7 @@ function App() {
 
   // выход из уч. записи
   function signOut() {
-    localStorage.removeItem('LoginStatus');
+    localStorage.removeItem('loginStatus');
     localStorage.removeItem('movieData');
     setLoggedIn(false);
     setMovies([])
@@ -171,73 +175,78 @@ function App() {
   }, [])
 
   return (
-    <>
-      <MoviesContext.Provider value={movies}>
-        <CurrentUser.Provider value={currentUser}>
-          <Routes>
-            <Route
-              path="/"
-              element={<Landing />} />
-            <Route
-              path="/movies"
-              element={
-                <ProtectedRoute
-                  element={Movies}
-                  handleMenuClick={handleMenuClick}
-                  onGetMovies={getMovies}
-                  isLoading={isLoading}
-                  isMovieAttentionSpan={movieAttentionSpan}
-                  setMovieAttentionSpan={setMovieAttentionSpan}
-                  loggedIn={loggedIn} />} />
-            <Route
-              path="/saved-movies"
-              element={
-                <ProtectedRoute
-                  element={SavedMovies}
-                  handleMenuClick={handleMenuClick}
-                  loggedIn={loggedIn} />} />
-            <Route
-              path="/profile"
-              element={
-                <ProtectedRoute
-                  element={Profile}
-                  handleMenuClick={handleMenuClick}
-                  loggedIn={loggedIn}
-                  enter={enter}
-                  attentionMessage={attention}
-                  onSignout={signOut} />} />
-            <Route
-              path="/profile-change"
-              element={
-                <ProtectedRoute
-                  element={ProfileChange}
-                  handleMenuClick={handleMenuClick}
-                  loggedIn={loggedIn}
-                  onUpdateUser={handleUpdateUser} />} />
-            <Route
-              path="/signup"
-              element={
-                <Register
-                  onRegister={handleRegister}
-                  attentionMessage={attention}
-                  enter={enter} />} />
-            <Route
-              path="/signin"
-              element={
-                <Login
-                  onLogin={handleLogin}
-                  attentionMessage={attention}
-                  enter={enter} />} />
-            <Route
-              path="*"
-              element={<PageNotFound />} />
-          </Routes>
+    <> {
+      tokenCheck && (
+        <MoviesContext.Provider value={movies}>
+          <CurrentUser.Provider value={currentUser}>
+            <Routes>
+              <Route
+                path="/"
+                element={<Landing />} />
+              <Route
+                path="/movies"
+                element={
+                  <ProtectedRoute
+                    element={Movies}
+                    handleMenuClick={handleMenuClick}
+                    onGetMovies={getMovies}
+                    isLoading={isLoading}
+                    isMovieAttentionSpan={movieAttentionSpan}
+                    setMovieAttentionSpan={setMovieAttentionSpan}
+                    loggedIn={loggedIn} />} />
+              <Route
+                path="/saved-movies"
+                element={
+                  <ProtectedRoute
+                    element={SavedMovies}
+                    handleMenuClick={handleMenuClick}
+                    isMovieAttentionSpan={movieAttentionSpan}
+                    setMovieAttentionSpan={setMovieAttentionSpan}
+                    loggedIn={loggedIn} />} />
+              <Route
+                path="/profile"
+                element={
+                  <ProtectedRoute
+                    element={Profile}
+                    handleMenuClick={handleMenuClick}
+                    loggedIn={loggedIn}
+                    enter={enter}
+                    attentionMessage={attention}
+                    onSignout={signOut} />} />
+              <Route
+                path="/profile-change"
+                element={
+                  <ProtectedRoute
+                    element={ProfileChange}
+                    handleMenuClick={handleMenuClick}
+                    loggedIn={loggedIn}
+                    onUpdateUser={handleUpdateUser} />} />
+              <Route
+                path="/signup"
+                element={
+                  <Register
+                    onRegister={handleRegister}
+                    attentionMessage={attention}
+                    enter={enter} />} />
+              <Route
+                path="/signin"
+                element={
+                  <Login
+                    onLogin={handleLogin}
+                    attentionMessage={attention}
+                    enter={enter} />} />
+              <Route
+                path="*"
+                element={<PageNotFound />} />
+            </Routes>
 
-          <Menu
-            isOpened={menuOpen}
-            handleMenuClick={handleMenuClick} />
-        </CurrentUser.Provider>
-      </MoviesContext.Provider>
+            <Menu
+              isOpened={menuOpen}
+              handleMenuClick={handleMenuClick} />
+          </CurrentUser.Provider>
+        </MoviesContext.Provider>
+      )
+    }
     </>
   );
 }

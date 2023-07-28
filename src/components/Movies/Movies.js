@@ -7,10 +7,15 @@ import Footer from "../Footer/Footer";
 import { MoviesContext } from "../../contexts/moviesContext";
 import preloader from '../../images/preloader.gif'
 
-function Movies({ handleMenuClick, onGetMovies, isLoading, isMovieAttentionSpan, setMovieAttentionSpan }) {
+function Movies({ handleMenuClick,
+  onGetMovies,
+  isLoading,
+  isMovieAttentionSpan,
+  setMovieAttentionSpan
+}) {
   const [visibleItems, setVisibleItems] = useState(getItemsPerPage(window.innerWidth))
   const movies = useContext(MoviesContext)
-  
+
   useEffect(() => {
     const handleResize = () => {
       setVisibleItems(getItemsPerPage(window.innerWidth))
