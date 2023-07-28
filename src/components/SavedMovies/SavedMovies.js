@@ -1,18 +1,18 @@
-import {React, useEffect} from "react";
+import { React, useEffect, useContext } from "react";
 import Header from '../Header/Header'
 import SavedSearchBar from "../SavedSearchBar/SavedSearchBar";
 import SavedMovieGrid from "../SavedMovieGrid/SavedMovieGrid";
 import Footer from "../Footer/Footer";
-// import { MoviesContext } from "../../contexts/moviesContext";
+import { SavedMoviesContext } from "../../contexts/moviesContext";
 import preloader from '../../images/preloader.gif'
 
-function SavedMovies({ 
+function SavedMovies({
   handleMenuClick,
   isLoading,
   isMovieAttentionSpan,
-  setMovieAttentionSpan }) {
-  // const movies = useContext(MoviesContext)
-  const movies = []
+  setMovieAttentionSpan,
+  onDelete }) {
+  const savedMovies = useContext(SavedMoviesContext)
 
   useEffect(() => {
     setMovieAttentionSpan('')
@@ -29,9 +29,9 @@ function SavedMovies({
             src={preloader}
             alt='прелоудер'
             className="movies__preloader" />)
-          : movies.length < 1
+          : savedMovies.length < 1
             ? (<h1 className="movies__not-found">{isMovieAttentionSpan}</h1>)
-            : <SavedMovieGrid />
+            : <SavedMovieGrid onDelete={onDelete} />
         }
       </main>
       <Footer />

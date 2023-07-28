@@ -1,25 +1,25 @@
 import { React, useState } from "react";
 
-function SavedMovieCard({ image, nameRU, description, duration, trailerLink }) {
-  const [isLiked, setIsLiked] = useState(false)
-  const likeStyle = `movie__like ${isLiked && 'movie__liked'}`
+function SavedMovieCard({ movie, onDelete }) {
+  // const [isLiked, setIsLiked] = useState(false)
+  // const likeStyle = `movie__like ${isLiked && 'movie__liked'}`
 
-  const hours = Math.floor(duration / 60)
-  const minutes = duration % 60
+  const hours = Math.floor(movie.duration / 60)
+  const minutes = movie.duration % 60
 
   return (
     <article className="movie">
-      <a href={trailerLink} target="blank">
+      <a href={movie.trailerLink} target="blank">
         <img
           className="movie__image"
-          src={image}
-          alt={description} />
+          src={movie.image}
+          alt={movie.description} />
       </a>
       <div className="movie__container">
-        <h2 className="movie__title">{nameRU}</h2>
+        <h2 className="movie__title">{movie.nameRU}</h2>
         <button
-          className={likeStyle}
-          onClick={() => setIsLiked(!isLiked)}
+          className='movie__delete'
+          onClick={() => onDelete(movie._id)}
         ></button>
       </div>
       <div className="movie__line"></div>

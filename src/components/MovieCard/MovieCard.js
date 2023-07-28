@@ -1,12 +1,14 @@
 import { React, useState } from "react";
 
-function MovieCard({ movie }) {
-  const [isLiked, setIsLiked] = useState(false)
-  const likeStyle = `movie__like ${isLiked && 'movie__liked'}`
+function MovieCard({ movie, onLike }) {
+  // const [isLiked, setIsLiked] = useState(false)
+  // const likeStyle = `movie__like ${isLiked && 'movie__liked'}`
 
   const imageLink = `https://api.nomoreparties.co/${movie.image.url}`
   const hours = Math.floor(movie.duration / 60)
   const minutes = movie.duration % 60
+
+
 
   return (
     <article className="movie">
@@ -19,8 +21,8 @@ function MovieCard({ movie }) {
       <div className="movie__container">
         <h2 className="movie__title">{movie.nameRU}</h2>
         <button
-          className={likeStyle}
-          onClick={() => setIsLiked(!isLiked)}
+          className='movie__like'
+          onClick={() => onLike(movie, imageLink)}
         ></button>
       </div>
       <div className="movie__line"></div>

@@ -37,34 +37,34 @@ class MainApi {
     });
   }
 
-  // карточки ----- карточки ----- карточки ----- карточки ----- карточки
+  // фильмы ----- фильмы ----- фильмы ----- фильмы ----- фильмы
 
-  // получает данные карточек
-  // getInitialCards() {
-  //   return this._request(`${this._baseUrl}/cards`, {
-  //     credentials: 'include',
-  //     headers: this._headers,
-  //   });
-  // }
+  // получает сохранённые фильмы
+  getSavedMovies() {
+    return this._request(`${this._baseUrl}/movies`, {
+      credentials: 'include',
+      headers: this._headers,
+    });
+  }
 
-  // отправляет данные для создания карточки
-  // createCard(data) {
-  //   return this._request(`${this._baseUrl}/cards`, {
-  //     method: "POST",
-  //     credentials: 'include',
-  //     headers: this._headers,
-  //     body: JSON.stringify(data),
-  //   });
-  // }
+  // сохраняет фильм
+  createMovie(movie) {
+    return this._request(`${this._baseUrl}/movies`, {
+      method: "POST",
+      credentials: 'include',
+      headers: this._headers,
+      body: JSON.stringify(movie)
+    });
+  }
 
-  // отправляет данные на удаление карточки
-  // deleteCard(id) {
-  //   return this._request(`${this._baseUrl}/cards/${id}`, {
-  //     method: "DELETE",
-  //     credentials: 'include',
-  //     headers: this._headers,
-  //   });
-  // }
+  // удаляет фильм
+  deleteMovie(id) {
+    return this._request(`${this._baseUrl}/movies/${id}`, {
+      method: "DELETE",
+      credentials: 'include',
+      headers: this._headers,
+    });
+  }
 
   // лайк ----- лайк ----- лайк ----- лайк ----- лайк ----- лайк ----- лайк
 

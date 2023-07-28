@@ -2,7 +2,7 @@ import { React, useContext } from "react";
 import MovieCard from "../MovieCard/MovieCard";
 import { MoviesContext } from "../../contexts/moviesContext";
 
-function MovieGrid({ visibleItems }) {
+function MovieGrid({ visibleItems, onLike }) {
   const movies = useContext(MoviesContext)
 
 
@@ -12,7 +12,8 @@ function MovieGrid({ visibleItems }) {
         return (
           <MovieCard
             key={item.id}
-            movie={item} />
+            movie={item}
+            onLike={onLike} />
         )
       })}
     </main>
