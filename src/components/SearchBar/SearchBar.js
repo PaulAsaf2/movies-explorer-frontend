@@ -28,7 +28,7 @@ function SearchBar({ onGetMovies }) {
   return (
     <section className="search-bar">
       <form
-        name="search"
+        name="search-movies"
         onSubmit={handleSubmitForm}
         noValidate
         className="search-bar__form" >

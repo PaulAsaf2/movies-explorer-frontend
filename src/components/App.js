@@ -2,7 +2,7 @@
 import './App.css';
 import { React, useState, useEffect } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
-import { CurrentUser, MoviesContext, SavedMoviesContext, Liked } from '../contexts/moviesContext'
+import { CurrentUser, MoviesContext, SavedMoviesContext } from '../contexts/moviesContext'
 import Landing from './Landing/Landing';
 import Movies from './Movies/Movies';
 import SavedMovies from './SavedMovies/SavedMovies';
@@ -24,7 +24,6 @@ function App() {
   const [movies, setMovies] = useState([])
   const [isLoading, setIsLoading] = useState(false)
   const [movieAttentionSpan, setMovieAttentionSpan] = useState('')
-  // const [isLiked, setIsLiked] = useState(false)
   // сохранённые фильмы
   const [savedMovies, setSavedMovies] = useState([])
   // аутентификация
@@ -205,7 +204,7 @@ function App() {
           .then((savedMovies) => {
             setSavedMovies(savedMovies)
           })
-          .catch((err) => { console.log(err) })
+          .catch((err) => console.log(err))
       })
   }
 
@@ -217,8 +216,38 @@ function App() {
           .then((savedMovies) => {
             setSavedMovies(savedMovies)
           })
-          .catch((err) => { console.log(err) })
+          .catch((err) => console.log(err))
       })
+  }
+
+  // поиск сохранённых фильмов
+  function getSavedMovies(valueOfInput, shortFilm) {
+    const moviesFromSearch = []
+    setIsLoading(true)
+
+    mainApi.getSavedMovies()
+      .then((SavedMovies) => {
+        SavedMovies.forEach((item) => {
+          if (
+            item.nameRU.toLowerCase()
+              .indexOf(valueOfInput.toLowerCase()) === -1) {
+            return
+          }
+          if (shortFilm && item.duration >= 40) {
+            return
+          }
+          moviesFromSearch.push(item)
+        })
+        return moviesFromSearch
+      })
+      .then((filteredMovies) => {
+        setSavedMovies(filteredMovies)
+        setMovieAttentionSpan(attentionMovie.notFound)
+      })
+      .catch(() => {
+        setMovieAttentionSpan(attentionMovie.error)
+      })
+      .finally(() => setIsLoading(false))
   }
 
   return (
@@ -227,76 +256,73 @@ function App() {
         <MoviesContext.Provider value={movies}>
           <SavedMoviesContext.Provider value={savedMovies}>
             <CurrentUser.Provider value={currentUser}>
-              {/* <Liked.Provider value={isLiked}> */}
-                <Routes>
-                  <Route
-                    path="/"
-                    element={<Landing />} />
-                  <Route
-                    path="/movies"
-                    element={
-                      <ProtectedRoute
-                        element={Movies}
-                        handleMenuClick={handleMenuClick}
-                        onGetMovies={getMovies}
-                        isLoading={isLoading}
-                        isMovieAttentionSpan={movieAttentionSpan}
-                        setMovieAttentionSpan={setMovieAttentionSpan}
-                        loggedIn={loggedIn}
-                        onLike={handleLike}
-                        // isLiked={isLiked}
-                         />} />
-                  <Route
-                    path="/saved-movies"
-                    element={
-                      <ProtectedRoute
-                        element={SavedMovies}
-                        handleMenuClick={handleMenuClick}
-                        isMovieAttentionSpan={movieAttentionSpan}
-                        setMovieAttentionSpan={setMovieAttentionSpan}
-                        loggedIn={loggedIn}
-                        onDelete={handleDeleteMovie} />} />
-                  <Route
-                    path="/profile"
-                    element={
-                      <ProtectedRoute
-                        element={Profile}
-                        handleMenuClick={handleMenuClick}
-                        loggedIn={loggedIn}
-                        enter={enter}
-                        attentionMessage={attention}
-                        onSignout={signOut} />} />
-                  <Route
-                    path="/profile-change"
-                    element={
-                      <ProtectedRoute
-                        element={ProfileChange}
-                        handleMenuClick={handleMenuClick}
-                        loggedIn={loggedIn}
-                        onUpdateUser={handleUpdateUser} />} />
-                  <Route
-                    path="/signup"
-                    element={
-                      <Register
-                        onRegister={handleRegister}
-                        attentionMessage={attention}
-                        enter={enter} />} />
-                  <Route
-                    path="/signin"
-                    element={
-                      <Login
-                        onLogin={handleLogin}
-                        attentionMessage={attention}
-                        enter={enter} />} />
-                  <Route
-                    path="*"
-                    element={<PageNotFound />} />
-                </Routes>
+              <Routes>
+                <Route
+                  path="/"
+                  element={<Landing />} />
+                <Route
+                  path="/movies"
+                  element={
+                    <ProtectedRoute
+                      element={Movies}
+                      handleMenuClick={handleMenuClick}
+                      onGetMovies={getMovies}
+                      isLoading={isLoading}
+                      isMovieAttentionSpan={movieAttentionSpan}
+                      setMovieAttentionSpan={setMovieAttentionSpan}
+                      loggedIn={loggedIn}
+                      onLike={handleLike} />} />
+                <Route
+                  path="/saved-movies"
+                  element={
+                    <ProtectedRoute
+                      element={SavedMovies}
+                      handleMenuClick={handleMenuClick}
+                      onGetSavedMovies={getSavedMovies}
+                      isMovieAttentionSpan={movieAttentionSpan}
+                      setMovieAttentionSpan={setMovieAttentionSpan}
+                      loggedIn={loggedIn}
+                      onDelete={handleDeleteMovie} />} />
+                <Route
+                  path="/profile"
+                  element={
+                    <ProtectedRoute
+                      element={Profile}
+                      handleMenuClick={handleMenuClick}
+                      loggedIn={loggedIn}
+                      enter={enter}
+                      attentionMessage={attention}
+                      onSignout={signOut} />} />
+                <Route
+                  path="/profile-change"
+                  element={
+                    <ProtectedRoute
+                      element={ProfileChange}
+                      handleMenuClick={handleMenuClick}
+                      loggedIn={loggedIn}
+                      onUpdateUser={handleUpdateUser} />} />
+                <Route
+                  path="/signup"
+                  element={
+                    <Register
+                      onRegister={handleRegister}
+                      attentionMessage={attention}
+                      enter={enter} />} />
+                <Route
+                  path="/signin"
+                  element={
+                    <Login
+                      onLogin={handleLogin}
+                      attentionMessage={attention}
+                      enter={enter} />} />
+                <Route
+                  path="*"
+                  element={<PageNotFound />} />
+              </Routes>
 
-                <Menu
-                  isOpened={menuOpen}
-                  handleMenuClick={handleMenuClick} />
-              {/* </Liked.Provider> */}
+              <Menu
+                isOpened={menuOpen}
+                handleMenuClick={handleMenuClick} />
             </CurrentUser.Provider>
           </SavedMoviesContext.Provider>
         </MoviesContext.Provider>

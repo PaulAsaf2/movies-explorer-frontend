@@ -1,12 +1,7 @@
-import { React, useContext } from "react";
+import { React } from "react";
 import Like from "../Like/Like";
-// import { Liked } from '../../contexts/moviesContext'
 
-function MovieCard({ movie, onLike, isLiked }) {
-  // const liked = useContext(Liked)
-  // const likeStyle = `movie__like ${liked && 'movie__liked'}`
-
-
+function MovieCard({ movie, onLike }) {
   const imageLink = `https://api.nomoreparties.co/${movie.image.url}`
   const hours = Math.floor(movie.duration / 60)
   const minutes = movie.duration % 60
@@ -24,8 +19,7 @@ function MovieCard({ movie, onLike, isLiked }) {
         <Like
           movie={movie}
           onLike={onLike}
-          imageLink={imageLink}
-        />
+          imageLink={imageLink} />
       </div>
       <div className="movie__line"></div>
       <p className="movie__duration">

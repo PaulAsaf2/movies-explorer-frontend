@@ -1,4 +1,4 @@
-import { React, useContext, useState } from "react";
+import { React, useContext } from "react";
 import MovieCard from "../MovieCard/MovieCard";
 import { MoviesContext } from "../../contexts/moviesContext";
 

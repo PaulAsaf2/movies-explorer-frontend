@@ -8,6 +8,7 @@ import preloader from '../../images/preloader.gif'
 
 function SavedMovies({
   handleMenuClick,
+  onGetSavedMovies,
   isLoading,
   isMovieAttentionSpan,
   setMovieAttentionSpan,
@@ -22,7 +23,7 @@ function SavedMovies({
     <>
       <Header handleMenuClick={handleMenuClick} />
       <main className="movies">
-        <SavedSearchBar />
+        <SavedSearchBar onGetSavedMovies={onGetSavedMovies} />
         <div className="movies__separation-line"></div>
         {isLoading
           ? (<img

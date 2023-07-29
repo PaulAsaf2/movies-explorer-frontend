@@ -1,20 +1,11 @@
-import { React, useState, useEffect } from "react";
+import { React, useState } from "react";
 // import Media from "react-media";
 
-function SavedSearchBar({ onGetMovies }) {
+function SavedSearchBar({ onGetSavedMovies }) {
   const [filterText, setFilterText] = useState('')
   const [isShortFilm, setIsShortFilm] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
 
-  useEffect(() => {
-    const savedData = localStorage.getItem('movieData')
-    if (savedData) {
-      const { valueOfInput, shortFilm } = JSON.parse(savedData)
-      setFilterText(valueOfInput)
-      setIsShortFilm(shortFilm)
-    }
-  }, [])
-  
   function handleSubmitForm(event) {
     event.preventDefault()
     if (!filterText) {
@@ -22,13 +13,13 @@ function SavedSearchBar({ onGetMovies }) {
       return
     }
     setErrorMessage('')
-    onGetMovies(filterText, isShortFilm)
+    onGetSavedMovies(filterText, isShortFilm)
   }
 
   return (
     <section className="search-bar">
       <form
-        name="search"
+        name="search-saved-movies"
         onSubmit={handleSubmitForm}
         noValidate
         className="search-bar__form" >
