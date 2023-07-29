@@ -12,7 +12,8 @@ function Movies({ handleMenuClick,
   isLoading,
   isMovieAttentionSpan,
   setMovieAttentionSpan,
-  onLike
+  onLike,
+  // isLiked
 }) {
   const [visibleItems, setVisibleItems] = useState(getItemsPerPage(window.innerWidth))
   const movies = useContext(MoviesContext)
@@ -65,7 +66,9 @@ function Movies({ handleMenuClick,
             ? (<h1 className="movies__not-found">{isMovieAttentionSpan}</h1>)
             : <MovieGrid
               visibleItems={visibleItems}
-              onLike={onLike} />
+              onLike={onLike}
+              // isLiked={isLiked}
+               />
         }
         {(visibleItems < movies.length) && (
           <button

@@ -1,9 +1,13 @@
-import { React, useContext } from "react";
+import { React, useContext, useState } from "react";
 import MovieCard from "../MovieCard/MovieCard";
-import { MoviesContext } from "../../contexts/moviesContext";
+import { MoviesContext, SavedMoviesContext } from "../../contexts/moviesContext";
 
-function MovieGrid({ visibleItems, onLike }) {
+function MovieGrid({ visibleItems, onLike
+  // , isLiked
+ }) {
+  // const [isLiked, setIsLiked] = useState(false)
   const movies = useContext(MoviesContext)
+  const savedMovies = useContext(SavedMoviesContext)
 
 
   return (
@@ -13,7 +17,8 @@ function MovieGrid({ visibleItems, onLike }) {
           <MovieCard
             key={item.id}
             movie={item}
-            onLike={onLike} />
+            onLike={onLike}
+            isLiked={isLiked} />
         )
       })}
     </main>

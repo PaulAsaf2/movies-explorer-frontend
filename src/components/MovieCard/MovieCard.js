@@ -1,14 +1,14 @@
-import { React, useState } from "react";
+import { React, useContext } from "react";
+// import { Liked } from '../../contexts/moviesContext'
 
-function MovieCard({ movie, onLike }) {
-  // const [isLiked, setIsLiked] = useState(false)
-  // const likeStyle = `movie__like ${isLiked && 'movie__liked'}`
+function MovieCard({ movie, onLike, isLiked }) {
+  // const liked = useContext(Liked)
+  // const likeStyle = `movie__like ${liked && 'movie__liked'}`
+  const likeStyle = `movie__like ${isLiked && 'movie__liked'}`
 
   const imageLink = `https://api.nomoreparties.co/${movie.image.url}`
   const hours = Math.floor(movie.duration / 60)
   const minutes = movie.duration % 60
-
-
 
   return (
     <article className="movie">
@@ -21,7 +21,7 @@ function MovieCard({ movie, onLike }) {
       <div className="movie__container">
         <h2 className="movie__title">{movie.nameRU}</h2>
         <button
-          className='movie__like'
+          className={likeStyle}
           onClick={() => onLike(movie, imageLink)}
         ></button>
       </div>
