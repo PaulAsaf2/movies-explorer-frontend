@@ -16,7 +16,7 @@ function SavedMovies({
   const savedMovies = useContext(SavedMoviesContext)
 
   useEffect(() => {
-    setMovieAttentionSpan('')
+    setMovieAttentionSpan('У вас пока нет сохранённых фильмов')
   }, [])
 
   return (

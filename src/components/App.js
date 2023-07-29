@@ -43,7 +43,7 @@ function App() {
   const navigate = useNavigate()
   const attentionMovie = {
     error: 'Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз',
-    notFound: 'Ничего не найдено'
+    notFound: 'Ничего не найдено',
   }
 
   function handleMenuClick() {
