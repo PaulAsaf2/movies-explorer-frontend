@@ -11,7 +11,7 @@ function checkResponse(res) {
 export function register(name, email, password) {
   return fetch(`${baseUrl}/signup`, {
     method: 'POST',
-    credentials: 'include',
+    // credentials: 'include',
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ name, email, password })
   })
@@ -21,7 +21,7 @@ export function register(name, email, password) {
 export function authorize(email, password) {
   return fetch(`${baseUrl}/signin`, {
     method: 'POST',
-    credentials: 'include',
+    // credentials: 'include',
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email, password })
   })
