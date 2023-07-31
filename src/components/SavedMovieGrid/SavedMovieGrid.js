@@ -1,6 +1,6 @@
 import { React, useContext } from "react";
 import SavedMovieCard from "../SavedMovieCard/SavedMovieCard";
-import { SavedMoviesContext } from "../../contexts/moviesContext";
+import { SavedMoviesContext } from "../../contexts/context";
 
 function SavedMovieGrid({onDelete}) {
   const savedMovies = useContext(SavedMoviesContext)

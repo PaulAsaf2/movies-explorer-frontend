@@ -1,7 +1,7 @@
 import { React, useContext } from "react";
 import { Link } from "react-router-dom";
 import Header from '../Header/Header'
-import { CurrentUser } from "../../contexts/moviesContext";
+import { CurrentUser } from "../../contexts/context";
 
 function Profile({ handleMenuClick, enter, attentionMessage, onSignout }) {
   const user = useContext(CurrentUser)

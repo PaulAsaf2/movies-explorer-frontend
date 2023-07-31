@@ -1,6 +1,6 @@
 import { React, useContext } from "react";
 import MovieCard from "../MovieCard/MovieCard";
-import { MoviesContext } from "../../contexts/moviesContext";
+import { MoviesContext } from "../../contexts/context";
 
 function MovieGrid({ visibleItems, onLike }) {
   const movies = useContext(MoviesContext)

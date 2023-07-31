@@ -65,24 +65,6 @@ class MainApi {
       headers: this._headers,
     });
   }
-
-  // лайк ----- лайк ----- лайк ----- лайк ----- лайк ----- лайк ----- лайк
-
-  // changeLikeCardStatus(cardId, isLiked) {
-  //   if (isLiked) {
-  //     return this._request(`${this._baseUrl}/cards/${cardId}/likes`, {
-  //       method: "PUT",
-  //       credentials: 'include',
-  //       headers: this._headers,
-  //     });
-  //   } else {
-  //     return this._request(`${this._baseUrl}/cards/${cardId}/likes`, {
-  //       method: "DELETE",
-  //       credentials: 'include',
-  //       headers: this._headers,
-  //     });
-  //   }
-  // }
 }
 
 export const mainApi = new MainApi({

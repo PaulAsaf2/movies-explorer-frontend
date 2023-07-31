@@ -1,5 +1,5 @@
 import { React, useState, useContext, useEffect } from "react"
-import { SavedMoviesContext } from '../../contexts/moviesContext'
+import { SavedMoviesContext } from '../../contexts/context'
 
 function Like({ movie, onLike, imageLink }) {
   const [isLiked, setIsLiked] = useState(false)

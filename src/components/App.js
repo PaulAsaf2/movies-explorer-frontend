@@ -2,7 +2,7 @@
 import './App.css';
 import { React, useState, useEffect } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
-import { CurrentUser, MoviesContext, SavedMoviesContext } from '../contexts/moviesContext'
+import { CurrentUser, MoviesContext, SavedMoviesContext } from '../contexts/context'
 import Landing from './Landing/Landing';
 import Movies from './Movies/Movies';
 import SavedMovies from './SavedMovies/SavedMovies';

@@ -1,7 +1,7 @@
 import { React, useState, useContext } from "react";
 import Header from '../Header/Header'
 import useFormAndValidation from "../hooks/useFormAndValidation";
-import { CurrentUser } from "../../contexts/moviesContext";
+import { CurrentUser } from "../../contexts/context";
 
 function ProfileChange({ handleMenuClick, onUpdateUser }) {
   const { values, handleChange, errors, isValid } = useFormAndValidation();

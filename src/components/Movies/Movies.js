@@ -4,7 +4,7 @@ import Header from '../Header/Header'
 import SearchBar from '../SearchBar/SearchBar'
 import MovieGrid from '../MovieGrid/MovieGrid'
 import Footer from "../Footer/Footer";
-import { MoviesContext } from "../../contexts/moviesContext";
+import { MoviesContext } from "../../contexts/context";
 import preloader from '../../images/preloader.gif'
 
 function Movies({

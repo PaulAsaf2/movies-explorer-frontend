@@ -3,7 +3,7 @@ import Header from '../Header/Header'
 import SavedSearchBar from "../SavedSearchBar/SavedSearchBar";
 import SavedMovieGrid from "../SavedMovieGrid/SavedMovieGrid";
 import Footer from "../Footer/Footer";
-import { SavedMoviesContext } from "../../contexts/moviesContext";
+import { SavedMoviesContext } from "../../contexts/context";
 import preloader from '../../images/preloader.gif'
 
 function SavedMovies({
