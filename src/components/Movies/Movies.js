@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { React, useContext, useEffect, useState } from "react";
 import Header from '../Header/Header'
 import SearchBar from '../SearchBar/SearchBar'
@@ -7,7 +6,8 @@ import Footer from "../Footer/Footer";
 import { MoviesContext } from "../../contexts/moviesContext";
 import preloader from '../../images/preloader.gif'
 
-function Movies({ handleMenuClick,
+function Movies({
+  handleMenuClick,
   onGetMovies,
   isLoading,
   isMovieAttentionSpan,
@@ -16,6 +16,7 @@ function Movies({ handleMenuClick,
 }) {
   const [visibleItems, setVisibleItems] = useState(getItemsPerPage(window.innerWidth))
   const movies = useContext(MoviesContext)
+  console.log(movies);
 
   useEffect(() => {
     const handleResize = () => {

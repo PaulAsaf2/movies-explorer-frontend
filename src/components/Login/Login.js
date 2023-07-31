@@ -74,16 +74,16 @@ function Login({ onLogin, attentionMessage, enter }) {
           className="auth__span">
           {!isValid && errors.password}
         </span>
+        <p className="auth__error">
+          {enter && attentionMessage}
+        </p>
+        <button
+          type="submit"
+          onClick={handleSubmit}
+          className={submitError}>
+          Войти
+        </button>
       </form>
-      <p className="auth__error">
-        {enter && attentionMessage}
-      </p>
-      <button
-        type="submit"
-        onClick={handleSubmit}
-        className={submitError}>
-        Войти
-      </button>
       <div className="auth__container">
         <p className="auth__text">Ещё не зарегистрированы?</p>
         <Link

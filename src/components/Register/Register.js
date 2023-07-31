@@ -100,16 +100,16 @@ function Register({ onRegister, attentionMessage, enter }) {
           className="auth__span">
           {!isValid && errors.password}
         </span>
+        <p className="auth__error">
+          {enter && attentionMessage}
+        </p>
+        <button
+          className={submitError}
+          type="submit"
+          onClick={handleSubmit}>
+          Зарегистрироваться
+        </button>
       </form>
-      <p className="auth__error">
-        {enter && attentionMessage}
-      </p>
-      <button
-        className={submitError}
-        type="submit"
-        onClick={handleSubmit}>
-        Зарегистрироваться
-      </button>
       <div className="auth__container">
         <p className="auth__text">Уже зарегистрированы?</p>
         <Link

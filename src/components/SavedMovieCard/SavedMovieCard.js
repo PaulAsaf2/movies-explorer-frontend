@@ -1,9 +1,6 @@
-import { React, useState } from "react";
+import { React } from "react";
 
 function SavedMovieCard({ movie, onDelete }) {
-  // const [isLiked, setIsLiked] = useState(false)
-  // const likeStyle = `movie__like ${isLiked && 'movie__liked'}`
-
   const hours = Math.floor(movie.duration / 60)
   const minutes = movie.duration % 60
 

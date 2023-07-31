@@ -94,7 +94,6 @@
   }
 
   .search-bar__container {
-    grid-row: 3;
     display: flex;
     justify-content: center;
     column-gap: 13px;

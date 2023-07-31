@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from "react";
-// import Media from "react-media";
+import Media from "react-media";
 
 function SearchBar({ onGetMovies }) {
   const [filterText, setFilterText] = useState('')
@@ -14,7 +14,7 @@ function SearchBar({ onGetMovies }) {
       setIsShortFilm(shortFilm)
     }
   }, [])
-  
+
   function handleSubmitForm(event) {
     event.preventDefault()
     if (!filterText) {
@@ -26,44 +26,90 @@ function SearchBar({ onGetMovies }) {
   }
 
   return (
-    <section className="search-bar">
-      <form
-        name="search-movies"
-        onSubmit={handleSubmitForm}
-        noValidate
-        className="search-bar__form" >
-        <input
-          required
-          type="search"
-          id="search"
-          name="search"
-          minLength="1"
-          maxLength="40"
-          placeholder="Фильм"
-          className="search-bar__input"
-          onChange={(e) => setFilterText(e.target.value)}
-          value={filterText || ''} />
-        <span
-          className="search-bar__span">
-          {errorMessage}
-        </span>
-        <button
-          className='search-bar__button'
-          type="submit" >
-        </button>
-      </form>
-      <div className="search-bar__separation-line"></div>
-      <label className="toggle">
-        <input
-          className="toggle__input"
-          type="checkbox"
-          checked={isShortFilm}
-          onChange={() => setIsShortFilm(!isShortFilm)} />
-        <span className="toggle__span" />
-      </label>
-      <p className="search-bar__text">Короткометражки</p>
-    </section >
+    <Media query={{ maxWidth: 620 }}>
+      {matches => !matches ? (
+        <section className="search-bar">
+          <form
+            name="search-movies"
+            onSubmit={handleSubmitForm}
+            noValidate
+            className="search-bar__form" >
+            <input
+              required
+              type="search"
+              id="search"
+              name="search"
+              minLength="1"
+              maxLength="40"
+              placeholder="Фильм"
+              className="search-bar__input"
+              onChange={(e) => setFilterText(e.target.value)}
+              value={filterText || ''} />
+            <span
+              className="search-bar__span">
+              {errorMessage}
+            </span>
+            <button
+              className='search-bar__button'
+              type="submit" >
+            </button>
+          </form>
+          <div className="search-bar__separation-line"></div>
+          <label className="toggle">
+            <input
+              className="toggle__input"
+              type="checkbox"
+              checked={isShortFilm}
+              onChange={() => setIsShortFilm(!isShortFilm)} />
+            <span className="toggle__span" />
+          </label>
+          <p className="search-bar__text">Короткометражки</p>
+        </section >
+      ) : (
+        <section className="search-bar">
+          <form
+            name="search-movies"
+            onSubmit={handleSubmitForm}
+            noValidate
+            className="search-bar__form" >
+            <input
+              required
+              type="search"
+              id="search"
+              name="search"
+              minLength="1"
+              maxLength="40"
+              placeholder="Фильм"
+              className="search-bar__input"
+              onChange={(e) => setFilterText(e.target.value)}
+              value={filterText || ''} />
+            <span
+              className="search-bar__span">
+              {errorMessage}
+            </span>
+            <button
+              className='search-bar__button'
+              type="submit" >
+            </button>
+          </form>
+          <div className="search-bar__container">
+            <label className="toggle">
+              <input
+                className="toggle__input"
+                type="checkbox"
+                checked={isShortFilm}
+                onChange={() => setIsShortFilm(!isShortFilm)} />
+              <span className="toggle__span" />
+            </label>
+            <p className="search-bar__text">Короткометражки</p>
+          </div>
+        </section >
+      )
+      }
+    </Media >
   )
+
+
 }
 
 export default SearchBar;

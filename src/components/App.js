@@ -33,6 +33,8 @@ function App() {
   const [enter, setEnter] = useState(false)
   const [currentUser, setCurrentUser] = useState({});
 
+  console.log(movies);
+
   const attentionMessage = {
     email: 'Пользователь с таким e-mail уже существует',
     error: 'Что-то пошло не так! Попробуйте еще раз.',
