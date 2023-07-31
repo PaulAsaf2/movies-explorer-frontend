@@ -1,4 +1,5 @@
-export const baseUrl = 'http://localhost:3500'
+// export const baseUrl = 'http://localhost:3500'
+export const baseUrl = 'https://api.nomoreparties.co/beatfilm-movies'
 
 function checkResponse(res) {
   if (res.ok) { return res.json(); }
@@ -19,7 +20,6 @@ export function register(name, email, password) {
 export function authorize(email, password) {
   return fetch(`${baseUrl}/signin`, {
     method: 'POST',
-    credentials: 'include',
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email, password })
   })
