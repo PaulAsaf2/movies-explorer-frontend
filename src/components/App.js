@@ -41,12 +41,11 @@ function App() {
     login: 'Неправильный логин или пароль',
     profile: 'Данные успешно обновлены'
   }
-
-  const navigate = useNavigate()
   const attentionMovie = {
     error: 'Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз',
     notFound: 'Ничего не найдено',
   }
+  const navigate = useNavigate()
 
   function handleMenuClick() {
     setMenuOpen(!menuOpen)
@@ -84,7 +83,7 @@ function App() {
       })
   }
 
-  // логинизация
+  // вход
   function handleLogin(email, password) {
     auth.authorize(email, password)
       .then((data) => {
@@ -128,7 +127,7 @@ function App() {
     navigate('/', { replace: true });
   }
 
-  // получение данных пользователя
+  // получение данных пользователя и сохранённых фильмов
   function getMainData() {
     Promise.all([mainApi.getProfileData(), mainApi.getSavedMovies()])
       .then(([userData, savedMovies]) => {
@@ -201,7 +200,6 @@ function App() {
 
     mainApi.createMovie(newMovie)
       .then(() => {
-        // getSaved можно вынести в отдельную функцию
         mainApi.getSavedMovies()
           .then((savedMovies) => {
             setSavedMovies(savedMovies)
