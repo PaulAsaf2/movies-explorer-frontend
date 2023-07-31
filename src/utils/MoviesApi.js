@@ -17,7 +17,6 @@ class MoviesApi {
 
   getFilms() {
     return this._request(this._baseUrl, {
-      credentials: 'include',
       headers: this._headers
     })
   }
