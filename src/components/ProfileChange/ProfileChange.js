@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
 import { React, useState, useContext, useEffect } from "react";
 import Header from '../Header/Header'
@@ -5,13 +6,14 @@ import useFormAndValidation from "../hooks/useFormAndValidation";
 import { CurrentUser } from "../../contexts/context";
 
 function ProfileChange({ handleMenuClick, onUpdateUser, attentionMessage }) {
-  const { values, handleChange, errors, isValid, setValues } = useFormAndValidation();
-  const [submitButton, setSubmitButton] = useState(false);
   const user = useContext(CurrentUser)
+  const { values, handleChange, errors, isValid, setValues, setIsValid } = useFormAndValidation();
+  const [submitButton, setSubmitButton] = useState(false);
+  const [userData, setUserData] = useState({ name: user.name, email: user.email });
 
-  const nameError = `profile-change__input ${errors.name && 'auth__input_error'}`
-  const emailError = `profile-change__input ${errors.email && 'auth__input_error'}`
-  const submitError = `profile-change__submit ${(!isValid || !submitButton) && 'auth__submit_disabled'}`
+  const nameStyle = `profile-change__input ${errors.name && 'auth__input_error'}`
+  const emailStyle = `profile-change__input ${errors.email && 'auth__input_error'}`
+  const submitStyle = `profile-change__submit ${(!isValid || !submitButton) && 'auth__submit_disabled'}`
 
   function handleSubmitButton(e) {
     e && setSubmitButton(true)
@@ -28,6 +30,15 @@ function ProfileChange({ handleMenuClick, onUpdateUser, attentionMessage }) {
       email: user.email
     })
   }, [])
+
+  useEffect(() => {
+    const inputValuesString = JSON.stringify(values)
+    const userValuesString = JSON.stringify(userData)
+
+    if (inputValuesString === userValuesString) {
+      setIsValid(false)
+    }
+  }, [values, userData])
 
   return (
     <div className="profile">
@@ -50,7 +61,7 @@ function ProfileChange({ handleMenuClick, onUpdateUser, attentionMessage }) {
             minLength="2"
             maxLength="40"
             placeholder="Имя"
-            className={nameError}
+            className={nameStyle}
             onInput={handleChange}
             onChange={handleSubmitButton}
             value={values.name || ''} />
@@ -67,7 +78,7 @@ function ProfileChange({ handleMenuClick, onUpdateUser, attentionMessage }) {
             id="email"
             name="email"
             placeholder="E-mail"
-            className={emailError}
+            className={emailStyle}
             onInput={handleChange}
             onChange={handleSubmitButton}
             value={values.email || ''} />
@@ -82,7 +93,7 @@ function ProfileChange({ handleMenuClick, onUpdateUser, attentionMessage }) {
               </p>
             </div>
             <button
-              className={submitError}
+              className={submitStyle}
               type="submit"
               onClick={handleSubmit}>
               Сохранить
