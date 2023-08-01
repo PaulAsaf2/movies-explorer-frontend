@@ -32,10 +32,22 @@
   font-size: 11px;
 }
 
+.profile__link-container {
+  margin-top: 178px;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile__succes-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 42px;
+}
+
 .profile__succes {
-  text-align: center;
-  color: green;
-  /* margin-top: 100px; */
+  color: #0C4B07;
+  font-size: 11px;
 }
 
 .profile__link {
@@ -43,7 +55,6 @@
   text-decoration: none;
   color: black;
   text-align: center;
-  margin-top: 222px;
   transition: .4s ease;
 }
 

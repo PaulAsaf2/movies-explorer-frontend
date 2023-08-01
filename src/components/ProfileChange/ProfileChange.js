@@ -1,10 +1,10 @@
-import { React, useState, useContext } from "react";
+import { React, useState, useContext, useEffect } from "react";
 import Header from '../Header/Header'
 import useFormAndValidation from "../hooks/useFormAndValidation";
 import { CurrentUser } from "../../contexts/context";
 
-function ProfileChange({ handleMenuClick, onUpdateUser }) {
-  const { values, handleChange, errors, isValid } = useFormAndValidation();
+function ProfileChange({ handleMenuClick, onUpdateUser, attentionMessage }) {
+  const { values, handleChange, errors, isValid, setValues } = useFormAndValidation();
   const [submitButton, setSubmitButton] = useState(false);
   const user = useContext(CurrentUser)
 
@@ -21,6 +21,13 @@ function ProfileChange({ handleMenuClick, onUpdateUser }) {
     onUpdateUser(values)
   }
 
+  useEffect(() => {
+    setValues({
+      name: user.name,
+      email: user.email
+    })
+  }, [])
+
   return (
     <div className="profile">
       <Header handleMenuClick={handleMenuClick} />
@@ -35,6 +42,8 @@ function ProfileChange({ handleMenuClick, onUpdateUser }) {
           onSubmit={handleSubmit}>
           <input
             required
+            autoComplete="off"
+            dir="rtl"
             type="text"
             name="name"
             minLength="2"
@@ -51,6 +60,8 @@ function ProfileChange({ handleMenuClick, onUpdateUser }) {
           <div className="profile-change__line"></div>
           <input
             required
+            autoComplete="off"
+            dir="rtl"
             type="email"
             id="email"
             name="email"
@@ -63,13 +74,20 @@ function ProfileChange({ handleMenuClick, onUpdateUser }) {
             className="auth__span">
             {!isValid && errors.email}
           </span>
+          <div className="profile__link-container">
+            <div className="profile__succes-container">
+              <p className="profile-change__error">
+                {attentionMessage}
+              </p>
+            </div>
+            <button
+              className={submitError}
+              type="submit"
+              onClick={handleSubmit}>
+              Сохранить
+            </button>
+          </div>
         </form>
-        <button
-          className={submitError}
-          type="submit"
-          onClick={handleSubmit}>
-          Сохранить
-        </button>
       </main>
     </div>
   )

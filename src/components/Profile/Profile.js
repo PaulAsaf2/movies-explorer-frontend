@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Header from '../Header/Header'
 import { CurrentUser } from "../../contexts/context";
 
-function Profile({ handleMenuClick, enter, attentionMessage, onSignout }) {
+function Profile({ handleMenuClick, attentionMessage, onSignout }) {
   const user = useContext(CurrentUser)
 
   return (
@@ -20,20 +20,24 @@ function Profile({ handleMenuClick, enter, attentionMessage, onSignout }) {
           <p className="profile__text">E-mail</p>
           <p className="profile__text">{user.email}</p>
         </div>
-        <p className="profile__succes">
-          {enter && attentionMessage}
-        </p>
-        <Link
-          to='/profile-change'
-          className="profile__link">
-          Редактировать
-        </Link>
-        <Link
-          to='/'
-          className="profile__link"
-          onClick={() => onSignout()}>
-          Выйти из аккаунта
-        </Link>
+        <div className="profile__link-container">
+          <div className="profile__succes-container">
+            <p className="profile__succes">
+              {attentionMessage}
+            </p>
+          </div>
+          <Link
+            to='/profile-change'
+            className="profile__link">
+            Редактировать
+          </Link>
+          <Link
+            to='/'
+            className="profile__link"
+            onClick={() => onSignout()}>
+            Выйти из аккаунта
+          </Link>
+        </div>
       </main>
     </div>
   )

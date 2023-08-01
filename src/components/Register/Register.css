@@ -31,11 +31,11 @@
 }
 
 .auth__input:hover {
-  border-bottom: 2px solid green;
+  border-bottom: thin solid green;
 }
 
 .auth__input_error {
-  border-bottom: 1px solid #d65a3b;
+  border-bottom: thin solid #d65a3b;
 }
 
 .auth__span {
@@ -44,7 +44,7 @@
 }
 
 .auth__error {
-  color: #EE3465;
+  color: #FF6838;
   text-align: center;
 }
 
@@ -55,7 +55,6 @@
   color: #FFF;
   font-size: 14px;
   font-weight: 500;
-  margin-top: 135px;
   padding: 14px 0;
   cursor: pointer;
   transition: .4s ease;

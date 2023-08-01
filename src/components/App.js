@@ -29,17 +29,18 @@ function App() {
   // аутентификация
   const [loggedIn, setLoggedIn] = useState(false)
   const [tokenCheck, setTokenCheck] = useState(false)
-  const [attention, setAttention] = useState('')
-  const [enter, setEnter] = useState(false)
+  const [registerAttention, setRegisterAttention] = useState('')
+  const [loginAttention, setLoginAttention] = useState('')
+  const [profileChangeAttention, setProfileChangeAttention] = useState('')
+  const [editProfileChangeAttention, setEditProfileChangeAttention] = useState('')
   const [currentUser, setCurrentUser] = useState({});
 
-  console.log(movies);
-
-  const attentionMessage = {
-    email: 'Пользователь с таким e-mail уже существует',
+  const attentionUser = {
+    email: 'Пользователь с таким e-mail уже существует.',
     error: 'Что-то пошло не так! Попробуйте еще раз.',
-    login: 'Неправильный логин или пароль',
-    profile: 'Данные успешно обновлены'
+    login: 'Неправильный логин или пароль.',
+    profile: 'Данные профиля успешно обновлены.',
+    profileError: 'При обновлении профиля произошла ошибка.'
   }
   const attentionMovie = {
     error: 'Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз',
@@ -58,27 +59,25 @@ function App() {
       setLoggedIn(true);
       setTokenCheck(true);
       getMainData();
+      setRegisterAttention('')
+      setLoginAttention('')
+      setProfileChangeAttention('')
     } else {
-      setTokenCheck(true);
       setLoggedIn(false);
+      setTokenCheck(true);
     }
   }, [])
 
   // регистрация
   function handleRegister(name, email, password) {
     auth.register(name, email, password)
-      .then(() => {
-        setLoggedIn(true)
-        navigate('/movies', { replace: true })
-      })
+      .then(() => { handleLogin(email, password) })
       .catch((err) => {
         if (err === 'Ошибка: 409') {
-          setAttention(attentionMessage.email)
+          setRegisterAttention(attentionUser.email)
         } else {
-          setAttention(attentionMessage.error)
+          setRegisterAttention(attentionUser.error)
         }
-        setEnter(true)
-        setTimeout(() => { setEnter(false) }, 5000)
         console.log(err);
       })
   }
@@ -89,18 +88,16 @@ function App() {
       .then((data) => {
         if (data.logged) {
           getMainData()
-          setLoggedIn(true)
-          navigate('/movies', { replace: true })
-        }
+          setLoggedIn(true);
+          navigate('/movies', { replace: true });
+        } else { setLoggedIn(false); }
       })
       .catch((err) => {
         if (err === 'Ошибка: 401') {
-          setAttention(attentionMessage.login)
+          setLoginAttention(attentionUser.login)
         } else {
-          setAttention(attentionMessage.error)
+          setLoginAttention(attentionUser.error)
         }
-        setEnter(true)
-        setTimeout(() => { setEnter(false) }, 5000)
         console.log(err);
       })
   }
@@ -111,11 +108,13 @@ function App() {
       .then((newUserData) => {
         setCurrentUser(newUserData)
         navigate('/profile', { replace: true })
-        setAttention(attentionMessage.profile)
-        setEnter(true)
-        setTimeout(() => { setEnter(false) }, 2000)
+        setProfileChangeAttention(attentionUser.profile)
+        setTimeout(() => { setProfileChangeAttention('') }, 4000)
       })
-      .catch((err) => console.log(err))
+      .catch((err) => {
+        setEditProfileChangeAttention(attentionUser.profileError)
+        console.log(err)
+      })
   }
 
   // выход из уч. записи
@@ -290,8 +289,7 @@ function App() {
                       element={Profile}
                       handleMenuClick={handleMenuClick}
                       loggedIn={loggedIn}
-                      enter={enter}
-                      attentionMessage={attention}
+                      attentionMessage={profileChangeAttention}
                       onSignout={signOut} />} />
                 <Route
                   path="/profile-change"
@@ -300,21 +298,20 @@ function App() {
                       element={ProfileChange}
                       handleMenuClick={handleMenuClick}
                       loggedIn={loggedIn}
+                      attentionMessage={editProfileChangeAttention}
                       onUpdateUser={handleUpdateUser} />} />
                 <Route
                   path="/signup"
                   element={
                     <Register
                       onRegister={handleRegister}
-                      attentionMessage={attention}
-                      enter={enter} />} />
+                      attentionMessage={registerAttention} />} />
                 <Route
                   path="/signin"
                   element={
                     <Login
                       onLogin={handleLogin}
-                      attentionMessage={attention}
-                      enter={enter} />} />
+                      attentionMessage={loginAttention} />} />
                 <Route
                   path="*"
                   element={<PageNotFound />} />

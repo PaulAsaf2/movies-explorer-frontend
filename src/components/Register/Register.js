@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import logoC from '../../images/logo-c.svg';
 import useFormAndValidation from "../hooks/useFormAndValidation";
 
-function Register({ onRegister, attentionMessage, enter }) {
+function Register({ onRegister, attentionMessage }) {
   const { values, handleChange, errors, isValid } = useFormAndValidation();
   const [submitButton, setSubmitButton] = useState(false);
 
@@ -23,7 +23,7 @@ function Register({ onRegister, attentionMessage, enter }) {
   }
 
   return (
-    <div className="auth">
+    <main className="auth">
       <Link
         to='/'
         className='header__logo'>
@@ -43,6 +43,7 @@ function Register({ onRegister, attentionMessage, enter }) {
         </label>
         <input
           required
+          autoComplete="off"
           type="text"
           id="name"
           name="name"
@@ -65,6 +66,7 @@ function Register({ onRegister, attentionMessage, enter }) {
         </label>
         <input
           required
+          autoComplete="off"
           type="email"
           id="email"
           name="email"
@@ -100,15 +102,19 @@ function Register({ onRegister, attentionMessage, enter }) {
           className="auth__span">
           {!isValid && errors.password}
         </span>
-        <p className="auth__error">
-          {enter && attentionMessage}
-        </p>
-        <button
-          className={submitError}
-          type="submit"
-          onClick={handleSubmit}>
-          Зарегистрироваться
-        </button>
+        <div className="profile__link-container">
+          <div className="profile__succes-container">
+            <p className="profile-change__error">
+              {attentionMessage}
+            </p>
+          </div>
+          <button
+            className={submitError}
+            type="submit"
+            onClick={handleSubmit}>
+            Зарегистрироваться
+          </button>
+        </div>
       </form>
       <div className="auth__container">
         <p className="auth__text">Уже зарегистрированы?</p>
@@ -118,7 +124,7 @@ function Register({ onRegister, attentionMessage, enter }) {
           Войти
         </Link>
       </div>
-    </div>
+    </main >
   )
 }
 

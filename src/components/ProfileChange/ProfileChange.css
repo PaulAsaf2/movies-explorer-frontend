@@ -7,17 +7,29 @@
   padding: 5px 0;
   font-size: 11px;
   border: none;
+  background-image: url('../../images/name.svg');
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+
+.profile-change__input:last-of-type {
+  background-image: url('../../images/email.svg');
 }
 
 .profile-change__input:hover {
-  border-bottom: 2px solid green;
+  border-bottom: thin solid green;
 }
 
 .profile-change__line {
-  height: 2px;
+  height: 1px;
   width: 100%;
   background-color: rgb(216, 216, 216);
   margin: 12px 0;
+}
+
+.profile-change__error {
+  font-size: 11px;
+  color: #EE3465;
 }
 
 .profile-change__submit {
@@ -31,7 +43,6 @@
   font-weight: 500;
   padding: 13px 0 15px 0;
   cursor: pointer;
-  margin-top: 215px;
   transition: .4s ease;
 }
 

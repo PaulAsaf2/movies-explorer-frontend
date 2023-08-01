@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import logoC from '../../images/logo-c.svg';
 import useFormAndValidation from "../hooks/useFormAndValidation";
 
-function Login({ onLogin, attentionMessage, enter }) {
+function Login({ onLogin, attentionMessage }) {
   const { values, handleChange, errors, isValid } = useFormAndValidation();
   const [submitButton, setSubmitButton] = useState(false);
 
@@ -22,7 +22,7 @@ function Login({ onLogin, attentionMessage, enter }) {
   }
 
   return (
-    <div className="auth">
+    <main className="auth">
       <Link
         to='/'
         className='header__logo'>
@@ -41,6 +41,7 @@ function Login({ onLogin, attentionMessage, enter }) {
         </label>
         <input
           required
+          autoComplete="off"
           type="email"
           id="email"
           name="email"
@@ -60,6 +61,7 @@ function Login({ onLogin, attentionMessage, enter }) {
         </label>
         <input
           required
+          autoComplete="off"
           type="password"
           id="password"
           name="password"
@@ -74,15 +76,19 @@ function Login({ onLogin, attentionMessage, enter }) {
           className="auth__span">
           {!isValid && errors.password}
         </span>
-        <p className="auth__error">
-          {enter && attentionMessage}
-        </p>
-        <button
-          type="submit"
-          onClick={handleSubmit}
-          className={submitError}>
-          Войти
-        </button>
+        <div className="profile__link-container">
+          <div className="profile__succes-container">
+            <p className="profile-change__error">
+              {attentionMessage}
+            </p>
+          </div>
+          <button
+            type="submit"
+            onClick={handleSubmit}
+            className={submitError}>
+            Войти
+          </button>
+        </div>
       </form>
       <div className="auth__container">
         <p className="auth__text">Ещё не зарегистрированы?</p>
@@ -92,7 +98,7 @@ function Login({ onLogin, attentionMessage, enter }) {
           Регистрация
         </Link>
       </div>
-    </div>
+    </main>
   )
 }
 
