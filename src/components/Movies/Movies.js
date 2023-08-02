@@ -17,7 +17,6 @@ function Movies({
 }) {
   const [visibleItems, setVisibleItems] = useState(getItemsPerPage(window.innerWidth))
   const movies = useContext(MoviesContext)
-  console.log(movies);
 
   useEffect(() => {
     const handleResize = () => {

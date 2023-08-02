@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { React, useState, useEffect } from "react";
 import Media from "react-media";
 
@@ -5,7 +6,9 @@ function SearchBar({ onGetMovies }) {
   const [filterText, setFilterText] = useState('')
   const [isShortFilm, setIsShortFilm] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
+  const [initialState, setInitialState] = useState(false)
 
+  // достаёт данные поиска из хранилища
   useEffect(() => {
     const savedData = localStorage.getItem('movieData')
     if (savedData) {
@@ -15,6 +18,18 @@ function SearchBar({ onGetMovies }) {
     }
   }, [])
 
+  // обработка переключателя короткометражек
+  useEffect(() => {
+    if (!initialState) return
+    handleSubmitForm(new Event("submit"));
+  }, [isShortFilm, initialState])
+
+  function handleToggleFilms() {
+    setIsShortFilm(!isShortFilm)
+    setInitialState(true)
+  }
+
+  // обработка сабмита
   function handleSubmitForm(event) {
     event.preventDefault()
     if (!filterText) {
@@ -60,7 +75,7 @@ function SearchBar({ onGetMovies }) {
               className="toggle__input"
               type="checkbox"
               checked={isShortFilm}
-              onChange={() => setIsShortFilm(!isShortFilm)} />
+              onChange={handleToggleFilms} />
             <span className="toggle__span" />
           </label>
           <p className="search-bar__text">Короткометражки</p>

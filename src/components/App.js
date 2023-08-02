@@ -119,8 +119,8 @@ function App() {
 
   // выход из уч. записи
   function signOut() {
-    localStorage.removeItem('loginStatus');
     localStorage.removeItem('movieData');
+    localStorage.removeItem('loginStatus');
     setLoggedIn(false);
     setMovies([])
     navigate('/', { replace: true });
