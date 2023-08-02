@@ -132,25 +132,31 @@ function App() {
 
   // фильмы ----- фильмы ----- фильмы ----- фильмы ----- фильмы
 
+  // фильтрует фильмы
+  function filterMovies(movieArray, valueOfInput, shortFilm) {
+    const moviesFromSearch = []
+
+    movieArray.forEach((item) => {
+      if (
+        item.nameRU.toLowerCase()
+          .indexOf(valueOfInput.toLowerCase()) === -1) {
+        return
+      }
+      if (shortFilm && item.duration >= 40) {
+        return
+      }
+      moviesFromSearch.push(item)
+    })
+    return moviesFromSearch
+  }
+
   // получить фильмы
   function getMovies(valueOfInput, shortFilm) {
-    const moviesFromSearch = []
     setIsLoading(true)
 
     moviesApi.getFilms()
       .then((movies) => {
-        movies.forEach((item) => {
-          if (
-            item.nameRU.toLowerCase()
-              .indexOf(valueOfInput.toLowerCase()) === -1) {
-            return
-          }
-          if (shortFilm && item.duration >= 40) {
-            return
-          }
-          moviesFromSearch.push(item)
-        })
-        return moviesFromSearch
+        return filterMovies(movies, valueOfInput, shortFilm)
       })
       .then((filteredMovies) => {
         setMovies(filteredMovies)
@@ -215,23 +221,11 @@ function App() {
 
   // поиск сохранённых фильмов
   function getSavedMovies(valueOfInput, shortFilm) {
-    const moviesFromSearch = []
     setIsLoading(true)
 
     mainApi.getSavedMovies()
-      .then((SavedMovies) => {
-        SavedMovies.forEach((item) => {
-          if (
-            item.nameRU.toLowerCase()
-              .indexOf(valueOfInput.toLowerCase()) === -1) {
-            return
-          }
-          if (shortFilm && item.duration >= 40) {
-            return
-          }
-          moviesFromSearch.push(item)
-        })
-        return moviesFromSearch
+      .then((savedMovies) => {
+        return filterMovies(savedMovies, valueOfInput, shortFilm)
       })
       .then((filteredMovies) => {
         setSavedMovies(filteredMovies)

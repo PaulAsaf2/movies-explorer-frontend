@@ -4,7 +4,6 @@ import { Link, useMatch } from 'react-router-dom';
 import Media from "react-media";
 
 function Header({ handleMenuClick }) {
-
   const moviesStyle = `header__link ${useMatch('/movies') && 'header__link_active'}`
   const savedStyle = `header__link ${useMatch('/saved-movies') && 'header__link_active'}`
 
