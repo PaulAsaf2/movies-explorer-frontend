@@ -16,6 +16,7 @@ import moviesApi from '../utils/MoviesApi';
 import ProtectedRoute from '../utils/ProtectedRoute';
 import * as auth from '../utils/authorization'
 import { mainApi } from '../utils/MainApi';
+import { attentionMovie, attentionUser } from '../utils/constants'
 
 function App() {
   // меню
@@ -26,7 +27,7 @@ function App() {
   const [movieAttentionSpan, setMovieAttentionSpan] = useState('')
   // сохранённые фильмы
   const [savedMovies, setSavedMovies] = useState([])
-  // аутентификация
+  // пользователь
   const [loggedIn, setLoggedIn] = useState(false)
   const [tokenCheck, setTokenCheck] = useState(false)
   const [registerAttention, setRegisterAttention] = useState('')
@@ -35,22 +36,13 @@ function App() {
   const [editProfileChangeAttention, setEditProfileChangeAttention] = useState('')
   const [currentUser, setCurrentUser] = useState({});
 
-  const attentionUser = {
-    email: 'Пользователь с таким e-mail уже существует.',
-    error: 'Что-то пошло не так! Попробуйте еще раз.',
-    login: 'Неправильный логин или пароль.',
-    profile: 'Данные профиля успешно обновлены.',
-    profileError: 'При обновлении профиля произошла ошибка.'
-  }
-  const attentionMovie = {
-    error: 'Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз',
-    notFound: 'Ничего не найдено. 🥺',
-  }
   const navigate = useNavigate()
 
   function handleMenuClick() {
     setMenuOpen(!menuOpen)
   }
+
+  // пользователь ----- пользователь ----- пользователь ----- пользователь
 
   // автоматический вход
   useEffect(() => {
@@ -125,6 +117,8 @@ function App() {
     setMovies([])
     navigate('/', { replace: true });
   }
+
+  // ------ ------ ------ ------ ------ ------ ------ ------
 
   // получение данных пользователя и сохранённых фильмов
   function getMainData() {
@@ -257,9 +251,6 @@ function App() {
             <CurrentUser.Provider value={currentUser}>
               <Routes>
                 <Route
-                  path="/"
-                  element={<Landing />} />
-                <Route
                   path="/movies"
                   element={
                     <ProtectedRoute
@@ -301,22 +292,26 @@ function App() {
                       attentionMessage={editProfileChangeAttention}
                       onUpdateUser={handleUpdateUser} />} />
                 <Route
+                  path="/"
+                  element={<Landing />} />
+                <Route
                   path="/signup"
                   element={
                     <Register
                       onRegister={handleRegister}
-                      attentionMessage={registerAttention} />} />
+                      attentionMessage={registerAttention}
+                      loggedIn={loggedIn} />} />
                 <Route
                   path="/signin"
                   element={
                     <Login
                       onLogin={handleLogin}
-                      attentionMessage={loginAttention} />} />
+                      attentionMessage={loginAttention}
+                      loggedIn={loggedIn} />} />
                 <Route
                   path="*"
                   element={<PageNotFound />} />
               </Routes>
-
               <Menu
                 isOpened={menuOpen}
                 handleMenuClick={handleMenuClick} />

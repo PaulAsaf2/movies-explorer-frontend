@@ -1,11 +1,19 @@
-import { React, useState } from "react";
-import { Link } from "react-router-dom";
+import { React, useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import logoC from '../../images/logo-c.svg';
 import useFormAndValidation from "../hooks/useFormAndValidation";
 
-function Login({ onLogin, attentionMessage }) {
+function Login({ onLogin, attentionMessage, loggedIn }) {
   const { values, handleChange, errors, isValid } = useFormAndValidation();
   const [submitButton, setSubmitButton] = useState(false);
+
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if (loggedIn) {
+      navigate('/movies', { replace: true });
+    }
+  }, [])
 
   const emailError = `auth__input ${errors.email && 'auth__input_error'}`
   const passError = `auth__input ${errors.password && 'auth__input_error'}`
