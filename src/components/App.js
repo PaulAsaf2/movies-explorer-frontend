@@ -212,9 +212,7 @@ function App() {
     mainApi.deleteMovie(id)
       .then(() => {
         mainApi.getSavedMovies()
-          .then((savedMovies) => {
-            setSavedMovies(savedMovies)
-          })
+          .then((savedMovies) => { setSavedMovies(savedMovies) })
           .catch((err) => console.log(err))
       })
   }
