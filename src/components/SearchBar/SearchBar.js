@@ -51,6 +51,7 @@ function SearchBar({ onGetMovies }) {
             className="search-bar__form" >
             <input
               required
+              autoComplete="off"
               type="search"
               id="search"
               name="search"
@@ -113,7 +114,7 @@ function SearchBar({ onGetMovies }) {
                 className="toggle__input"
                 type="checkbox"
                 checked={isShortFilm}
-                onChange={() => setIsShortFilm(!isShortFilm)} />
+                onChange={handleToggleFilms} />
               <span className="toggle__span" />
             </label>
             <p className="search-bar__text">Короткометражки</p>

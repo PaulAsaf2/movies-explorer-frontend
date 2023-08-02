@@ -1,18 +1,23 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import Media from "react-media";
 
 function SavedSearchBar({ onGetSavedMovies }) {
   const [filterText, setFilterText] = useState('')
   const [isShortFilm, setIsShortFilm] = useState(false)
-  const [errorMessage, setErrorMessage] = useState('')
+  const [initialState, setInitialState] = useState(false)
+
+  useEffect(() => {
+    if (!initialState) return
+    handleSubmitForm(new Event("submit"));
+  }, [isShortFilm, initialState])
+
+  function handleToggleFilms() {
+    setIsShortFilm(!isShortFilm)
+    setInitialState(true)
+  }
 
   function handleSubmitForm(event) {
     event.preventDefault()
-    if (!filterText) {
-      setErrorMessage('Нужно ввести ключевое слово')
-      return
-    }
-    setErrorMessage('')
     onGetSavedMovies(filterText, isShortFilm)
   }
 
@@ -36,10 +41,6 @@ function SavedSearchBar({ onGetSavedMovies }) {
               className="search-bar__input"
               onChange={(e) => setFilterText(e.target.value)}
               value={filterText || ''} />
-            <span
-              className="search-bar__span">
-              {errorMessage}
-            </span>
             <button
               className='search-bar__button'
               type="submit" >
@@ -51,7 +52,7 @@ function SavedSearchBar({ onGetSavedMovies }) {
               className="toggle__input"
               type="checkbox"
               checked={isShortFilm}
-              onChange={() => setIsShortFilm(!isShortFilm)} />
+              onChange={handleToggleFilms} />
             <span className="toggle__span" />
           </label>
           <p className="search-bar__text">Короткометражки</p>
@@ -74,10 +75,6 @@ function SavedSearchBar({ onGetSavedMovies }) {
               className="search-bar__input"
               onChange={(e) => setFilterText(e.target.value)}
               value={filterText || ''} />
-            <span
-              className="search-bar__span">
-              {errorMessage}
-            </span>
             <button
               className='search-bar__button'
               type="submit" >
@@ -89,7 +86,7 @@ function SavedSearchBar({ onGetSavedMovies }) {
                 className="toggle__input"
                 type="checkbox"
                 checked={isShortFilm}
-                onChange={() => setIsShortFilm(!isShortFilm)} />
+                onChange={handleToggleFilms} />
               <span className="toggle__span" />
             </label>
             <p className="search-bar__text">Короткометражки</p>
