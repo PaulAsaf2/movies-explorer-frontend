@@ -44,7 +44,7 @@ function App() {
   }
   const attentionMovie = {
     error: 'Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз',
-    notFound: 'Ничего не найдено',
+    notFound: 'Ничего не найдено. 🥺',
   }
   const navigate = useNavigate()
 
@@ -205,6 +205,7 @@ function App() {
           })
           .catch((err) => console.log(err))
       })
+      .catch((err) => console.log(err))
   }
 
   // удаление фильма
@@ -215,6 +216,7 @@ function App() {
           .then((savedMovies) => { setSavedMovies(savedMovies) })
           .catch((err) => console.log(err))
       })
+      .catch((err) => console.log(err))
   }
 
   // поиск сохранённых фильмов

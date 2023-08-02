@@ -24,6 +24,7 @@
   text-align: center;
   grid-column: 1 / span 12;
   grid-row: 3;
+  font-size: 22px;
 }
 
 .movies__button {
