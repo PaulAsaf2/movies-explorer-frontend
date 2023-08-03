@@ -151,7 +151,7 @@ function App() {
     return moviesFromSearch
   }
 
-  // получить фильмы
+  // поиск фильмов
   function getMovies(valueOfInput, shortFilm) {
     setIsLoading(true)
 
@@ -202,14 +202,14 @@ function App() {
       .then(() => { getSavedMovies() })
       .catch((err) => console.log(err))
   }
-
-  useEffect(() => { getSavedMovies() }, [savedMoviesPath])
-
-  // удаление фильма
-  function handleDeleteMovie(id) {
-    mainApi.deleteMovie(id)
-      .then(() => { getSavedMovies() })
-      .catch((err) => console.log(err))
+  
+  // сохранённые фильмы ----- сохранённые фильмы ----- сохранённые фильмы
+  
+  // получить сохранённые фильмы
+  function getSavedMovies() {
+    mainApi.getSavedMovies()
+    .then((savedMovies) => { setSavedMovies(savedMovies) })
+    .catch((err) => console.log(err))
   }
 
   // поиск сохранённых фильмов
@@ -217,8 +217,8 @@ function App() {
     setIsLoading(true)
 
     mainApi.getSavedMovies()
-      .then((savedMovies) => {
-        return filterMovies(savedMovies, valueOfInput, shortFilm)
+    .then((savedMovies) => {
+      return filterMovies(savedMovies, valueOfInput, shortFilm)
       })
       .then((filteredMovies) => {
         setSavedMovies(filteredMovies)
@@ -228,14 +228,18 @@ function App() {
         setMovieAttentionSpan(attentionMovie.error)
       })
       .finally(() => setIsLoading(false))
-  }
+    }
+    
+    // обнуление результатов поиска сохранённых фильмов
+    useEffect(() => { getSavedMovies() }, [savedMoviesPath])
 
-  function getSavedMovies() {
-    mainApi.getSavedMovies()
-      .then((savedMovies) => { setSavedMovies(savedMovies) })
+    // удаление сохранённого фильма
+    function handleDeleteMovie(id) {
+      mainApi.deleteMovie(id)
+      .then(() => { getSavedMovies() })
       .catch((err) => console.log(err))
-  }
-
+    }
+    
   return (
     <> {
       tokenCheck && (
