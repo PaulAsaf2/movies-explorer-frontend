@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import './App.css';
 import { React, useState, useEffect } from 'react';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route, useNavigate, useMatch } from 'react-router-dom';
 import { CurrentUser, MoviesContext, SavedMoviesContext } from '../contexts/context'
 import Landing from './Landing/Landing';
 import Movies from './Movies/Movies';
@@ -37,6 +37,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState({});
 
   const navigate = useNavigate()
+  const savedMoviesPath = useMatch('/saved-movies')
 
   function handleMenuClick() {
     setMenuOpen(!menuOpen)
@@ -198,29 +199,21 @@ function App() {
     delete newMovie.updated_at
 
     mainApi.createMovie(newMovie)
-      .then(() => {
-        mainApi.getSavedMovies()
-          .then((savedMovies) => {
-            setSavedMovies(savedMovies)
-          })
-          .catch((err) => console.log(err))
-      })
+      .then(() => { getSavedMovies() })
       .catch((err) => console.log(err))
   }
+
+  useEffect(() => { getSavedMovies() }, [savedMoviesPath])
 
   // удаление фильма
   function handleDeleteMovie(id) {
     mainApi.deleteMovie(id)
-      .then(() => {
-        mainApi.getSavedMovies()
-          .then((savedMovies) => { setSavedMovies(savedMovies) })
-          .catch((err) => console.log(err))
-      })
+      .then(() => { getSavedMovies() })
       .catch((err) => console.log(err))
   }
 
   // поиск сохранённых фильмов
-  function getSavedMovies(valueOfInput, shortFilm) {
+  function searchSavedMovies(valueOfInput, shortFilm) {
     setIsLoading(true)
 
     mainApi.getSavedMovies()
@@ -235,6 +228,12 @@ function App() {
         setMovieAttentionSpan(attentionMovie.error)
       })
       .finally(() => setIsLoading(false))
+  }
+
+  function getSavedMovies() {
+    mainApi.getSavedMovies()
+      .then((savedMovies) => { setSavedMovies(savedMovies) })
+      .catch((err) => console.log(err))
   }
 
   return (
@@ -262,7 +261,7 @@ function App() {
                     <ProtectedRoute
                       element={SavedMovies}
                       handleMenuClick={handleMenuClick}
-                      onGetSavedMovies={getSavedMovies}
+                      onGetSavedMovies={searchSavedMovies}
                       isMovieAttentionSpan={movieAttentionSpan}
                       setMovieAttentionSpan={setMovieAttentionSpan}
                       loggedIn={loggedIn}

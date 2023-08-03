@@ -6,33 +6,27 @@ import Footer from "../Footer/Footer";
 import { SavedMoviesContext } from "../../contexts/context";
 import preloader from '../../images/preloader.gif'
 
-function SavedMovies({
-  handleMenuClick,
-  onGetSavedMovies,
-  isLoading,
-  isMovieAttentionSpan,
-  setMovieAttentionSpan,
-  onDelete }) {
+function SavedMovies(props) {
   const savedMovies = useContext(SavedMoviesContext)
 
   useEffect(() => {
-    setMovieAttentionSpan('У вас пока нет сохранённых фильмов. 😔')
+    props.setMovieAttentionSpan('У вас пока нет сохранённых фильмов. ')
   }, [])
 
   return (
     <>
-      <Header handleMenuClick={handleMenuClick} />
+      <Header handleMenuClick={props.handleMenuClick} />
       <main className="movies">
-        <SavedSearchBar onGetSavedMovies={onGetSavedMovies} />
+        <SavedSearchBar onGetSavedMovies={props.onGetSavedMovies} />
         <div className="movies__separation-line"></div>
-        {isLoading
+        {props.isLoading
           ? (<img
             src={preloader}
             alt='прелоудер'
             className="movies__preloader" />)
           : savedMovies.length < 1
-            ? (<h1 className="movies__not-found">{isMovieAttentionSpan}</h1>)
-            : <SavedMovieGrid onDelete={onDelete} />
+            ? (<h1 className="movies__not-found">{props.isMovieAttentionSpan}</h1>)
+            : <SavedMovieGrid onDelete={props.onDelete} />
         }
       </main>
       <Footer />

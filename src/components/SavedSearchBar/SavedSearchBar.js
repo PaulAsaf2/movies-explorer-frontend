@@ -32,6 +32,7 @@ function SavedSearchBar({ onGetSavedMovies }) {
             className="search-bar__form" >
             <input
               required
+              autoComplete="off"
               type="search"
               id="search"
               name="search"
