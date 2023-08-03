@@ -2,7 +2,7 @@ import React from 'react';
 import logoC from '../../../images/logo-c.svg'
 import { Link } from 'react-router-dom';
 
-function LandingHeader({ loggedIn }) {
+function LandingHeader() {
   return (
     <header className='landing-header'>
       <Link

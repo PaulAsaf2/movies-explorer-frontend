@@ -16,7 +16,8 @@ import moviesApi from '../utils/MoviesApi';
 import ProtectedRoute from '../utils/ProtectedRoute';
 import * as auth from '../utils/authorization'
 import { mainApi } from '../utils/MainApi';
-import { attentionMovie, attentionUser } from '../utils/constants'
+import * as constant from '../utils/constants'
+// import { attentionMovie, attentionUser } from '../utils/constants'
 
 function App() {
   // меню
@@ -66,10 +67,10 @@ function App() {
     auth.register(name, email, password)
       .then(() => { handleLogin(email, password) })
       .catch((err) => {
-        if (err === 'Ошибка: 409') {
-          setRegisterAttention(attentionUser.email)
+        if (err === constant.conflictError) {
+          setRegisterAttention(constant.attentionUser.email)
         } else {
-          setRegisterAttention(attentionUser.error)
+          setRegisterAttention(constant.attentionUser.error)
         }
         console.log(err);
       })
@@ -86,10 +87,10 @@ function App() {
         } else { setLoggedIn(false); }
       })
       .catch((err) => {
-        if (err === 'Ошибка: 401') {
-          setLoginAttention(attentionUser.login)
+        if (err === constant.unauthorizedError) {
+          setLoginAttention(constant.attentionUser.login)
         } else {
-          setLoginAttention(attentionUser.error)
+          setLoginAttention(constant.attentionUser.error)
         }
         console.log(err);
       })
@@ -101,11 +102,11 @@ function App() {
       .then((newUserData) => {
         setCurrentUser(newUserData)
         navigate('/profile', { replace: true })
-        setProfileChangeAttention(attentionUser.profile)
+        setProfileChangeAttention(constant.attentionUser.profile)
         setTimeout(() => { setProfileChangeAttention('') }, 4000)
       })
       .catch((err) => {
-        setEditProfileChangeAttention(attentionUser.profileError)
+        setEditProfileChangeAttention(constant.attentionUser.profileError)
         console.log(err)
       })
   }
@@ -163,10 +164,10 @@ function App() {
         setMovies(filteredMovies)
         const dataToSave = { filteredMovies, valueOfInput, shortFilm }
         localStorage.setItem('movieData', JSON.stringify(dataToSave))
-        setMovieAttentionSpan(attentionMovie.notFound)
+        setMovieAttentionSpan(constant.attentionMovie.notFound)
       })
       .catch(() => {
-        setMovieAttentionSpan(attentionMovie.error)
+        setMovieAttentionSpan(constant.attentionMovie.error)
       })
       .finally(() => setIsLoading(false))
   }
@@ -222,10 +223,10 @@ function App() {
       })
       .then((filteredMovies) => {
         setSavedMovies(filteredMovies)
-        setMovieAttentionSpan(attentionMovie.notFound)
+        setMovieAttentionSpan(constant.attentionMovie.notFound)
       })
       .catch(() => {
-        setMovieAttentionSpan(attentionMovie.error)
+        setMovieAttentionSpan(constant.attentionMovie.error)
       })
       .finally(() => setIsLoading(false))
     }

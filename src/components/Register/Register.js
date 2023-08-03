@@ -16,10 +16,10 @@ function Register({ onRegister, attentionMessage, loggedIn }) {
     }
   }, [])
 
-  const nameError = `auth__input ${errors.name && 'auth__input_error'}`
-  const emailError = `auth__input ${errors.email && 'auth__input_error'}`
-  const passError = `auth__input ${errors.password && 'auth__input_error'}`
-  const submitError = `auth__submit ${(!isValid || !submitButton) && 'auth__submit_disabled'}`
+  const nameStyle = `auth__input ${errors.name && 'auth__input_error'}`
+  const emailStyle = `auth__input ${errors.email && 'auth__input_error'}`
+  const passStyle = `auth__input ${errors.password && 'auth__input_error'}`
+  const submitStyle = `auth__submit ${(!isValid || !submitButton) && 'auth__submit_disabled'}`
 
   function handleSubmitButton(e) {
     e && setSubmitButton(true)
@@ -59,7 +59,7 @@ function Register({ onRegister, attentionMessage, loggedIn }) {
           minLength="2"
           maxLength="40"
           placeholder="Имя"
-          className={nameError}
+          className={nameStyle}
           onInput={handleChange}
           onChange={handleSubmitButton}
           value={values.name || ''}
@@ -80,7 +80,7 @@ function Register({ onRegister, attentionMessage, loggedIn }) {
           id="email"
           name="email"
           placeholder="pochta@yandex.ru"
-          className={emailError}
+          className={emailStyle}
           onInput={handleChange}
           onChange={handleSubmitButton}
           value={values.email || ''}
@@ -102,7 +102,7 @@ function Register({ onRegister, attentionMessage, loggedIn }) {
           minLength="2"
           maxLength="40"
           placeholder="*********"
-          className={passError}
+          className={passStyle}
           onInput={handleChange}
           onChange={handleSubmitButton}
           value={values.password || ''}
@@ -118,7 +118,7 @@ function Register({ onRegister, attentionMessage, loggedIn }) {
             </p>
           </div>
           <button
-            className={submitError}
+            className={submitStyle}
             type="submit"
             onClick={handleSubmit}>
             Зарегистрироваться

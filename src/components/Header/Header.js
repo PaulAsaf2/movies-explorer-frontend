@@ -2,6 +2,7 @@ import { React } from "react";
 import logoC from '../../images/logo-c.svg';
 import { Link, NavLink, useMatch } from 'react-router-dom';
 import Media from "react-media";
+import { headerBreakpoint } from '../../utils/constants'
 
 function Header({ handleMenuClick }) {
   const landingPage = useMatch('/')
@@ -14,7 +15,7 @@ function Header({ handleMenuClick }) {
   }
 
   return (
-    <Media query={{ maxWidth: 768 }}>
+    <Media query={{ maxWidth: headerBreakpoint }}>
       {matches => !matches ? (
         <header className={headerStyle}>
           <Link

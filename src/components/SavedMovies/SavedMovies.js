@@ -5,12 +5,13 @@ import SavedMovieGrid from "../SavedMovieGrid/SavedMovieGrid";
 import Footer from "../Footer/Footer";
 import { SavedMoviesContext } from "../../contexts/context";
 import preloader from '../../images/preloader.gif'
+import { attentionMovie } from '../../utils/constants'
 
 function SavedMovies(props) {
   const savedMovies = useContext(SavedMoviesContext)
 
   useEffect(() => {
-    props.setMovieAttentionSpan('У вас пока нет сохранённых фильмов. ')
+    props.setMovieAttentionSpan(attentionMovie.empty)
   }, [])
 
   return (

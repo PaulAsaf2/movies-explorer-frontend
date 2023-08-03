@@ -1,5 +1,6 @@
 import { React, useState, useEffect } from "react";
 import Media from "react-media";
+import { searchbarBreakpoint } from '../../utils/constants'
 
 function SavedSearchBar({ onGetSavedMovies }) {
   const [filterText, setFilterText] = useState('')
@@ -22,7 +23,7 @@ function SavedSearchBar({ onGetSavedMovies }) {
   }
 
   return (
-    <Media query={{ maxWidth: 620 }}>
+    <Media query={{ maxWidth: searchbarBreakpoint }}>
       {matches => !matches ? (
         <section className="search-bar">
           <form

@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { React, useState, useEffect } from "react";
+import { searchbarBreakpoint } from '../../utils/constants'
 import Media from "react-media";
 
 function SearchBar({ onGetMovies }) {
@@ -41,7 +42,7 @@ function SearchBar({ onGetMovies }) {
   }
 
   return (
-    <Media query={{ maxWidth: 620 }}>
+    <Media query={{ maxWidth: searchbarBreakpoint }}>
       {matches => !matches ? (
         <section className="search-bar">
           <form

@@ -6,15 +6,9 @@ import MovieGrid from '../MovieGrid/MovieGrid'
 import Footer from "../Footer/Footer";
 import { MoviesContext } from "../../contexts/context";
 import preloader from '../../images/preloader.gif'
+import * as con from '../../utils/constants'
 
-function Movies({
-  handleMenuClick,
-  onGetMovies,
-  isLoading,
-  isMovieAttentionSpan,
-  setMovieAttentionSpan,
-  onLike,
-}) {
+function Movies(props) {
   const [visibleItems, setVisibleItems] = useState(getItemsPerPage(window.innerWidth))
   const movies = useContext(MoviesContext)
 
@@ -24,7 +18,7 @@ function Movies({
     }
 
     window.addEventListener('resize', handleResize)
-    setMovieAttentionSpan('')
+    props.setMovieAttentionSpan('')
 
     return () => {
       window.removeEventListener('resize', handleResize)
@@ -32,41 +26,41 @@ function Movies({
   }, [])
 
   function handleLoadMore() {
-    if (window.innerWidth > 768) {
-      setVisibleItems((prevVisibleItems) => prevVisibleItems + 4)
+    if (window.innerWidth > con.tabletBreakpoint) {
+      setVisibleItems((prevVisibleItems) => prevVisibleItems + con.addMoviesDesktop)
       return
     }
-    if (window.innerWidth > 420) {
-      setVisibleItems((prevVisibleItems) => prevVisibleItems + 2)
+    if (window.innerWidth > con.phoneBreakpoint) {
+      setVisibleItems((prevVisibleItems) => prevVisibleItems + con.addMoviesTablet)
       return
     } else {
-      setVisibleItems((prevVisibleItems) => prevVisibleItems + 5)
+      setVisibleItems((prevVisibleItems) => prevVisibleItems + con.addMoviesPhone)
       return
     }
   }
 
   function getItemsPerPage(width) {
-    if (width > 768) { return 16 }
-    if (width > 420) { return 8 }
-    else { return 5 }
+    if (width > con.tabletBreakpoint) { return con.initMoviesDesktop }
+    if (width > con.phoneBreakpoint) { return con.initMoviesTablet }
+    else { return con.initMoviesPhone }
   }
 
   return (
     <>
-      <Header handleMenuClick={handleMenuClick} />
+      <Header handleMenuClick={props.handleMenuClick} />
       <main className="movies">
-        <SearchBar onGetMovies={onGetMovies} />
+        <SearchBar onGetMovies={props.onGetMovies} />
         <div className="movies__separation-line"></div>
-        {isLoading
+        {props.isLoading
           ? (<img
             src={preloader}
             alt='прелоудер'
             className="movies__preloader" />)
           : movies.length < 1
-            ? (<h1 className="movies__not-found">{isMovieAttentionSpan}</h1>)
+            ? (<h1 className="movies__not-found">{props.isMovieAttentionSpan}</h1>)
             : <MovieGrid
               visibleItems={visibleItems}
-              onLike={onLike} />
+              onLike={props.onLike} />
         }
         {(visibleItems < movies.length) && (
           <button
