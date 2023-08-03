@@ -1,5 +1,5 @@
-export const baseUrl = 'http://localhost:3500'
-// export const baseUrl = 'https://diploma.api.nomoreparties.sbs'
+// export const baseUrl = 'http://localhost:3500'
+export const baseUrl = 'https://diploma.api.nomoreparties.sbs'
 
 function checkResponse(res) {
   if (res.ok) { return res.json(); }
