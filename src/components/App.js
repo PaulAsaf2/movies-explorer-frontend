@@ -287,7 +287,10 @@ function App() {
                       onUpdateUser={handleUpdateUser} />} />
                 <Route
                   path="/"
-                  element={<Landing />} />
+                  element={
+                    <Landing
+                      handleMenuClick={handleMenuClick}
+                      loggedIn={loggedIn} />} />
                 <Route
                   path="/signup"
                   element={

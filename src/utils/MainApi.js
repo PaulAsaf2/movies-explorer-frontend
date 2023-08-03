@@ -69,7 +69,7 @@ class MainApi {
 }
 
 export const mainApi = new MainApi({
-  // baseUrl: 'http://localhost:3500',
-  baseUrl: 'https://diploma.api.nomoreparties.sbs',
+  baseUrl: 'http://localhost:3500',
+  // baseUrl: 'https://diploma.api.nomoreparties.sbs',
   headers: { "Content-Type": "application/json" },
 });

@@ -54,18 +54,10 @@
   .profile-change__title {
     margin-bottom: 89px;
   }
-
-  .profile-change__submit {
-    margin-top: 204px;
-  }
 }
 
 @media only screen and (max-width: 320px) {
   .profile-change__title {
     margin-bottom: 75px;
-  }
-
-  .profile-change__submit {
-    margin-top: 375px;
   }
 }
