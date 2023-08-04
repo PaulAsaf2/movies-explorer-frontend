@@ -34,11 +34,10 @@
 
 /* search bar */
 @import url(./components/SearchBar/SearchBar.css);
-@import url(./components/SearchBar/ToggleFilms/ToggleFilms.css);
 /* movie grid */
 @import url(./components/MovieGrid/MovieGrid.css);
 /* movie card */
-@import url(./components/MovieGrid/MovieCard/MovieCard.css);
+@import url(./components/MovieCard/MovieCard.css);
 
 /* profile ----- profile ----- profile ----- profile ----- profile -----*/
 @import url(./components/Profile/Profile.css);

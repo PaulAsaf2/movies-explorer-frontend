@@ -1,11 +1,13 @@
 import { React } from "react";
-import { Link, useMatch } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 function Menu({ isOpened, handleMenuClick }) {
-  const moviesStyle = `menu__link ${useMatch('/movies') && 'menu__link_active'}`
-  const savedStyle = `menu__link ${useMatch('/saved-movies') && 'menu__link_active'}`
   const menuStyle = `menu ${isOpened ? 'menu_opened' : ''}`
   const menuContainerStyle = `menu__container ${isOpened && 'menu__container_opened'}`
+
+  function menuLinkStyle(isActive) {
+    return `menu__link ${isActive && 'menu__link_active'}`
+  }
 
   return (
     <div className={menuStyle}>
@@ -16,24 +18,24 @@ function Menu({ isOpened, handleMenuClick }) {
           onClick={handleMenuClick}
         ></button>
         <nav className="menu__nav">
-          <Link
+          <NavLink
             to='/'
-            className='menu__link'
+            className={({ isActive }) => menuLinkStyle(isActive)}
             onClick={handleMenuClick}>
             Главная
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
             to='/movies'
-            className={moviesStyle}
+            className={({ isActive }) => menuLinkStyle(isActive)}
             onClick={handleMenuClick}>
             Фильмы
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
             to='/saved-movies'
-            className={savedStyle}
+            className={({ isActive }) => menuLinkStyle(isActive)}
             onClick={handleMenuClick}>
             Сохранённые фильмы
-          </Link>
+          </NavLink>
         </nav>
         <Link to='/profile'>
           <button

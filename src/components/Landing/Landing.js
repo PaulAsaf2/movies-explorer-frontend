@@ -5,11 +5,12 @@ import AboutProject from './AboutProject/AboutProject';
 import Techs from './Techs/Techs';
 import AboutMe from './AboutMe/AboutMe';
 import Footer from '../Footer/Footer';
+import Header from '../Header/Header';
 
-function Landing() {
+function Landing({ handleMenuClick, loggedIn }) {
   return (
     <>
-      <LandingHeader />
+      {loggedIn ? <Header handleMenuClick={handleMenuClick} /> : <LandingHeader />}
       <main>
         <Hero />
         <AboutProject />

@@ -1,32 +1,48 @@
-import { React, useState } from "react";
-import { Link } from "react-router-dom";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { React, useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import logoC from '../../images/logo-c.svg';
 import useFormAndValidation from "../hooks/useFormAndValidation";
 
-function Register() {
+function Register({ onRegister, attentionMessage, loggedIn }) {
   const { values, handleChange, errors, isValid } = useFormAndValidation();
   const [submitButton, setSubmitButton] = useState(false);
-  const [existingEmail, setExistingEmail] = useState(false);
 
-  const nameError = `auth__input ${errors.name && 'auth__input_error'}`
-  const emailError = `auth__input ${errors.email && 'auth__input_error'}`
-  const passError = `auth__input ${errors.password && 'auth__input_error'}`
-  const submitError = `auth__submit ${(!isValid || !submitButton) && 'auth__submit_disabled'}`
-  const existingEmailError = 'Пользователь с таким e-mail уже существует'
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if (loggedIn) {
+      navigate('/movies', { replace: true });
+    }
+  }, [])
+
+  const nameStyle = `auth__input ${errors.name && 'auth__input_error'}`
+  const emailStyle = `auth__input ${errors.email && 'auth__input_error'}`
+  const passStyle = `auth__input ${errors.password && 'auth__input_error'}`
+  const submitStyle = `auth__submit ${(!isValid || !submitButton) && 'auth__submit_disabled'}`
 
   function handleSubmitButton(e) {
     e && setSubmitButton(true)
   }
 
+  function handleSubmit(e) {
+    e.preventDefault()
+    const { name, email, password } = values
+    onRegister(name, email, password)
+  }
+
   return (
-    <div className="auth">
-      <Link to='/' className='header__logo'>
+    <main className="auth">
+      <Link
+        to='/'
+        className='header__logo'>
         <img src={logoC} alt='логотип "С"' />
       </Link>
       <h1 className="auth__title">Добро пожаловать!</h1>
       <form
         name="register"
         noValidate
+        onSubmit={handleSubmit}
         className="auth__form"
       >
         <label
@@ -36,13 +52,14 @@ function Register() {
         </label>
         <input
           required
+          autoComplete="off"
           type="text"
           id="name"
           name="name"
           minLength="2"
           maxLength="40"
-          placeholder="Виталий"
-          className={nameError}
+          placeholder="Имя"
+          className={nameStyle}
           onInput={handleChange}
           onChange={handleSubmitButton}
           value={values.name || ''}
@@ -58,11 +75,12 @@ function Register() {
         </label>
         <input
           required
+          autoComplete="off"
           type="email"
           id="email"
           name="email"
           placeholder="pochta@yandex.ru"
-          className={emailError}
+          className={emailStyle}
           onInput={handleChange}
           onChange={handleSubmitButton}
           value={values.email || ''}
@@ -70,7 +88,6 @@ function Register() {
         <span
           className="auth__span">
           {!isValid && errors.email}
-          {existingEmail && existingEmailError}
         </span>
         <label
           className="auth__label"
@@ -85,7 +102,7 @@ function Register() {
           minLength="2"
           maxLength="40"
           placeholder="*********"
-          className={passError}
+          className={passStyle}
           onInput={handleChange}
           onChange={handleSubmitButton}
           value={values.password || ''}
@@ -94,13 +111,20 @@ function Register() {
           className="auth__span">
           {!isValid && errors.password}
         </span>
+        <div className="profile__link-container">
+          <div className="profile__succes-container">
+            <p className="profile-change__error">
+              {attentionMessage}
+            </p>
+          </div>
+          <button
+            className={submitStyle}
+            type="submit"
+            onClick={handleSubmit}>
+            Зарегистрироваться
+          </button>
+        </div>
       </form>
-      <button
-        className={submitError}
-        type="submit"
-        onClick={() => setExistingEmail(true)}>
-        Зарегистрироваться
-      </button>
       <div className="auth__container">
         <p className="auth__text">Уже зарегистрированы?</p>
         <Link
@@ -109,7 +133,7 @@ function Register() {
           Войти
         </Link>
       </div>
-    </div>
+    </main >
   )
 }
 

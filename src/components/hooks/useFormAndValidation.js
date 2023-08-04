@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export function useFormAndValidation() {
+function useFormAndValidation() {
   const [values, setValues] = useState({});
   const [errors, setErrors] = useState({});
   const [isValid, setIsValid] = useState(true);
@@ -11,6 +11,14 @@ export function useFormAndValidation() {
     setValues({ ...values, [name]: value });
     setErrors({ ...errors, [name]: e.target.validationMessage });
     setIsValid(e.target.closest("form").checkValidity());
+
+    if (name === 'name') {
+      const nameRegex = /^[A-Za-zА-Яа-яЁё\s-]*$/;
+      if (!nameRegex.test(value)) {
+        setErrors({ ...errors, [name]: 'поле Имя должно содержать только латиницу, кириллицу, пробел или дефис' });
+        setIsValid(false)
+      }
+    }
   };
 
   return {
@@ -18,6 +26,8 @@ export function useFormAndValidation() {
     handleChange,
     errors,
     isValid,
+    setValues,
+    setIsValid
   };
 }
 

@@ -1,25 +1,12 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { React, useState, useEffect } from "react";
-import { searchbarBreakpoint } from '../../utils/constants'
 import Media from "react-media";
+import { searchbarBreakpoint } from '../../utils/constants'
 
-function SearchBar({ onGetMovies }) {
+function SavedSearchBar({ onGetSavedMovies }) {
   const [filterText, setFilterText] = useState('')
   const [isShortFilm, setIsShortFilm] = useState(false)
-  const [errorMessage, setErrorMessage] = useState('')
   const [initialState, setInitialState] = useState(false)
 
-  // достаёт данные поиска из хранилища
-  useEffect(() => {
-    const savedData = localStorage.getItem('movieData')
-    if (savedData) {
-      const { valueOfInput, shortFilm } = JSON.parse(savedData)
-      setFilterText(valueOfInput)
-      setIsShortFilm(shortFilm)
-    }
-  }, [])
-
-  // обработка переключателя короткометражек
   useEffect(() => {
     if (!initialState) return
     handleSubmitForm(new Event("submit"));
@@ -30,15 +17,9 @@ function SearchBar({ onGetMovies }) {
     setInitialState(true)
   }
 
-  // обработка сабмита
   function handleSubmitForm(event) {
     event.preventDefault()
-    if (!filterText) {
-      setErrorMessage('Нужно ввести ключевое слово')
-      return
-    }
-    setErrorMessage('')
-    onGetMovies(filterText, isShortFilm)
+    onGetSavedMovies(filterText, isShortFilm)
   }
 
   return (
@@ -46,7 +27,7 @@ function SearchBar({ onGetMovies }) {
       {matches => !matches ? (
         <section className="search-bar">
           <form
-            name="search-movies"
+            name="search-saved-movies"
             onSubmit={handleSubmitForm}
             noValidate
             className="search-bar__form" >
@@ -62,10 +43,6 @@ function SearchBar({ onGetMovies }) {
               className="search-bar__input"
               onChange={(e) => setFilterText(e.target.value)}
               value={filterText || ''} />
-            <span
-              className="search-bar__span">
-              {errorMessage}
-            </span>
             <button
               className='search-bar__button'
               type="submit" >
@@ -85,7 +62,7 @@ function SearchBar({ onGetMovies }) {
       ) : (
         <section className="search-bar">
           <form
-            name="search-movies"
+            name="search-saved-movies"
             onSubmit={handleSubmitForm}
             noValidate
             className="search-bar__form" >
@@ -100,10 +77,6 @@ function SearchBar({ onGetMovies }) {
               className="search-bar__input"
               onChange={(e) => setFilterText(e.target.value)}
               value={filterText || ''} />
-            <span
-              className="search-bar__span">
-              {errorMessage}
-            </span>
             <button
               className='search-bar__button'
               type="submit" >
@@ -127,6 +100,7 @@ function SearchBar({ onGetMovies }) {
   )
 
 
+
 }
 
-export default SearchBar;
+export default SavedSearchBar;

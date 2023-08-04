@@ -28,7 +28,6 @@
 @media only screen and (max-width: 620px) {
   .movie-grid {
     grid-column: span 1;
-    grid-template-columns: 1fr 1fr;
     grid-row: 5;
     row-gap: 33px;
   }

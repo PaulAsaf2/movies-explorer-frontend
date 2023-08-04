@@ -2,7 +2,11 @@
   display: flex;
   align-items: center;
   min-height: 74px;
-  margin: 0 70px;
+  padding: 0 70px;
+}
+
+.header-main {
+  background-color: #465DFF;
 }
 
 .header__nav {
@@ -25,6 +29,10 @@
 
 .header__link_active {
   font-weight: 500;
+}
+
+.header__link_white {
+  color: white;
 }
 
 .header__button-container {
@@ -66,15 +74,20 @@
   background-color: white;
 }
 
+.header__menuButton-blue {
+  background-image: url('../../images/icon-menu-white.svg');
+  background-color: #465DFF;
+}
+
 @media only screen and (max-width: 768px) {
   .header {
-    margin: 0 30px;
+    padding: 0 30px;
   }
 }
 
 @media only screen and (max-width: 620px) {
   .header {
     padding-left: 4px;
-    margin: 0 10px;
+    padding: 0 10px;
   }
 }

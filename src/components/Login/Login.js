@@ -1,24 +1,37 @@
-import { React, useState } from "react";
-import { Link } from "react-router-dom";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { React, useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import logoC from '../../images/logo-c.svg';
 import useFormAndValidation from "../hooks/useFormAndValidation";
 
-function Login() {
+function Login({ onLogin, attentionMessage, loggedIn }) {
   const { values, handleChange, errors, isValid } = useFormAndValidation();
   const [submitButton, setSubmitButton] = useState(false);
-  const [incorrectDataTrue, setIncorrectDataTrue] = useState(false);
+
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if (loggedIn) {
+      navigate('/movies', { replace: true });
+    }
+  }, [])
 
   const emailError = `auth__input ${errors.email && 'auth__input_error'}`
   const passError = `auth__input ${errors.password && 'auth__input_error'}`
   const submitError = `auth__submit ${(!isValid || !submitButton) && 'auth__submit_disabled'}`
-  const incorrectData = 'Неверная почта или пароль'
 
   function handleSubmitButton(e) {
     e && setSubmitButton(true)
   }
 
+  function handleSubmit(e) {
+    e.preventDefault()
+    const { email, password } = values
+    onLogin(email, password)
+  }
+
   return (
-    <div className="auth">
+    <main className="auth">
       <Link
         to='/'
         className='header__logo'>
@@ -29,7 +42,7 @@ function Login() {
         name="login"
         noValidate
         className="auth__form"
-      >
+        onSubmit={handleSubmit} >
         <label
           className="auth__label"
           htmlFor="email">
@@ -37,6 +50,7 @@ function Login() {
         </label>
         <input
           required
+          autoComplete="off"
           type="email"
           id="email"
           name="email"
@@ -44,12 +58,10 @@ function Login() {
           className={emailError}
           onInput={handleChange}
           onChange={handleSubmitButton}
-          value={values.email || ''}
-        />
+          value={values.email || ''} />
         <span
           className="auth__span">
           {!isValid && errors.email}
-          {incorrectDataTrue && incorrectData}
         </span>
         <label
           className="auth__label"
@@ -58,6 +70,7 @@ function Login() {
         </label>
         <input
           required
+          autoComplete="off"
           type="password"
           id="password"
           name="password"
@@ -67,20 +80,25 @@ function Login() {
           className={passError}
           onInput={handleChange}
           onChange={handleSubmitButton}
-          value={values.password || ''}
-        />
+          value={values.password || ''} />
         <span
           className="auth__span">
           {!isValid && errors.password}
-          {incorrectDataTrue && incorrectData}
         </span>
+        <div className="profile__link-container">
+          <div className="profile__succes-container">
+            <p className="profile-change__error">
+              {attentionMessage}
+            </p>
+          </div>
+          <button
+            type="submit"
+            onClick={handleSubmit}
+            className={submitError}>
+            Войти
+          </button>
+        </div>
       </form>
-      <button
-        className={submitError}
-        type="submit"
-        onClick={() => setIncorrectDataTrue(true)}>
-        Войти
-      </button>
       <div className="auth__container">
         <p className="auth__text">Ещё не зарегистрированы?</p>
         <Link
@@ -89,7 +107,7 @@ function Login() {
           Регистрация
         </Link>
       </div>
-    </div>
+    </main>
   )
 }
 

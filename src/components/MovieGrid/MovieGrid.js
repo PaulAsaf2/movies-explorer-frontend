@@ -1,23 +1,18 @@
-import React from "react";
-import { useMatch } from "react-router-dom";
-import MovieCard from "./MovieCard/MovieCard";
-import filmsArray from "./movies";
-import savedMoviesArray from './savedMovies'
+import { React, useContext } from "react";
+import MovieCard from "../MovieCard/MovieCard";
+import { MoviesContext } from "../../contexts/context";
 
-function MovieGrid() {
-  const arrayOfMovies = useMatch('/movies') ? filmsArray : savedMoviesArray
-  const movieGridStyle = `movie-grid ${useMatch('/saved-movies') && 'movie-grid_saved'}`
-  
+function MovieGrid({ visibleItems, onLike }) {
+  const movies = useContext(MoviesContext)
+
   return (
-    <main className={movieGridStyle}>
-      {arrayOfMovies.map((item) => {
+    <main className='movie-grid'>
+      {movies.slice(0, visibleItems).map((item) => {
         return (
           <MovieCard
-            key={item.movieId}
-            image={item.image}
-            nameRU={item.nameRU}
-            description={item.description}
-            duration={item.duration}
+            key={item.id}
+            movie={item}
+            onLike={onLike}
           />
         )
       })}

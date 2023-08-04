@@ -5,6 +5,12 @@
   margin: 0 70px;
 }
 
+.movies__preloader {
+  grid-column: 1 / span 12;
+  grid-row: 3;
+  margin: auto;
+}
+
 .movies__separation-line {
   height: 1.1px;
   background-color: #E8E8E8;
@@ -12,6 +18,13 @@
   grid-row: 2;
   margin-bottom: 75px;
   margin-top: 75px;
+}
+
+.movies__not-found {
+  text-align: center;
+  grid-column: 1 / span 12;
+  grid-row: 3;
+  font-size: 22px;
 }
 
 .movies__button {
@@ -50,10 +63,13 @@
     margin: 0 10px;
   }
 
+  .movies__not-found {
+    grid-column: span 1;
+    font-size: medium;
+  }
+
   .movies__separation-line {
     grid-column: span 1;
-    grid-row: 4;
-    margin-top: 45px;
     margin-bottom: 50px;
   }
 

@@ -24,7 +24,21 @@
 
 .movie__like {
   background-color: #F9F9F9;
-  background-image: url('../../../images/icon-heart-white.svg');
+  background-image: url('../../images/icon-heart-white.svg');
+  border: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background-repeat: no-repeat;
+  background-position: center center;
+  margin-left: auto;
+  cursor: pointer;
+}
+
+.movie__delete {
+  background-color: #F9F9F9;
+  background-image: url('../../images/icon-delete-movie.svg');
   border: none;
   width: 24px;
   height: 24px;
@@ -38,7 +52,7 @@
 
 .movie__liked {
   background-color: #FFE8E8;
-  background-image: url('../../../images/icon-heart.svg');
+  background-image: url('../../images/icon-heart.svg');
 }
 
 .movie__line {

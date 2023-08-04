@@ -31,16 +31,21 @@
 }
 
 .auth__input:hover {
-  border-bottom: 2px solid green;
+  border-bottom: thin solid green;
 }
 
 .auth__input_error {
-  border-bottom: 1px solid #d65a3b;
+  border-bottom: thin solid #d65a3b;
 }
 
 .auth__span {
   color: #EE3465;
   font-size: 10px;
+}
+
+.auth__error {
+  color: #FF6838;
+  text-align: center;
 }
 
 .auth__submit {
@@ -50,7 +55,6 @@
   color: #FFF;
   font-size: 14px;
   font-weight: 500;
-  margin-top: 135px;
   padding: 14px 0;
   cursor: pointer;
   transition: .4s ease;
@@ -115,7 +119,6 @@
   .auth__submit {
     font-size: 12px;
     width: 100%;
-    margin-top: 220px;
   }
 
   .auth__text {
