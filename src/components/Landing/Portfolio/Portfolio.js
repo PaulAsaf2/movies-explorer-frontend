@@ -21,7 +21,7 @@ function Portfolio() {
         </div>
       </a>
       <a
-        href="https://paulasaf2.github.io/react-mesto-auth/"
+        href="https://github.com/PaulAsaf2/react-mesto-auth"
         target="blank"
         className='portfolio__link'>
         <div className='portfolio__container'>
